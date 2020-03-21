@@ -1,97 +1,581 @@
+
 <!DOCTYPE html>
-<html>
-  <head>
-      <!-- mapbox sdk linked here -->
-      <script src='https://api.mapbox.com/mapbox-gl-js/v1.8.0/mapbox-gl.js'></script>
-      <link href='https://api.mapbox.com/mapbox-gl-js/v1.8.0/mapbox-gl.css' rel='stylesheet' />
-      <link href='./css/googleMap.css' rel='stylesheet' />
-  </head>
-  
-  
-  <body>
-    
-    <!--The div element for the map -->
-    <div id='map'>
-      <script>
-    
-        mapboxgl.accessToken = 'pk.eyJ1Ijoic2FqaWQ1NzYiLCJhIjoiY2s3aXpsZ2sxMGw1bzNsazB5MXZyOXFjeiJ9.pfk8tnQPr2qegMlLDbST5g';
-        var map = new mapboxgl.Map({
-              container: 'map',
-              style: 'mapbox://styles/mapbox/light-v10',
-              center: [0,0], // initial map center in [lon, lat]
-              zoom: 12
-      });
-    </script>
-    </div>
-  </body>
-  <script>
 
-function loadGeoJson(lat,lon)
-{
-    
-    var geojson = {
-        type: 'FeatureCollection',
-        features: [{
-          type: 'Feature',
-          geometry: {
-            type: 'Point',
-            coordinates: [lat,lon]
-          },
-          properties: {
-            title: 'Shurma',
-            description: 'velocity:  \n Updated: '
-          }
-        },
-       ]
-      };
+ <html lang="en" class="no-js">
+    <head>
+    	<!-- meta character set -->
+        <meta charset="utf-8">
+		<!-- Always force latest IE rendering engine or request Chrome Frame -->
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Bus Locator</title>
 
-      // add markers to map
-        geojson.features.forEach(function(marker) {
+		<!-- Mobile Specific Meta -->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-            // create a HTML element for each feature
-            var el = document.createElement('div');
-            el.className = 'marker';
-        
-            // make a marker for each feature and add to the map
-            new mapboxgl.Marker(el)
-            .setLngLat(marker.geometry.coordinates)
-            .addTo(map);
-        });
-}
-        function successCallback (position) {
-            //window.alert(position.coords.latitude,",",position.coords.longitude); 
-            
-            
-            var lat=position.coords.latitude.toFixed(4);
-            var lon=position.coords.longitude.toFixed(4);
-            console.log(lat,",",lon);
-           // loadGeoJson(lat,lon);
-           
-            
-            }
-      
-        function getPosition() {
-            
-            if (navigator.geolocation) 
-            {
-                    // supported
-                    window.alert("HI");
-                    //navigator.geolocation.getCurrentPosition(successCallback);
-               
-                    //listens for changing device location with movement
-                    navigator.geolocation.watchPosition(successCallback);   
-                    
+		<!-- CSS
+		================================================== -->
+
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
+
+		<!-- Fontawesome Icon font -->
+        <link rel="stylesheet" href="/static/css/font-awesome.min.css">
+		<!-- bootstrap.min -->
+        <link rel="stylesheet" href="/static/css/jquery.fancybox.css">
+		<!-- bootstrap.min -->
+        <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+		<!-- bootstrap.min -->
+        <link rel="stylesheet" href="/static/css/owl.carousel.css">
+		<!-- bootstrap.min -->
+        <link rel="stylesheet" href="/static/css/slit-slider.css">
+		<!-- bootstrap.min -->
+        <link rel="stylesheet" href="/static/css/animate.css">
+		<!-- Main Stylesheet -->
+        <link rel="stylesheet" href="/static/css/main.css">
+
+		<!-- Modernizer Script for old Browsers -->
+        <script src="/static/js/modernizr-2.6.2.min.js"></script>
+
+    </head>
+
+    <body id="body">
+
+		<!-- preloader -->
+		<div id="preloader">
+            <div class="loder-box">
+            	<div class="battery"></div>
+            </div>
+		</div>
+		<!-- end preloader -->
+
+        <!--
+        Fixed Navigation
+        ==================================== -->
+        <header id="navigation" class="navbar-inverse navbar-fixed-top animated-header">
+            <div class="container">
+                <div class="navbar-header">
+                    <!-- responsive nav button -->
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+                    </button>
+					<!-- /responsive nav button -->
+
+					<!-- logo -->
+					<h1 class="navbar-brand">
+						<a href="#body">Bus Locator</a>
+					</h1>
+					<!-- /logo -->
+                </div>
+
+				<!-- main nav -->
+                <nav class="collapse navbar-collapse navbar-right" role="navigation">
+                    <ul id="nav" class="nav navbar-nav">
+                        <li><a href="#body">Home</a></li>
+                        <li><a href="#service">Service</a></li>
+                        <li><a href="#portfolio">Bus Details</a></li>
+                        <li><a href="#testimonials">Testimonial</a></li>
+                        <li><a href="#profile">profile</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+				<!-- /main nav -->
+
+            </div>
+        </header>
+        <!--
+        End Fixed Navigation
+        ==================================== -->
+
+		<main class="site-content" role="main">
+
+        <!--
+        Home Slider
+        ==================================== -->
+
+		<section id="home-slider">
+            <div id="slider" class="sl-slider-wrapper">
+
+				<div class="sl-slider">
+
+					<div class="sl-slide" data-orientation="horizontal" data-slice1-rotation="-25" data-slice2-rotation="-25" data-slice1-scale="2" data-slice2-scale="2">
+
+						<div class="bg-img bg-img-1"></div>
+
+						<div class="slide-caption">
+                            <div class="caption-content">
+                                <h2 class="animated fadeInDown">Bus Locator</h2>
+                                <span class="animated fadeInDown">Pin-point your bus location 24/7</span>
+                            </div>
+                        </div>
+
+					</div>
+
+					<div class="sl-slide" data-orientation="vertical" data-slice1-rotation="10" data-slice2-rotation="-15" data-slice1-scale="1.5" data-slice2-scale="1.5">
+
+						<div class="bg-img bg-img-2"></div>
+						<div class="slide-caption">
+                            <div class="caption-content">
+                                <h2>Bus Locator</h2>
+                                <span>Pin-point your bus location 24/7</span>
+                            </div>
+                        </div>
+
+					</div>
+
+					<div class="sl-slide" data-orientation="horizontal" data-slice1-rotation="3" data-slice2-rotation="3" data-slice1-scale="2" data-slice2-scale="1">
+
+						<div class="bg-img bg-img-3"></div>
+						<div class="slide-caption">
+                            <div class="caption-content">
+                                <h2>Bus Locator</h2>
+                                <span>Pin-point your bus location 24/7</span>
+                            </div>
+                        </div>
+
+					</div>
+
+				</div><!-- /sl-slider -->
+
+                <!--
+                <nav id="nav-arrows" class="nav-arrows">
+                    <span class="nav-arrow-prev">Previous</span>
+                    <span class="nav-arrow-next">Next</span>
+                </nav>
+                -->
+
+                <nav id="nav-arrows" class="nav-arrows hidden-xs hidden-sm visible-md visible-lg">
+                    <a href="javascript:;" class="sl-prev">
+                        <i class="fa fa-angle-left fa-3x"></i>
+                    </a>
+                    <a href="javascript:;" class="sl-next">
+                        <i class="fa fa-angle-right fa-3x"></i>
+                    </a>
+                </nav>
 
 
-            }
-            else
-            {
-                  window.alert("Your browser dont support tracking device location");
-            }
+				<nav id="nav-dots" class="nav-dots visible-xs visible-sm hidden-md hidden-lg">
+					<span class="nav-dot-current"></span>
+					<span></span>
+					<span></span>
+				</nav>
+
+			</div><!-- /slider-wrapper -->
+		</section>
+
+<!-- Service section -->
+			<section id="service">
+				<div class="container">
+					<div class="row">
+
+						<div class="sec-title text-center">
+							<h2 class="wow animated bounceInLeft">Service</h2>
+							<p class="wow animated bounceInRight">The Key Features of our Job</p>
+						</div>
+
+						<div class="col-md-6 col-sm-6 col-xs-12 text-center wow animated zoomIn">
+							<div class="service-item">
+								<div class="service-icon">
+									<i class="fa fa-home fa-3x"></i>
+								</div>
+								<h3>Bus Location Support</h3>
+								<p> Students can see their desired bus location and also they can see all the bus locations  </p>
+							</div>
+						</div>
+
+						<div class="col-md-6 col-sm-6 col-xs-12 text-center wow animated zoomIn" data-wow-delay="0.3s">
+							<div class="service-item">
+								<div class="service-icon">
+									<i class="fa fa-tasks fa-3x"></i>
+								</div>
+								<h3> Crowd Sourcing </h3>
+								<p> Students can share their location if they are inside their regular bus. </p>
+							</div>
+						</div>
+
+						
+
+						
+
+					</div>
+				</div>
+			</section>
+			<!-- end Service section -->
 
 
-        }
-        getPosition();
-       
-  </script>
+
+
+			<!-- portfolio section -->
+			<section id="portfolio">
+				<div class="container">
+					<div class="row">
+
+						<div class="sec-title text-center wow animated fadeInDown">
+							<h2>Our buses</h2>
+							<p>Bus Locator is an easy-to-use website that enables students to see the location of bus on a smartphone, tablet, or personal computer.</p>
+						</div>
+
+
+						<ul class="project-wrapper wow animated fadeInUp">
+							<li class="portfolio-item">
+								<img src="/static/img/Buses/padma.jpg" class="img-responsive" alt="Padma">
+								<figcaption class="mask">
+									<h3>Padma</h3>
+								<!--	<p>Mirpur12 > Mirpur11.5 > Mirpur11 > Mirpur10 > Kazipara > Shewrapara > Taltola > Agargaon > Farmgate > Campus </p> -->
+                <p><u>Admin 1:</u><br>Mohana Rahman<br>01XXXXXXXXX</p>
+                <p><u>Admin 2:</u><br>Aqib Ahamed<br>01XXXXXXXXX</p>
+								</figcaption>
+								<ul class="external">
+									<li><a class="fancybox" title="Araund The world" data-fancybox-group="works" href="/static/img/portfolio/item.jpg"><i class="fa fa-search"></i></a></li>
+									<li><a href=""><i class="fa fa-link"></i></a></li>
+								</ul>
+							</li>
+
+							<li class="portfolio-item">
+								<img src="/static/img/Buses/meghna.jpg" class="img-responsive" alt="Meghna ">
+								<figcaption class="mask">
+									<h3>Meghna</h3>
+									<!--<p>Mirpur12 > Rurnagar More > Rynkhola > Sony Cinema Hall > Mirpur1 > Ansarcamp > Technical More > Kallyanpur > Asad gate > Manik Mia Avenue > Campus  </p>-->
+                  <p><u>Admin 1:</u><br>Robin Bin Salam<br>01XXXXXXXXX</p>
+                  <p><u>Admin 2:</u><br>Amit Hasan<br>01XXXXXXXXX</p>
+                </figcaption>
+								<ul class="external">
+									<li><a class="fancybox" title="Wall street" href="/static/img/slider/banner.jpg" data-fancybox-group="works" ><i class="fa fa-search"></i></a></li>
+									<li><a href=""><i class="fa fa-link"></i></a></li>
+								</ul>
+							</li>
+
+							<li class="portfolio-item">
+								<img src="/static/img/Buses/jamuna.jpg" class="img-responsive" alt="Jamuna ">
+								<figcaption class="mask">
+									<h3>Jamuna</h3>
+									<!--<p>Mohammadpur > Jigatola > City College > Rasel Square > Panthapath > Sonargaon Hotel > Campus</p>-->
+                  <p><u>Admin 1:</u><br>Saad Bin Rabi<br>01XXXXXXXXX</p>
+                  <p><u>Admin 2:</u><br>Ashraf Ahmed Hridoy<br>01XXXXXXXXX</p>
+								</figcaption>
+								<ul class="external">
+									<li><a class="fancybox" title="Behind The world" data-fancybox-group="works" href="/static/img/portfolio/item3.jpg"><i class="fa fa-search"></i></a></li>
+									<li><a href=""><i class="fa fa-link"></i></a></li>
+								</ul>
+							</li>
+
+							<li class="portfolio-item">
+								<img src="/static/img/Buses/surma.jpg" class="img-responsive" alt="Surma">
+								<figcaption class="mask">
+									<h3>Surma</h3>
+									<!--<p>Kamalapur > Shahjahanpur > Malibagh More > Mouchak > Wireless > Moughbazar More > Campus </p>-->
+                  <p><u>Admin 1:</u><br>Afsana Afrin Brishty<br>01XXXXXXXXX</p>
+                  <p><u>Admin 2:</u><br>Riaz Rahman<br>01XXXXXXXXX</p>
+								</figcaption>
+								<ul class="external">
+									<li><a class="fancybox" title="Wall street 4" data-fancybox-group="works" href="/static/img/portfolio/item4.jpg"><i class="fa fa-search"></i></a></li>
+									<li><a href=""><i class="fa fa-link"></i></a></li>
+								</ul>
+							</li>
+
+							<li class="portfolio-item">
+								<img src="/static/img/Buses/karnaphuli.jpg" class="img-responsive" alt="Karnaphuli ">
+								<figcaption class="mask">
+									<h3>Karnaphuli</h3>
+									<!--<p>Jatrabari > Basabo > Khilgaon > Malibagh Railgate > Abul Hotel > Rampura TV Centre > Link Road > Gulshan1 > Campus  </p>-->
+                  <p><u>Admin 1:</u><br>Saif Chowdhury<br>01XXXXXXXXX</p>
+                  <p><u>Admin 2:</u><br>Sathi Akter<br>01XXXXXXXXX</p>
+								</figcaption>
+								<ul class="external">
+									<li><a class="fancybox" title="Wall street 5" data-fancybox-group="works" href="/static/img/portfolio/item5.jpg"><i class="fa fa-search"></i></a></li>
+									<li><a href=""><i class="fa fa-link"></i></a></li>
+								</ul>
+							</li>
+
+							<li class="portfolio-item">
+								<img src="/static/img/Buses/Kapotakkho.jpg" class="img-responsive" alt="Kapotakkho">
+								<figcaption class="mask">
+									<h3>Kapotakkho</h3>
+									<!--<p>Abdullahpur > House Building > Azampur > Rajlaxmi > Airport > Khilkhet > Banani > Mohakhali > Nabisco > Campus   </p>-->
+                  <p><u>Admin 1:</u><br>Sajid Ahmed<br>01XXXXXXXXX</p>
+                  <p><u>Admin 2:</u><br>Ishrakul Munzerin<br>01XXXXXXXXX</p>
+								</figcaption>
+								<ul class="external">
+									<li><a class="fancybox" title="Wall street 6" data-fancybox-group="works" href="/static/img/portfolio/item6.jpg"><i class="fa fa-search"></i></a></li>
+									<li><a href=""><i class="fa fa-link"></i></a></li>
+								</ul>
+							</li>
+						</ul>
+
+					</div>
+				</div>
+			</section>
+			<!-- end portfolio section -->
+
+
+
+			<!-- Testimonial section -->
+			<section id="testimonials" class="parallax" >
+				<div class="overlay">
+					<div class="container">
+						<div class="row">
+
+							<div class="sec-title text-center white wow animated fadeInDown">
+								<h2>What people say</h2>
+							</div>
+
+							<div id="testimonial" class=" wow animated fadeInUp">
+								<div class="testimonial-item text-center">
+									<img src="/static/img/anikaimg.jpg" alt="Our Clients">
+									<div class="clearfix">
+										<span>Anika Bintee Aftab (Arna)</span>
+										<p>With a few clicks on my phone, I can find the bus in my route. Now I can track my bus location and save my time which makes me say goodbye to long queues and uncertainty of bus arrivals.</p>
+									</div>
+								</div>
+								<div class="testimonial-item text-center">
+									<img src="/static/img/ziadimg.jpg" alt="Our Clients">
+									<div class="clearfix">
+										<span>Md Atique Ahmed Ziad</span>
+										<p>With a few clicks on my phone, I can find the bus in my route. Now I can track my bus location and save my time which makes me say goodbye to long queues and uncertainty of bus arrivals.</p>
+									</div>
+								</div>
+								<div class="testimonial-item text-center">
+									<img src="/static/img/jabedimg.jpg" alt="Our Clients">
+									<div class="clearfix">
+										<span>Zobaidul Islam Jabed</span>
+										<p>With a few clicks on my phone, I can find the bus in my route. Now I can track my bus location and save my time which makes me say goodbye to long queues and uncertainty of bus arrivals.</p>
+									</div>
+								</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</section>
+			<!-- end Testimonial section -->
+
+			<!-- Price section -->
+			<!-- <section id="price">
+				<div class="container">
+					<div class="row">
+
+						<div class="sec-title text-center wow animated fadeInDown">
+							<h2>Price</h2>
+							<p>Our price for your company</p>
+						</div>
+
+						<div class="col-md-4 wow animated fadeInUp">
+							<div class="price-table text-center">
+								<span>Silver</span>
+								<div class="value">
+									<span>$</span>
+									<span>24,35</span><br>
+									<span>month</span>
+								</div>
+								<ul>
+									<li>No Bonus Points</li>
+									<li>No Bonus Points</li>
+									<li>No Bonus Points</li>
+									<li>No Bonus Points</li>
+									<li><a href="#">sign up</a></li>
+								</ul>
+							</div>
+						</div>
+
+						<div class="col-md-4 wow animated fadeInUp" data-wow-delay="0.4s">
+							<div class="price-table featured text-center">
+								<span>Gold</span>
+								<div class="value">
+									<span>$</span>
+									<span>50,00</span><br>
+									<span>month</span>
+								</div>
+								<ul>
+									<li>Free Trial</li>
+									<li>Free Trial</li>
+									<li>Free Trial</li>
+									<li>Free Trial</li>
+									<li><a href="#">sign up</a></li>
+								</ul>
+							</div>
+						</div>
+
+						<div class="col-md-4 wow animated fadeInUp" data-wow-delay="0.8s">
+							<div class="price-table text-center">
+								<span>Diamond</span>
+								<div class="value">
+									<span>$</span>
+									<span>123,12</span><br>
+									<span>month</span>
+								</div>
+								<ul>
+									<li>All Bonus Points</li>
+									<li>All Bonus Points</li>
+									<li>All Bonus Points</li>
+									<li>All Bonus Points</li>
+									<li><a href="#">sign up</a></li>
+								</ul>
+							</div>
+						</div>
+
+					</div>
+				</div>
+			</section>-->
+			<!-- end Price section -->
+
+		
+
+			<!-- Contact section -->
+			<section id="contact" >
+				<div class="container">
+					<div class="row">
+
+						<div class="sec-title text-center wow animated fadeInDown">
+							<h2>Contact</h2>
+							<p>Leave a Message</p>
+						</div>
+
+
+						<div class="col-md-7 contact-form wow animated fadeInLeft">
+							<form action="#" method="post">
+								<div class="input-field">
+									<input type="text" name="name" class="form-control" placeholder="Your Name...">
+								</div>
+								<div class="input-field">
+									<input type="email" name="email" class="form-control" placeholder="Your Email...">
+								</div>
+								<div class="input-field">
+									<input type="text" name="subject" class="form-control" placeholder="Subject...">
+								</div>
+								<div class="input-field">
+									<textarea name="message" class="form-control" placeholder="Messages..."></textarea>
+								</div>
+						       	<button type="submit" id="submit" class="btn btn-blue btn-effect">Send</button>
+							</form>
+						</div>
+
+						<div class="col-md-5 wow animated fadeInRight">
+							<address class="contact-details">
+								<h3>Contact Us</h3>
+								<p><i class="fa fa-pencil"></i><b>1.</b> Afsana Afrin Brishty <span>603, North Shahjahanpur, Dhaka</span><span>Bangladesh</span></p><br>
+								<p><i class="fa fa-phone"></i>Phone: 01533460531</p>
+								<p><i class="fa fa-envelope"></i>afsanarain603@gmail.com</p>
+                <br>
+                <p><i class="fa fa-pencil"></i><b>2.</b> Sajid Ahmed <span>Niketon Residential Area, Dhaka</span><span>Bangladesh</span></p><br>
+								<p><i class="fa fa-phone"></i>Phone: 01535155114</p>
+								<p><i class="fa fa-envelope"></i>sajidahmed696@gmail.com</p>
+							</address>
+						</div>
+
+					</div>
+				</div>
+			</section>
+			<!-- end Contact section -->
+
+			
+
+		</main>
+
+		<footer id="footer">
+			<div class="container">
+				<div class="row text-center">
+					<div class="footer-content">
+						
+						<div class="wow animated fadeInDown">
+							<p>Select your bus</p>
+							
+						</div>
+						<form action="#"  class="subscribe-form wow animated fadeInUp">
+							<div class="input-field">
+								<input type="text" id="bus_name" class="subscribe form-control" placeholder="Enter Your bus name...">
+								
+								<datalist id="bus_list">
+									<option value="Kapotakkho">
+									<option value="Meghna">
+									<option value="Shurma">
+									<option value="Padma">
+									<option value="Jamuna">
+									</datalist>
+								<button id="submit_busname" class="submit-icon" >
+									<i class="fa fa-paper-plane fa-lg"></i>
+								</button>
+						
+							</div>
+						</form>
+						<div class="wow animated fadeInDown">
+							<p id="bus_name_view"></p>
+							
+						</div>
+
+
+
+						<div class="footer-social">
+							<ul>
+								<li class="wow animated zoomIn"><a href="#"><i class="fa fa-thumbs-up fa-3x"></i></a></li>
+								<li class="wow animated zoomIn" data-wow-delay="0.3s"><a href="#"><i class="fa fa-twitter fa-3x"></i></a></li>
+								<li class="wow animated zoomIn" data-wow-delay="0.6s"><a href="#"><i class="fa fa-skype fa-3x"></i></a></li>
+								<li class="wow animated zoomIn" data-wow-delay="0.9s"><a href="#"><i class="fa fa-dribbble fa-3x"></i></a></li>
+								<li class="wow animated zoomIn" data-wow-delay="1.2s"><a href="#"><i class="fa fa-youtube fa-3x"></i></a></li>
+							</ul>
+						</div>
+
+						<p>Copyright &copy;  Developed By Students of Ahsanullah University of Science & Technology </p>
+					</div>
+				</div>
+			</div>
+		</footer>
+
+		<!-- Essential jQuery Plugins
+		================================================== -->
+		<!-- Main jQuery -->
+        <script src="./static/js/jquery-1.11.1.min.js"></script>
+		<!-- Twitter Bootstrap -->
+        <script src="./static/js/bootstrap.min.js"></script>
+		<!-- Single Page Nav -->
+        <script src="./static/js/jquery.singlePageNav.min.js"></script>
+		<!-- jquery.fancybox.pack -->
+        <script src="./static/js/jquery.fancybox.pack.js"></script>
+		
+		<!-- Owl Carousel -->
+        <script src="./static/js/owl.carousel.min.js"></script>
+        <!-- jquery easing -->
+        <script src="./static/js/jquery.easing.min.js"></script>
+        <!-- Fullscreen slider -->
+        <script src="./static/js/jquery.slitslider.js"></script>
+        <script src="./static/js/jquery.ba-cond.min.js"></script>
+		<!-- onscroll animation -->
+        <script src="./static/js/wow.min.js"></script>
+		<!-- Custom Functions -->
+        <script src="./static/js/main.js"></script>
+	</body>
+	
+
+	<script type="text/javascript">
+
+		function SetSession(bus_name,bus_value)
+		{
+			
+			
+		}
+		 document.getElementById("submit_busname").onclick = function() {
+			console.log("HI ,people ");
+			
+			var bus = document.getElementById('bus_name');
+			
+			SetSession("bus_name",bus);
+			
+			console.log(bus.value);
+		};
+
+		
+		function fetchSession()
+		{
+			
+			
+        	
+			document.getElementById('bus_name_view').innerHTML=bus_name.value;
+			console.log("bus name is:  "+bus_name.value);
+		}
+		fetchSession();
+
+
+
+
+	</script>
 </html>

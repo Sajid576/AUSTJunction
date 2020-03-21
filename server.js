@@ -1,19 +1,11 @@
-var http = require('http');
-var fs = require('fs');
+const express = require('express');
+const path = require('path');
 
-const PORT=8080; 
+const app = express();
+app.use('/static', express.static('public'))
 
-fs.readFile('./index.html', function (err, html) {
-
-    if (err) throw err;    
-
-    http.createServer(function(request, response) {  
-        response.writeHeader(200, {"Content-Type": "text/html"});  
-        response.write(html);  
-        response.end();  
-    }).listen(PORT);
+app.get('/', function(req, res) {
+  res.sendFile(path.join(__dirname, '/index.html'));
 });
 
-/*And after start server from console with command node server.js 
-Your index.html page will be available on URL http://localhost:8080
-*/
+app.listen(3000);
