@@ -1,3 +1,4 @@
+var List = require("collections/list");
 var firebase = require("firebase/app");
 
 // Add the Firebase products that you want to use
@@ -72,7 +73,7 @@ require("firebase/analytics");
           });
       }
       
-      listenForBusLocationChanges();
+      //listenForBusLocationChanges();
 
       function listenForYourBusLocationChanges(bus_name)
       {
@@ -92,3 +93,29 @@ require("firebase/analytics");
           });
       }
       //listenForYourBusLocationChanges("Meghna");
+
+      module.exports.readBusSubscriberData=function(bus_name)
+      {
+        var list = new List();
+        const usersCollection = database.collection('users');
+
+        const query = usersCollection.where('subscribed_bus', '==', bus_name);
+        
+        query.get().then(snapshot => {
+          snapshot.forEach(user => {
+            var User=user.data();
+            list.push(User['email']);
+            
+            console.log(user.id, ' => ', User['email']);
+          
+        });
+
+        return list;
+        })
+        .catch(error => {
+          console.error(error);
+        });
+        
+
+
+      }
