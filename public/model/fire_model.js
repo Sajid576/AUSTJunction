@@ -24,7 +24,7 @@ require("firebase/analytics");
         const database = firebase.firestore();
                
         //this function will be called while signing up
-         function storeUserData(email,user_name,phone,uid)
+        export function storeUserData(email,user_name,phone,uid)
          {
              const usersCollection = database.collection('users');
              usersCollection.doc(uid).set({
@@ -94,7 +94,7 @@ require("firebase/analytics");
       }
       //listenForYourBusLocationChanges("Meghna");
 
-      module.exports.readBusSubscriberData=function(bus_name)
+      function readBusSubscriberData(bus_name)
       {
         var list = new List();
         const usersCollection = database.collection('users');
