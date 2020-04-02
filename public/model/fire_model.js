@@ -1,10 +1,11 @@
-var List = require("collections/list");
-var firebase = require("firebase/app");
+//var List = require("collections/list");
+//var firebase = require("firebase/app");
 
 // Add the Firebase products that you want to use
-require("firebase/auth");
-require("firebase/firestore");
-require("firebase/analytics");
+//require("firebase/auth");
+//require("firebase/firestore");
+//require("firebase/analytics");
+
 
 
  // Your web app's Firebase configuration
@@ -20,13 +21,86 @@ require("firebase/analytics");
         // Initialize Firebase
         firebase.initializeApp(firebaseConfig);
        
+
+
+    const _name = document.getElementById("name");
+    const _email = document.getElementById("email");                      
+    const _phone = document.getElementById("phoneNumber");
+    const _sendCodeBtn = document.getElementById("send-code");
+    const _submitBtn = document.getElementById("submit_data");
+              
+
+    _submitBtn.addEventListener('click', e => {
+      e.preventDefault();
+      var code = document.getElementById("code").value;
+      confirmationResult
+        .confirm(code)
+        .then(function(result) {
+          var user = result.user;
+          storeUserData(_email.value,_name.value,_phone.value,user.uid);
+        })
+        .catch(function(error) {
+          console.log(error);
+        });
+      
+    });
        
-        const database = firebase.firestore();
+    window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier(
+      "recaptcha-container",
+      {
+        size: "normal",
+        callback: function(response) {
+          submitUserData();
+        }
+      }
+    );
+
+    _sendCodeBtn.addEventListener('click', e => {
+      e.preventDefault();
+      sendCode();
+    });
+    function sendCode()
+    {
+     
+      //storeUserData("SAJJUU@yahoo.com","SAJJU","01535155114","MwC7GQqsETPKG3fj5v76");
+      var phoneNumber = document.getElementById("phoneNumber").value;
+      console.log(phoneNumber);
+
+         var appVerifier = window.recaptchaVerifier;
+         firebase
+           .auth()
+           .signInWithPhoneNumber(phoneNumber,appVerifier)
+           .then(function(confirmationResult)
+           {
+             window.confirmationResult=confirmationResult;
+           })
+           .catch(function(error) {
+             console.log(error);
+           });
+     }
+
+    
+
+     //This function runs everytime the auth state changes. Use to verify if the user is logged in
+     firebase.auth().onAuthStateChanged(function(user)
+     {
+                     
+       if (user)
+       {
+         console.log("USER LOGGED IN");
+   
+
+       } else
+       {
+         // No user is signed in.
+         console.log("USER NOT LOGGED IN");
+       }
+     });
                
         //this function will be called while signing up
-        export function storeUserData(email,user_name,phone,uid)
+         function storeUserData(email,user_name,phone,uid)
          {
-             const usersCollection = database.collection('users');
+             const usersCollection = firebase.firestore().collection('users');
              usersCollection.doc(uid).set({
                 username: user_name,
                 phone: phone,        
@@ -40,9 +114,16 @@ require("firebase/analytics");
         }    
         //storeUserData("rain@gmail.com","Rain","01535155114","MwC7GQqsETPKG3fj5v76");  
     
+
+
+
+
+
+
+
         function storeBusSubscribeData(bus_name,uid)
         {
-            const usersCollection = database.collection('users');
+            const usersCollection = firebase.firestore().collection('users');
             usersCollection.doc(uid).set({
                 subscribed_bus: bus_name,        
            }, {merge: true})
@@ -57,7 +138,7 @@ require("firebase/analytics");
     //this function listens for location change of all bus
       function listenForBusLocationChanges()
       {
-        const usersCollection = database.collection('bus_location');
+        const usersCollection = firebase.firestore().collection('bus_location');
         usersCollection.where('active', '==', 1).onSnapshot(snapshot => {
             snapshot.forEach(user => {
                     
@@ -77,7 +158,7 @@ require("firebase/analytics");
 
       function listenForYourBusLocationChanges(bus_name)
       {
-        const usersCollection = database.collection('bus_location');
+        const usersCollection = firebase.firestore().collection('bus_location');
         usersCollection.where('active', '==', 1).where('bus_name','==',bus_name).onSnapshot(snapshot => {
             snapshot.forEach(user => {
                     
@@ -97,7 +178,7 @@ require("firebase/analytics");
       function readBusSubscriberData(bus_name)
       {
         var list = new List();
-        const usersCollection = database.collection('users');
+        const usersCollection = firebase.firestore().collection('users');
 
         const query = usersCollection.where('subscribed_bus', '==', bus_name);
         
@@ -119,3 +200,6 @@ require("firebase/analytics");
 
 
       }
+
+      
+     
