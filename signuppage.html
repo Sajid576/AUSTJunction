@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sign Up</title>
+
+    <!-- Font Icon -->
+    <link rel="stylesheet" href="fonts/material-icon/css/material-design-iconic-font.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Main css -->
+    <link rel="stylesheet" href="/static/SignUp/css/style.css">
+</head>
+
+<body style="background-image: url(/static/img/signup-bg.jpg);" >
+   
+  
+   <form class="signup-form">
+        <h2 class="form-title" style="margin-top:10px;">Create account</h2>
+        <!-- username text field -->
+        <div class="form-group d-flex justify-content-center">
+          <input type="text" class="form-input" name="name" id="name" placeholder="Your Username"/>
+        </div>
+
+        <!-- email text field  -->
+        <div class="form-group d-flex justify-content-center">
+              <input type="email" class="form-input" name="email" id="email" placeholder="Your Email"/>
+        </div>
+        <!-- phone number text field -->
+        <div class="form-group d-flex justify-content-center">
+              <input type="tel" class="form-input" name="phoneNumber" id="phoneNumber" placeholder="Your Phone no(Please start with country code)" />
+        </div>
+
+        <!--Send Code button-->
+        <div class="d-flex justify-content-center">
+              <input type="submit" name="submit" id="submit" class="form-submit" onclick="sendCode()" value="Send Code"/>
+        </div>
+        
+        <!--recapcha -->
+        <div class="d-flex justify-content-center" id="recaptcha-container"></div><br>
+        
+        <!--Code input box-->
+        <div class="form-group d-flex justify-content-center">
+            <input type="text" class="form-input" id="code" placeholder="Please enter verfication Code"/>
+        </div>
+        <!-- Form submit button -->
+        <div class="d-flex justify-content-center">
+            <input type="submit" name="confirm-code" id="confirm-code"class="form-submit" onclick="submitUserData()" value="Sign Up"/>
+        </div>
+
+
+   </form>
+  
+      <script src="https://www.gstatic.com/firebasejs/6.3.3/firebase-app.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/6.3.3/firebase-auth.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/6.3.3/firebase-firestore.js"></script>
+      <script src="/static/SignUp/vendor/jquery/jquery.min.js"></script>
+      <script src="/static/SignUp/js/main.js"></script>
+     
+     
+    
+        <script type="module" src="/static/model/fire_model.js"></script>
+
+      
+
+      <script>
+     
+    
+     
+                // Your web app's Firebase configuration
+                var firebaseConfig = {
+                    apiKey: "AIzaSyAdok8FrAVYo4kkepl3pXAOEUIVUsliYBk",
+                    authDomain: "buskoi.firebaseapp.com",
+                    databaseURL: "https://buskoi.firebaseio.com",
+                    projectId: "buskoi",
+                    storageBucket: "buskoi.appspot.com",
+                    messagingSenderId: "548182931138",
+                    appId: "1:548182931138:web:0410f178b31092134c2d5b"
+                  };
+                        // Initialize Firebase
+                        firebase.initializeApp(firebaseConfig);
+
+
+                        window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier(
+                          "recaptcha-container",
+                          {
+                            size: "normal",
+                            callback: function(response) {
+                              submitUserData();
+                            }
+                          }
+                        );
+
+
+                       
+                        function sendCode()
+                        {
+                         
+
+                          //storeUserData("SAJJUU@yahoo.com","SAJJU","01535155114","MwC7GQqsETPKG3fj5v76");
+                          var phoneNumber = document.getElementById("phoneNumber").value;
+                          //console.log(phoneNumber);
+
+                             var appVerifier = window.recaptchaVerifier;
+                             firebase
+                               .auth()
+                               .signInWithPhoneNumber(phoneNumber,appVerifier)
+                               .then(function(confirmationResult)
+                               {
+                                 window.confirmationResult=confirmationResult;
+                               })
+                               .catch(function(error) {
+                                 console.log(error);
+                               });
+                         }
+                         function submitUserData() {
+                           var code = document.getElementById("code").value;
+                           confirmationResult
+                             .confirm(code)
+                             .then(function(result) {
+                               var user = result.user;
+
+                             })
+                             .catch(function(error) {
+                               console.log(error);
+                             });
+                         }
+
+                         //This function runs everytime the auth state changes. Use to verify if the user is logged in
+                         firebase.auth().onAuthStateChanged(function(user)
+                         {
+                          // var a = document.getElementById("name").value;
+                           //console.log("Hello"+a);
+                           //var b = document.getElementById("email").value
+                          // console.log("Hi"+b);
+                           //var c = document.getElementById("phoneNumber").value;
+                           //console.log("Bye"+c);
+
+                                         
+                           if (user)
+                           {
+                             console.log("USER LOGGED IN");
+                       
+
+                           } else
+                           {
+                             // No user is signed in.
+                             console.log("USER NOT LOGGED IN");
+                           }
+                         });
+
+    </script>
+   
+</body>
+</html>
