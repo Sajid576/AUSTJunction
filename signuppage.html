@@ -52,14 +52,22 @@
         <div class="d-flex justify-content-center">
             <button id="submit_data"class="form-submit" >Submit </button>
         </div>
+      
+      
+    
+
+       <!--frontend js file connections--> 
+      <script src="/static/SignUp/vendor/jquery/jquery.min.js"></script>
+      <script src="/static/SignUp/js/main.js"></script>
+     
+      <!--model js file connections-->  
 
       <script src="https://www.gstatic.com/firebasejs/6.3.3/firebase-app.js"></script>
       <script src="https://www.gstatic.com/firebasejs/6.3.3/firebase-auth.js"></script>
       <script src="https://www.gstatic.com/firebasejs/6.3.3/firebase-firestore.js"></script>
-      <script src="/static/SignUp/vendor/jquery/jquery.min.js"></script>
-      <script src="/static/SignUp/js/main.js"></script>
-     
-        
+
+      <script type="module" src="/static/model/FirebaseConnection.js"></script>
+      <script type="module" src="/static/model/authentication.js"></script>
       <script type="module" src="/static/model/fire_model.js"></script>
 
       <script>
