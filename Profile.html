@@ -14,40 +14,39 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-
-
-
     <!-- Main css -->
     <link rel="stylesheet" href="/static/Profile/css/style.css">
 </head>
-<body>
+<body style="background-image: url(/static/img/signup-bg.jpg);">
 
     <div class="main">
 
         <section class="signup">
-            <!-- <img src="images/signup-bg.jpg" alt=""> -->
+           
             <div class="container">
                 <div class="profile-content">
-                    <form method="POST" id="signup-form" class="signup-form">
+                    <form id="signup-form" class="signup-form">
                         <h2 class="form-title">Welcome To Your Profile!!</h2>
                       <div>
                         <img src="/static/img/propic.jpg" alt="picture" class="propic">
                       </div>
-                      <h4>About</h4>
+                      <!--User name-->
+                      <h4 id="userprofile_username">User Name</h4>
+                     
                       <div class="form-group">
-                          <label for="username"style="color:#37f0f0;font-weight:bold;">User Name:</label>
+                          <label style="color:#37f0f0;font-weight:bold;"> Email:  </label>
+                          <label id="userprofile_email" for="Email"style="color:#37f0f0;font-weight:bold;"></label>
                       </div>
                       <div class="form-group">
-                          <label for="Email"style="color:#37f0f0;font-weight:bold;">Email:</label>
+                         <label style="color:#37f0f0;font-weight:bold;"> Mobile No:  </label>
+                          <label id="userprofile_phone" for="Phoneno"style="color:#37f0f0;font-weight:bold;">Phone No:</label>
                       </div>
                       <div class="form-group">
-                          <label for="Phoneno"style="color:#37f0f0;font-weight:bold;">Phone No:</label>
-                      </div>
-                      <div class="form-group">
-                          <label for="subsbus"style="color:#37f0f0;font-weight:bold;">Subscribed Bus name:</label>
+                        <label style="color:#37f0f0;font-weight:bold;"> Subscribed Bus:  </label>
+                          <label id="userprofile_subscribeBus" for="subsbus"style="color:#37f0f0;font-weight:bold;">Subscribed Bus name:</label>
                       </div>
                         <div class="form-group">
-                            <input type="submit" name="submit" id="submit" class="form-submit" value="Edit Profile"/>
+                            <button id="edit_userData" class="form-submit" >Edit</button>
                         </div>
                     </form>
 
@@ -56,7 +55,25 @@
         </section>
 
     </div>
+
+<!--frontend js file connections--> 
     <script src="/static/Profile/vendor/jquery/jquery.min.js"></script>
     <script src="/static/Profile/js/main.js"></script>
+
+
+<!--backend js file connections--> 
+    <script src="https://www.gstatic.com/firebasejs/6.3.3/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.3.3/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.3.3/firebase-firestore.js"></script>
+
+    <script type="module" src="/static/model/FirebaseConnection.js"></script>
+    <script type="module" src="/static/model/profile.js"></script>
+    <script type="module" src="/static/model/loginStateChecker.js"></script>
+    <script type="module" src="/static/model/fire_model.js"></script>
+
+    <script>
+
+                
+    </script>
 </body>
 </html>

@@ -6,7 +6,7 @@ const app = express();
 app.use('/static', express.static('public'))
 
 app.get('/', function(req, res) {
-  res.sendFile(path.join(__dirname, '/signuppage.html'));
+  res.sendFile(path.join(__dirname, '/Profile.html'));
 });
 
 app.get('/mapbox', function(req, res) {
