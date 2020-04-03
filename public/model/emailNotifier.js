@@ -4,11 +4,11 @@ var transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
     user: 'sajidahmed696@gmail.com',
-    pass: 'cutelooperSAJID'
+    pass: ''
   }
 });
 
-module.exports.sendEmailNotification=function(to)
+window.sendEmailNotification=function(to)
 {
       var mailOptions = {
         from: 'sajidahmed696@gmail.com',
