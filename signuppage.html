@@ -18,9 +18,13 @@
 </head>
 
 <body style="background-image: url(/static/img/signup-bg.jpg);" >
-   
-  
-   
+
+
+        <div class="main">
+        <section class="signup">
+        <div class="container">
+        <div class="signup-content">
+        <form id="signup-form" class="signup-form">
         <h2 class="form-title" style="margin-top:10px;">Create account</h2>
         <!-- username text field -->
         <div class="form-group d-flex justify-content-center">
@@ -40,10 +44,10 @@
         <div class="d-flex justify-content-center">
               <button id="send-code" class="form-submit" >Send Code</button>
         </div>
-        
+
         <!--recapcha -->
         <div class="d-flex justify-content-center" id="recaptcha-container"></div><br>
-        
+
         <!--Code input box-->
         <div class="form-group d-flex justify-content-center">
             <input type="text" class="form-input" id="code" placeholder="Please enter verfication Code"/>
@@ -52,15 +56,21 @@
         <div class="d-flex justify-content-center">
             <button id="submit_data"class="form-submit" >Submit </button>
         </div>
-      
-      
-    
+        </form>
+        </div>
+        </div>
+       </section>
+       </div>
 
-       <!--frontend js file connections--> 
+
+
+
+
+       <!--frontend js file connections-->
       <script src="/static/SignUp/vendor/jquery/jquery.min.js"></script>
       <script src="/static/SignUp/js/main.js"></script>
-     
-      <!--model js file connections-->  
+
+      <!--model js file connections-->
 
       <script src="https://www.gstatic.com/firebasejs/6.3.3/firebase-app.js"></script>
       <script src="https://www.gstatic.com/firebasejs/6.3.3/firebase-auth.js"></script>
@@ -71,10 +81,10 @@
       <script type="module" src="/static/model/fire_model.js"></script>
 
       <script>
-     
-    
-    
+
+
+
     </script>
-   
+
 </body>
 </html>

@@ -22,7 +22,7 @@
     <div class="main">
 
         <section class="signup">
-           
+
             <div class="container">
                 <div class="profile-content">
                     <form id="signup-form" class="signup-form">
@@ -31,22 +31,22 @@
                         <img src="/static/img/propic.jpg" alt="picture" class="propic">
                       </div>
                       <!--User name-->
-                      <h4 id="userprofile_username">User Name</h4>
-                     
+                      <h4 id="userprofile_username"contenteditable="false">User Name</h4>
+
                       <div class="form-group">
                           <label style="color:#37f0f0;font-weight:bold;"> Email:  </label>
-                          <label id="userprofile_email" for="Email"style="color:#37f0f0;font-weight:bold;"></label>
+                          <label id="userprofile_email" for="Email"style="color:#37f0f0;font-weight:bold;"contenteditable="false"></label>
                       </div>
                       <div class="form-group">
-                         <label style="color:#37f0f0;font-weight:bold;"> Mobile No:  </label>
-                          <label id="userprofile_phone" for="Phoneno"style="color:#37f0f0;font-weight:bold;">Phone No:</label>
+                      <label style="color:#37f0f0;font-weight:bold;"> Mobile No:  </label>
+                          <label id="userprofile_phone" for="Phoneno"style="color:#37f0f0;font-weight:bold;"contenteditable="false"></label>
                       </div>
                       <div class="form-group">
-                        <label style="color:#37f0f0;font-weight:bold;"> Subscribed Bus:  </label>
-                          <label id="userprofile_subscribeBus" for="subsbus"style="color:#37f0f0;font-weight:bold;">Subscribed Bus name:</label>
+                          <label style="color:#37f0f0;font-weight:bold;"> Subscribed Bus:  </label>
+                          <label id="userprofile_subscribeBus" for="subsbus"style="color:#37f0f0;font-weight:bold;"contenteditable="false"></label>
                       </div>
                         <div class="form-group">
-                            <button id="edit_userData" class="form-submit" >Edit</button>
+                            <button id="edit_userData" class="form-submit">Edit</button>
                         </div>
                     </form>
 
@@ -56,12 +56,12 @@
 
     </div>
 
-<!--frontend js file connections--> 
+<!--frontend js file connections-->
     <script src="/static/Profile/vendor/jquery/jquery.min.js"></script>
     <script src="/static/Profile/js/main.js"></script>
 
 
-<!--backend js file connections--> 
+<!--backend js file connections-->
     <script src="https://www.gstatic.com/firebasejs/6.3.3/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/6.3.3/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/6.3.3/firebase-firestore.js"></script>
@@ -71,9 +71,6 @@
     <script type="module" src="/static/model/loginStateChecker.js"></script>
     <script type="module" src="/static/model/fire_model.js"></script>
 
-    <script>
 
-                
-    </script>
 </body>
 </html>
