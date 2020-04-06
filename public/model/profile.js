@@ -1,10 +1,11 @@
-
 window.readUserData= function(uid)
 {
     var _username=document.getElementById("userprofile_username");
     var _email=document.getElementById("userprofile_email");
     var _phone=document.getElementById("userprofile_phone");
     var _subscribed_bus=document.getElementById("userprofile_subscribeBus");
+    var _subscribed_bus2= _subscribed_bus.options[_subscribed_bus.selectedIndex].value;
+    console.log(_subscribed_bus2);
     var _editDataBtn = document.getElementById("edit_userData");
 
     const usersCollection = firebase.firestore().collection('users');
@@ -22,7 +23,7 @@ window.readUserData= function(uid)
             _username.innerHTML=User['username'];
             _email.innerHTML=User['email'];
             _phone.innerHTML=User['phone'];
-            _subscribed_bus.innerHTML=User['subscribed_bus'];
+            _subscribed_bus2.innerHTML=User['subscribed_bus'];
 
 
         }
@@ -53,20 +54,39 @@ window.readUserData= function(uid)
 
      document.getElementById("edit_userData").innerHTML="Submit";
      console.log("CheckIF");
+     document.getElementById("userprofile_subscribeBus").disabled=false;
    }else if(uname.isContentEditable==true && em.isContentEditable==true && sbus.isContentEditable==true)
    {
      uname.contentEditable=false;
      console.log("Uname1" +uname.isContentEditable);
      em.contentEditable=false;
       console.log("Email1" +em.isContentEditable);
-     sbus.contentEditable=false;
-     console.log("BUS1" +sbus.isContentEditable);
+      sbus.contentEditable=false;
+      console.log("BUS1" +sbus.isContentEditable);
 
      if(document.getElementById("edit_userData").innerHTML="Submit")
      {
        document.getElementById("edit_userData").innerHTML="Edit";
        console.log("CheckELSE");
+       if(document.getElementById("userprofile_subscribeBus").disabled==false)
+       {
+         document.getElementById("userprofile_subscribeBus").disabled=true;
+       }
      }
+
     }
    });
+
+   function EditUserData(_username,_email,_subscribed_bus2,uid)
+   {
+       const usersCollection = firebase.firestore().collection('users');
+       usersCollection.doc(uid).set({
+           subscribed_bus: bus_name,
+      }, {merge: true})
+      .then(()=>{
+           console.log('Data has been saved successfully !')})
+      .catch(error => {
+           console.error(error)
+       });
+  }
 }

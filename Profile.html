@@ -14,6 +14,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+
     <!-- Main css -->
     <link rel="stylesheet" href="/static/Profile/css/style.css">
 </head>
@@ -34,16 +35,35 @@
                       <h4 id="userprofile_username"contenteditable="false">User Name</h4>
 
                       <div class="form-group">
-                          <label style="color:#37f0f0;font-weight:bold;"> Email:  </label>
-                          <label id="userprofile_email" for="Email"style="color:#37f0f0;font-weight:bold;"contenteditable="false"></label>
+                          <label style="color:#37f0f0;font-weight:bold;font-size: 20px;"> Email:  </label>
+                          <label id="userprofile_email" for="Email"style="color:#00BFFF;font-weight:bold;font-size: 20px;"contenteditable="false"></label>
                       </div>
                       <div class="form-group">
-                      <label style="color:#37f0f0;font-weight:bold;"> Mobile No:  </label>
-                          <label id="userprofile_phone" for="Phoneno"style="color:#37f0f0;font-weight:bold;"contenteditable="false"></label>
+                      <label style="color:#37f0f0;font-weight:bold;font-size: 20px;"> Mobile No:  </label>
+                          <label id="userprofile_phone" for="Phoneno"style="color:#00BFFF;font-weight:bold;font-size: 20px;"contenteditable="false"></label>
                       </div>
                       <div class="form-group">
-                          <label style="color:#37f0f0;font-weight:bold;"> Subscribed Bus:  </label>
-                          <label id="userprofile_subscribeBus" for="subsbus"style="color:#37f0f0;font-weight:bold;"contenteditable="false"></label>
+                          <label style="color:#37f0f0;font-weight:bold;font-size:20px;"> Subscribed Bus:  </label>
+                        <!--  <label id="userprofile_subscribeBus" for="subsbus"style="color:#37f0f0;font-weight:bold;"contenteditable="false"></label>-->
+                        <!--  <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown">Select Your Preferable Bus</button>
+                          <div class="dropdown-menu">
+                            <a class="dropdown-item" href="#" style="color:#00BFFF;font-weight:bold;">Padma</a>
+                            <a class="dropdown-item" href="#" style="color:#00BFFF;font-weight:bold;">Meghna</a>
+                            <a class="dropdown-item" href="#" style="color:#00BFFF;font-weight:bold;">Jamuna</a>
+                            <a class="dropdown-item" href="#" style="color:#00BFFF;font-weight:bold;">Surma</a>
+                            <a class="dropdown-item" href="#" style="color:#00BFFF;font-weight:bold;">karnaphuli</a>
+                            <a class="dropdown-item" href="#" style="color:#00BFFF;font-weight:bold;">Kapotakkho</a>
+                          </div> -->
+                        <form>
+                          <select id="userprofile_subscribeBus" class="classic" style="background-color:#00BFFF;font-weight:bold;"disabled>
+                            <option value="Padma" style="background-color:#00BFFF;font-weight:bold;">Padma</option>
+                            <option value="Meghna" style="background-color:#00BFFF;font-weight:bold;">Meghna</option>
+                            <option value="Jamuna" style="background-color:#00BFFF;font-weight:bold;">Jamuna</option>
+                            <option value="Surma" style="background-color:#00BFFF;font-weight:bold;">Surma</option>
+                            <option value="karnaphuli" style="background-color:#00BFFF;font-weight:bold;">karnaphuli</option>
+                            <option value="Kapotakkho" style="background-color:#00BFFF;font-weight:bold;">Kapotakkho</option>
+                          </select>
+                        </form>
                       </div>
                         <div class="form-group">
                             <button id="edit_userData" class="form-submit">Edit</button>
