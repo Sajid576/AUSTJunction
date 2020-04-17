@@ -22,7 +22,11 @@
       {
         var phoneNumber = document.getElementById("phoneNumber").value;
         console.log(phoneNumber);
-
+        if ( _name.value == "" || _email.value == "" || _phone.value == "")
+        {
+            alert("Please fill out details!");
+        }else
+        {
            var appVerifier = window.recaptchaVerifier;
            firebase
              .auth()
@@ -34,24 +38,38 @@
              .catch(function(error) {
                console.log(error);
              });
+           }
        }
 
-
-    _submitBtn.addEventListener('click', e => {
-      e.preventDefault();
+    //var code = document.getElementById("code").value;
+    _submitBtn.addEventListener('click', e =>
+    {
       var code = document.getElementById("code").value;
-      confirmationResult
-        .confirm(code)
-        .then(function(result) {
-          var user = result.user;
+      if(code =="")
+      {
+        alert("Please fill out verification code!");
+        console.log("code de!!");
+      }else{
+        console.log("Lagbe na!!");
+        e.preventDefault();
+      //  var code = document.getElementById("code").value;
+        confirmationResult
+          .confirm(code)
+          .then(function(result) {
+            var user = result.user;
+                 storeUserData(_email.value,_name.value,_phone.value,user.uid);
+                 _name.value="";
+                 _email.value="";
+                 _phone.value="";
+                 document.getElementById("code").value="";
 
-          storeUserData(_email.value,_name.value,_phone.value,user.uid);
-        })
-        .catch(function(error) {
-          console.log(error);
-        });
 
-    });
+          })
+          .catch(function(error) {
+            console.log(error);
+          });
+      }
+      });
 
     //this function will be used to store user data into firebase
     function storeUserData(email,user_name,phone,uid)
@@ -63,7 +81,9 @@
            email:email,
        }, {merge: true})
        .then(()=>{
-            console.log('Data has been saved successfully !')})
+                console.log('Data has been saved successfully !')})
+
+            //window.location.pathname = '/index'
        .catch(error => {
             console.error(error)
         });
