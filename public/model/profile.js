@@ -1,4 +1,4 @@
-window.readUserData= function(uid)
+window.readUserData= function(uid,page)
 {
     var _username=document.getElementById("userprofile_username");
     var _email=document.getElementById("userprofile_email");
@@ -7,6 +7,9 @@ window.readUserData= function(uid)
     var _subscribed_bus2= _subscribed_bus.options[_subscribed_bus.selectedIndex].value;
     console.log(_subscribed_bus2);
     var _editDataBtn = document.getElementById("edit_userData");
+
+
+    var _usernameinhome=document.getElementById("usernameinhome");
 
     const usersCollection = firebase.firestore().collection('users');
 
@@ -20,10 +23,24 @@ window.readUserData= function(uid)
 
             var User=user.data();
 
-            _username.innerHTML=User['username'];
-            _email.innerHTML=User['email'];
-            _phone.innerHTML=User['phone'];
-            _subscribed_bus2.innerHTML=User['subscribed_bus'];
+          //  _username.innerHTML=User['username'];
+          //  _email.innerHTML=User['email'];
+          //  _phone.innerHTML=User['phone'];
+          //  _subscribed_bus2.innerHTML=User['subscribed_bus'];
+            if(page==1)
+            {
+              console.log("Home e name print");
+              _usernameinhome.innerHTML=User['username'];
+            }else{
+              _username.innerHTML=User['username'];
+              _email.innerHTML=User['email'];
+              _phone.innerHTML=User['phone'];
+              _subscribed_bus2.innerHTML=User['subscribed_bus'];
+            }
+            console.log("Page er value print hobe"+page);
+          //  _usernameinhome.innerHTML=User['username'];
+
+            //document.getElementById("usernameinhome").innerHTML=_name.value;
 
 
         }
