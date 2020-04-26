@@ -6,23 +6,17 @@ window.checkState=function(page)
 
   firebase.auth().onAuthStateChanged(function(user)
   {
-     //const _usernameinhome=document.getElementById("usernameinhome");
-
-
     if (user)
     {
       console.log("USER LOGGED IN");
       if(page==1)
       {
-          readUserData(user.uid,1);
+            readUserName(user.uid,1);
       }
       else
        {
           readUserData(user.uid,2);
       }
-   // _usernameinhome.innerHTML=user.username;
-
-
     } else
     {
       // No user is signed in.

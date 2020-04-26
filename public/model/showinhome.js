@@ -1,1 +1,0 @@
-  checkState(1);
