@@ -8,6 +8,9 @@ app.use('/static', express.static('public'))
 app.get('/', function(req, res) {
   res.sendFile(path.join(__dirname, '/index.html'));
 });
+app.get('/index', function(req, res) {
+  res.sendFile(path.join(__dirname, '/index.html'));
+});
 app.get('/signuppage', function(req, res) {
   res.sendFile(path.join(__dirname, '/signuppage.html'));
 });

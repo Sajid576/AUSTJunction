@@ -5,57 +5,116 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Profile Page</title>
+    <!-- Fontawesome Icon font -->
+        <link rel="stylesheet" href="/static/css/font-awesome.min.css">
+		<!-- bootstrap.min -->
+        <link rel="stylesheet" href="/static/css/jquery.fancybox.css">
+		<!-- bootstrap.min -->
+        <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+		<!-- bootstrap.min -->
+        <link rel="stylesheet" href="/static/css/owl.carousel.css">
+		<!-- bootstrap.min -->
+        <link rel="stylesheet" href="/static/css/slit-slider.css">
+		<!-- bootstrap.min -->
+        <link rel="stylesheet" href="/static/css/animate.css">
+		<!-- Main Stylesheet -->
+        <link rel="stylesheet" href="/static/css/main.css">
 
-    <!-- Font Icon -->
-    <link rel="stylesheet" href="fonts/material-icon/css/material-design-iconic-font.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<!-- Modernizer Script for old Browsers -->
+        <script src="/static/js/modernizr-2.6.2.min.js"></script>
 
     <!-- Main css -->
     <link rel="stylesheet" href="/static/Profile/css/style.css">
 </head>
 <body style="background-image: url(/static/img/signup-bg.jpg);">
 
-    <div class="main">
+  <header id="navigation" class="navbar-inverse navbar-fixed-top animated-header">
+<!--     <div class="container">   -->
+          <div class="navbar-header">
+              <!-- responsive nav button -->
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+              </button>
+    <!-- /responsive nav button -->
 
-        <section class="signup">
+    <!-- logo -->
+    <h1 class="navbar-brand">
+      <a style="padding: 1em 5em;" href="#body">Bus Locator</a>
+    </h1>
+    <!-- /logo -->
+          </div>
 
-            <div class="container">
-                <div class="profile-content">
-                    <form id="signup-form" class="signup-form">
-                        <h2 class="form-title">Welcome To Your Profile!!</h2>
-                      <div>
-                        <img src="/static/img/propic.jpg" alt="picture" class="propic">
-                      </div>
-                      <!--User name-->
-                      <h4 id="userprofile_username"contenteditable="false">User Name</h4>
+  <!-- main nav -->
+          <nav class="navbar-collapse navbar-right">
 
+    <ul  class="nav navbar-nav">
+       <li>
+          <a style="padding: 1em 6em;"href="index">Home</a>
+       </li>
+    </ul>
+          </nav>
+  <!-- /main nav -->
+
+    <!--  </div> -->
+  </header>
+  <div class="main">
+
+      <section class="signup">
+
+          <div class="container">
+              <div class="profile-content">
+                  <form id="signup-form" class="signup-form">
+                      <h2 class="form-title">Welcome To Your Profile!!</h2>
+                    <div>
+                      <img src="/static/img/propic.jpg" alt="picture" class="propic">
+                    </div>
+                    <!--User name-->
+                    <h4 id="userprofile_username"contenteditable="false">User Name</h4>
+
+                    <div class="form-group">
+                        <label style="color:#37f0f0;font-weight:bold;font-size: 20px;"> Email:  </label>
+                        <label id="userprofile_email" for="Email"style="color:#00BFFF;font-weight:bold;font-size: 20px;"contenteditable="false"></label>
+                    </div>
+                    <div class="form-group">
+                    <label style="color:#37f0f0;font-weight:bold;font-size: 20px;"> Mobile No:  </label>
+                        <label id="userprofile_phone" for="Phoneno"style="color:#00BFFF;font-weight:bold;font-size: 20px;"contenteditable="false"></label>
+                    </div>
+                    <div class="form-group">
+                        <label style="color:#37f0f0;font-weight:bold;font-size:20px;"> Subscribed Bus:  </label>
+                      <!--  <label id="userprofile_subscribeBus" for="subsbus"style="color:#37f0f0;font-weight:bold;"contenteditable="false"></label>-->
+                      <!--  <button type="button" class="btn btn-info dropdown-toggle" data-toggle="dropdown">Select Your Preferable Bus</button>
+                        <div class="dropdown-menu">
+                          <a class="dropdown-item" href="#" style="color:#00BFFF;font-weight:bold;">Padma</a>
+                          <a class="dropdown-item" href="#" style="color:#00BFFF;font-weight:bold;">Meghna</a>
+                          <a class="dropdown-item" href="#" style="color:#00BFFF;font-weight:bold;">Jamuna</a>
+                          <a class="dropdown-item" href="#" style="color:#00BFFF;font-weight:bold;">Surma</a>
+                          <a class="dropdown-item" href="#" style="color:#00BFFF;font-weight:bold;">karnaphuli</a>
+                          <a class="dropdown-item" href="#" style="color:#00BFFF;font-weight:bold;">Kapotakkho</a>
+                        </div> -->
+                      <form>
+                        <select id="userprofile_subscribeBus" class="classic" style="background-color:#00BFFF;font-weight:bold;"disabled>
+                          <option value="Padma" style="background-color:#00BFFF;font-weight:bold;">Padma</option>
+                          <option value="Meghna" style="background-color:#00BFFF;font-weight:bold;">Meghna</option>
+                          <option value="Jamuna" style="background-color:#00BFFF;font-weight:bold;">Jamuna</option>
+                          <option value="Surma" style="background-color:#00BFFF;font-weight:bold;">Surma</option>
+                          <option value="karnaphuli" style="background-color:#00BFFF;font-weight:bold;">karnaphuli</option>
+                          <option value="Kapotakkho" style="background-color:#00BFFF;font-weight:bold;">Kapotakkho</option>
+                        </select>
+                      </form>
+                    </div>
                       <div class="form-group">
-                          <label style="color:#37f0f0;font-weight:bold;"> Email:  </label>
-                          <label id="userprofile_email" for="Email"style="color:#37f0f0;font-weight:bold;"contenteditable="false"></label>
+                          <button id="edit_userData" class="form-submit">Edit</button>
                       </div>
-                      <div class="form-group">
-                      <label style="color:#37f0f0;font-weight:bold;"> Mobile No:  </label>
-                          <label id="userprofile_phone" for="Phoneno"style="color:#37f0f0;font-weight:bold;"contenteditable="false"></label>
-                      </div>
-                      <div class="form-group">
-                          <label style="color:#37f0f0;font-weight:bold;"> Subscribed Bus:  </label>
-                          <label id="userprofile_subscribeBus" for="subsbus"style="color:#37f0f0;font-weight:bold;"contenteditable="false"></label>
-                      </div>
-                        <div class="form-group">
-                            <button id="edit_userData" class="form-submit">Edit</button>
-                        </div>
-                    </form>
+                  </form>
 
-                </div>
-            </div>
-        </section>
+              </div>
+          </div>
+      </section>
 
-    </div>
-
+  </div>
 <!--frontend js file connections-->
     <script src="/static/Profile/vendor/jquery/jquery.min.js"></script>
     <script src="/static/Profile/js/main.js"></script>
@@ -69,8 +128,12 @@
     <script type="module" src="/static/model/FirebaseConnection.js"></script>
     <script type="module" src="/static/model/profile.js"></script>
     <script type="module" src="/static/model/loginStateChecker.js"></script>
+    <script type="module" src="/static/model/showinprofile.js"></script>
     <script type="module" src="/static/model/fire_model.js"></script>
 
 
+    <script>
+          
+    </script>
 </body>
 </html>

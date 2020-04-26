@@ -66,6 +66,8 @@
 					<h1 class="navbar-brand">
 						<a href="#body">Bus Locator</a>
 					</h1>
+          <br>
+          <label class="navbar-brand" id="usernameinhome" for="username"style="color:#00BFFF;font-weight:bold;font-size: 20px;"contenteditable="false"></label>
 					<!-- /logo -->
                 </div>
 
@@ -487,9 +489,6 @@
 				</div>
 			</section>
 			<!-- end Contact section -->
-
-
-
 		</main>
 
 		<footer id="footer">
@@ -563,10 +562,23 @@
         <script src="./static/js/wow.min.js"></script>
 		<!-- Custom Functions -->
         <script src="./static/js/main.js"></script>
+        <!--backend js file connections-->
+            <script src="https://www.gstatic.com/firebasejs/6.3.3/firebase-app.js"></script>
+            <script src="https://www.gstatic.com/firebasejs/6.3.3/firebase-auth.js"></script>
+            <script src="https://www.gstatic.com/firebasejs/6.3.3/firebase-firestore.js"></script>
+
+            <script type="module" src="/static/model/FirebaseConnection.js"></script>
+            <script type="module" src="/static/model/profile.js"></script>
+            <script type="module" src="/static/model/loginStateChecker.js"></script>
+            <script type="module" src="/static/model/showinhome.js"></script>
+            <script type="module" src="/static/model/fire_model.js"></script>
+
 	</body>
 
 
 	<script type="text/javascript">
+
+
 
 		function SetSession(bus_name,bus_value)
 		{
@@ -586,16 +598,10 @@
 
 		function fetchSession()
 		{
-
-
-
-			document.getElementById('bus_name_view').innerHTML=bus_name.value;
+      document.getElementById('bus_name_view').innerHTML=bus_name.value;
 			console.log("bus name is:  "+bus_name.value);
 		}
 		fetchSession();
-
-
-
 
 	</script>
 </html>
