@@ -4,8 +4,10 @@ window.readUserData= function(uid)
     var _email=document.getElementById("userprofile_email");
     var _phone=document.getElementById("userprofile_phone");
     var _subscribed_bus=document.getElementById("userprofile_subscribeBus");
-    var _subscribed_bus2= _subscribed_bus.options[_subscribed_bus.selectedIndex].value;
-    console.log(_subscribed_bus2);
+
+    var _subscribed_bus2= _subscribed_bus.options[_subscribed_bus.selectedIndex];
+   
+    // console.log("LEL: "+_subscribed_bus2.value);
     var _editDataBtn = document.getElementById("edit_userData");
 
     const usersCollection = firebase.firestore().collection('users');
@@ -16,14 +18,16 @@ window.readUserData= function(uid)
     .then(user => {
       if(user.exists)
         {
-              console.log(user.data());
+              
 
                var User=user.data();
 
               _username.innerHTML=User['username'];
               _email.innerHTML=User['email'];
               _phone.innerHTML=User['phone'];
+              console.log("HOGA: "+User['subscribed_bus']);
               _subscribed_bus2.innerHTML=User['subscribed_bus'];
+              
         }
 
       else
@@ -89,7 +93,7 @@ window.readUserData= function(uid)
   }
 
 
-   function EditUserData(_username,_email,_subscribed_bus2,uid)
+   function EditUserData(_username,_email,bus_name,uid)
    {
        const usersCollection = firebase.firestore().collection('users');
        usersCollection.doc(uid).set({
