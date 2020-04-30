@@ -12,7 +12,7 @@ window.initMap=function()
       });
 
 
-      console.log(latitude+","+longitude);
+     
       // Add geolocate control to the map.
       map.addControl(
         new mapboxgl.GeolocateControl({
@@ -26,7 +26,7 @@ window.initMap=function()
 
 initMap();
 
-
+getPosition();
 
 
 

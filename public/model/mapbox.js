@@ -1,5 +1,9 @@
 window.latitude=0;
 window.longitude=0;
+var marker1=null;
+var marker2=null;
+var userMarker=null;
+var markerList=[];
 var busName;
 
 
@@ -20,11 +24,67 @@ var busName;
 
                    map.flyTo({
                     center: [
-                    -34.5  + (Math.random() - 0.5) * 10 ,
-                    40+ + (Math.random() - 0.5) * 10,
+                    longitude,
+                    latitude
                     ],
                     essential: true // this animation is considered essential with respect to prefers-reduced-motion
                 });
+                
+                if(marker1==null)
+                {
+                    markerList.push(busName);
+                     // create the popup
+                     var popup = new mapboxgl.Popup({ offset: 25 }).setText(busName );
+                     marker1 = new mapboxgl.Marker({
+                         draggable: false
+                         })
+                         .setLngLat([longitude, latitude])
+                         .setPopup(popup) // sets a popup on this marker
+                         .addTo(map);
+
+
+                }
+                else if(marker2==null)
+                {
+                    markerList.push(busName);
+                     // create the popup
+                     var popup = new mapboxgl.Popup({ offset: 25 }).setText(busName );
+                     marker2 = new mapboxgl.Marker({
+                         draggable: false
+                         })
+                         .setLngLat([longitude, latitude])
+                         .setPopup(popup) // sets a popup on this marker
+                         .addTo(map);
+                }
+
+
+                if(marker1!=null && markerList[0]==busName)
+                {
+                    marker1.remove();
+
+                     // create the popup
+                    var popup = new mapboxgl.Popup({ offset: 25 }).setText(busName );
+                    marker1 = new mapboxgl.Marker({
+                        draggable: false
+                        })
+                        .setLngLat([longitude, latitude])
+                        .setPopup(popup) // sets a popup on this marker
+                        .addTo(map);
+                }
+                if(marker2!=null && markerList[1]==busName)
+                {
+                    marker2.remove();
+                    // create the popup
+                    var popup = new mapboxgl.Popup({ offset: 25 }).setText(busName );
+
+                    marker2 = new mapboxgl.Marker({
+                        draggable: false
+                        })
+                        .setLngLat([longitude, latitude])
+                        .setPopup(popup) // sets a popup on this marker
+                        .addTo(map);
+                }
+            
 
                    console.log(user.id+"---->"+bus_data['coordinate'].latitude+","+bus_data['coordinate'].longitude+
                    "-->"+bus_data['velocity']+"--->"+bus_data['active']);
@@ -42,12 +102,20 @@ var busName;
     var lat=position.coords.latitude.toFixed(4);
     var lon=position.coords.longitude.toFixed(4);
     console.log(lat,",",lon);
-   // loadGeoJson(lat,lon);
+    if(userMarker!=null)
+    {
+        userMarker.remove();
+    }
+    userMarker = new mapboxgl.Marker({
+        draggable: false
+        })
+        .setLngLat([lon, lat])
+        .addTo(map);
   
     
     }
 
- function getPosition() {
+  window.getPosition=function() {
             
     if (navigator.geolocation) 
     {
@@ -65,11 +133,8 @@ var busName;
     {
           window.alert("Your browser dont support tracking device location");
     }
-
-
 }
 
+listenForYourBusLocationChanges("Meghna-1");
+listenForYourBusLocationChanges("Meghna-2");
 
-
-listenForYourBusLocationChanges("Meghna");
-getPosition();
