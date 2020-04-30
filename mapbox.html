@@ -1,97 +1,36 @@
 <!DOCTYPE html>
 <html>
   <head>
+
+    <meta charset="utf-8" />
+    <title>Bus Location</title>
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
       <!-- mapbox sdk linked here -->
       <script src='https://api.mapbox.com/mapbox-gl-js/v1.8.0/mapbox-gl.js'></script>
       <link href='https://api.mapbox.com/mapbox-gl-js/v1.8.0/mapbox-gl.css' rel='stylesheet' />
-      <link href='./css/googleMap.css' rel='stylesheet' />
+      <link href='./static/css/googleMap.css' rel='stylesheet' />
+
+      <!--backend js files -->
+      <script src="https://www.gstatic.com/firebasejs/6.3.3/firebase-app.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/6.3.3/firebase-auth.js"></script>
+      <script src="https://www.gstatic.com/firebasejs/6.3.3/firebase-firestore.js"></script>
+
+      <script type="module" src="/static/model/FirebaseConnection.js"></script>
+      <script type="module" src="/static/model/mapbox.js"></script>
+
   </head>
   
   
   <body>
-    
+   
     <!--The div element for the map -->
     <div id='map'>
-      <script>
-    
-        mapboxgl.accessToken = 'pk.eyJ1Ijoic2FqaWQ1NzYiLCJhIjoiY2s3aXpsZ2sxMGw1bzNsazB5MXZyOXFjeiJ9.pfk8tnQPr2qegMlLDbST5g';
-        var map = new mapboxgl.Map({
-              container: 'map',
-              style: 'mapbox://styles/mapbox/light-v10',
-              center: [0,0], // initial map center in [lon, lat]
-              zoom: 12
-      });
-    </script>
-    </div>
-  </body>
-  <script>
-
-function loadGeoJson(lat,lon)
-{
-    
-    var geojson = {
-        type: 'FeatureCollection',
-        features: [{
-          type: 'Feature',
-          geometry: {
-            type: 'Point',
-            coordinates: [lat,lon]
-          },
-          properties: {
-            title: 'Shurma',
-            description: 'velocity:  \n Updated: '
-          }
-        },
-       ]
-      };
-
-      // add markers to map
-        geojson.features.forEach(function(marker) {
-
-            // create a HTML element for each feature
-            var el = document.createElement('div');
-            el.className = 'marker';
+      <script type="module" src="/static/model/loadMap.js"></script>
         
-            // make a marker for each feature and add to the map
-            new mapboxgl.Marker(el)
-            .setLngLat(marker.geometry.coordinates)
-            .addTo(map);
-        });
-}
-        function successCallback (position) {
-            //window.alert(position.coords.latitude,",",position.coords.longitude); 
-            
-            
-            var lat=position.coords.latitude.toFixed(4);
-            var lon=position.coords.longitude.toFixed(4);
-            console.log(lat,",",lon);
-           // loadGeoJson(lat,lon);
-           
-            
-            }
-      
-        function getPosition() {
-            
-            if (navigator.geolocation) 
-            {
-                    // supported
-                    window.alert("HI");
-                    //navigator.geolocation.getCurrentPosition(successCallback);
-               
-                    //listens for changing device location with movement
-                    navigator.geolocation.watchPosition(successCallback);   
-                    
 
+     
+    </div>
 
-            }
-            else
-            {
-                  window.alert("Your browser dont support tracking device location");
-            }
-
-
-        }
-        getPosition();
-       
-  </script>
+  </body>
+  
 </html>
