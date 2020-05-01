@@ -81,22 +81,23 @@
 						<li>
 							<a href="mapbox">Google Map</a>
 						</li>
-             <li>
+            			 <li>
 							<a href="#service">Service</a>
 						</li>
-            <li>
+           				 <li>
 							<a href="#portfolio">Bus Details</a>
 						</li>
                         <li>
 							<a href="#testimonials">Testimonial</a>
 						</li>
-            <li>
-             <a href="signuppage">Sign Up</a>
-            </li>
-            <li>
+						<li>
+						<a href="signuppage">Sign Up</a>
+						</li>
+						
+						<li>
 							<a href="Profile">Profile</a>
 						</li>
-            <li>
+           				 <li>
 							<a href="#contact">Contact</a>
 						</li>
                     </ul>
@@ -500,38 +501,29 @@
 							<p>Select your bus</p>
 
 						</div>
-						<form action="#"  class="subscribe-form wow animated fadeInUp">
-							<div class="input-field">
-								<input type="text" id="bus_name" class="subscribe form-control" placeholder="Enter Your bus name...">
+					<form action="#"  class="subscribe-form wow animated fadeInUp"></form>
+						<div class="input-field">
+								<input list="bus_list" id="bus_name" class="subscribe form-control" placeholder="Enter Your bus name...">
 
 								<datalist id="bus_list">
 									<option value="Kapotakkho">
-									<option value="Meghna">
-									<option value="Shurma">
-									<option value="Padma">
-									<option value="Jamuna">
-									</datalist>
-								<button id="submit_busname" class="submit-icon" >
-									<i class="fa fa-paper-plane fa-lg"></i>
-								</button>
-
+										<option value="Meghna">
+										<option value="Jamuna">
+										<option value="Shurma">
+										<option value="Padma">
+								</datalist>
+								
+								
 							</div>
+							
 						</form>
-						<div class="wow animated fadeInDown">
-							<p id="bus_name_view"></p>
-
-						</div>
+						
 
 
-
-						<div class="footer-social">
-							<ul>
-								<li class="wow animated zoomIn"><a href="#"><i class="fa fa-thumbs-up fa-3x"></i></a></li>
-								<li class="wow animated zoomIn" data-wow-delay="0.3s"><a href="#"><i class="fa fa-twitter fa-3x"></i></a></li>
-								<li class="wow animated zoomIn" data-wow-delay="0.6s"><a href="#"><i class="fa fa-skype fa-3x"></i></a></li>
-								<li class="wow animated zoomIn" data-wow-delay="0.9s"><a href="#"><i class="fa fa-dribbble fa-3x"></i></a></li>
-								<li class="wow animated zoomIn" data-wow-delay="1.2s"><a href="#"><i class="fa fa-youtube fa-3x"></i></a></li>
-							</ul>
+						<div>
+							<button id="submit_busname" style="color: black;" >
+								Submit
+							</button>
 						</div>
 
 						<p>Copyright &copy;  Developed By Students of Ahsanullah University of Science & Technology </p>
@@ -582,13 +574,16 @@
 
 		
 		 document.getElementById("submit_busname").onclick = function() {
-			console.log("HI ,people ");
-
+			
+			console.log("HI people");
 			var bus = document.getElementById('bus_name');
+			// Store
+			localStorage.setItem("BUS_NAME", bus.value);
 
-			SetSession("bus_name",bus);
+			console.log(localStorage.getItem("BUS_NAME"));
 
-			console.log(bus.value);
+			window.location.replace("mapbox");
+
 		};
 
 

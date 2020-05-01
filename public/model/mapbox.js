@@ -135,6 +135,7 @@ var busName;
     }
 }
 
-listenForYourBusLocationChanges("Meghna-1");
-listenForYourBusLocationChanges("Meghna-2");
+console.log(localStorage.getItem("BUS_NAME"));
+listenForYourBusLocationChanges(localStorage.getItem("BUS_NAME")+"-1");
+listenForYourBusLocationChanges(localStorage.getItem("BUS_NAME")+"-2");
 
