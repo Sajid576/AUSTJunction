@@ -1,28 +1,70 @@
-  checkState(1);
 
-window.readUserName = function(uid)
+//navbar userName Holder id
+var _usernameinhome=document.getElementById("usernameinhome");
+
+//Contact form id's
+const _sendBtn = document.getElementById("submit");
+const _name = document.getElementById("contact_name");
+const _email = document.getElementById("contact_email");
+const _sub = document.getElementById("contact_subject");
+const _message = document.getElementById("contact_message");
+
+
+checkState(1);
+
+
+window.setUserDetails = function(uid)
 {
-  const usersCollection = firebase.firestore().collection('users');
+  //console.log("username:  "+localStorage.getItem("userName"));
+  
+  _usernameinhome.innerHTML="Hi, "+localStorage.getItem("userName");
+  _name.value=localStorage.getItem("userName");
+  _email.value=localStorage.getItem("email");
 
-  const query = usersCollection.doc(uid.trim());
 
-  var _usernameinhome=document.getElementById("usernameinhome");
-  query.get()
-  .then(user => {
-    if(user.exists)
-      {
-            console.log(user.data());
+}
 
-             var User=user.data();
 
-             _usernameinhome.innerHTML=User['username'];
-      }
 
-    else
-      console.log('User does not exist !');
+
+_sendBtn.addEventListener('click', e => {
+  e.preventDefault();
+  console.log("Button clicked");
+  submitContactUs();
+});
+
+function submitContactUs()
+{
+    
+  if ( _name.value == "" || _email.value == "" || _sub.value == "" || _message.value=="")
+  {
+        alert("Please fill up all fields!");
+  }
+  else
+  {
+        storeContactData(_name.value,_email.value,_sub.value,_message.value);
+  }
+    
+
+
+}
+
+ //this function will be used to store user data into firebase
+ function storeContactData(user_name,email,sub,message)
+ {
+     const usersCollection = firebase.firestore().collection('ContactUs');
+     usersCollection.add({
+        username: user_name,
+        email:email,
+        sub:sub,
+        message:message
     })
-  .catch(error => {
-    console.error(error);
-  });
+    .then(()=>{
+             alert('Data has been saved successfully !')})
 
+
+        
+    .catch(error => {
+             alert(error)
+     });
 }

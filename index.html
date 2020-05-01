@@ -81,22 +81,23 @@
 						<li>
 							<a href="mapbox">Google Map</a>
 						</li>
-             <li>
+            			 <li>
 							<a href="#service">Service</a>
 						</li>
-            <li>
+           				 <li>
 							<a href="#portfolio">Bus Details</a>
 						</li>
                         <li>
 							<a href="#testimonials">Testimonial</a>
 						</li>
-            <li>
-             <a href="signuppage">Sign Up</a>
-            </li>
-            <li>
+						<li>
+						<a href="signuppage">Sign Up</a>
+						</li>
+						
+						<li>
 							<a href="Profile">Profile</a>
 						</li>
-            <li>
+           				 <li>
 							<a href="#contact">Contact</a>
 						</li>
                     </ul>
@@ -372,75 +373,7 @@
 			</section>
 			<!-- end Testimonial section -->
 
-			<!-- Price section -->
-			<!-- <section id="price">
-				<div class="container">
-					<div class="row">
-
-						<div class="sec-title text-center wow animated fadeInDown">
-							<h2>Price</h2>
-							<p>Our price for your company</p>
-						</div>
-
-						<div class="col-md-4 wow animated fadeInUp">
-							<div class="price-table text-center">
-								<span>Silver</span>
-								<div class="value">
-									<span>$</span>
-									<span>24,35</span><br>
-									<span>month</span>
-								</div>
-								<ul>
-									<li>No Bonus Points</li>
-									<li>No Bonus Points</li>
-									<li>No Bonus Points</li>
-									<li>No Bonus Points</li>
-									<li><a href="#">sign up</a></li>
-								</ul>
-							</div>
-						</div>
-
-						<div class="col-md-4 wow animated fadeInUp" data-wow-delay="0.4s">
-							<div class="price-table featured text-center">
-								<span>Gold</span>
-								<div class="value">
-									<span>$</span>
-									<span>50,00</span><br>
-									<span>month</span>
-								</div>
-								<ul>
-									<li>Free Trial</li>
-									<li>Free Trial</li>
-									<li>Free Trial</li>
-									<li>Free Trial</li>
-									<li><a href="#">sign up</a></li>
-								</ul>
-							</div>
-						</div>
-
-						<div class="col-md-4 wow animated fadeInUp" data-wow-delay="0.8s">
-							<div class="price-table text-center">
-								<span>Diamond</span>
-								<div class="value">
-									<span>$</span>
-									<span>123,12</span><br>
-									<span>month</span>
-								</div>
-								<ul>
-									<li>All Bonus Points</li>
-									<li>All Bonus Points</li>
-									<li>All Bonus Points</li>
-									<li>All Bonus Points</li>
-									<li><a href="#">sign up</a></li>
-								</ul>
-							</div>
-						</div>
-
-					</div>
-				</div>
-			</section>-->
-			<!-- end Price section -->
-
+			
 
 
 			<!-- Contact section -->
@@ -457,16 +390,16 @@
 						<div class="col-md-7 contact-form wow animated fadeInLeft">
 							<form action="#" method="post">
 								<div class="input-field">
-									<input type="text" name="name" class="form-control" placeholder="Your Name...">
+									<input type="text" id="contact_name" class="form-control" placeholder="Your Name...">
 								</div>
 								<div class="input-field">
-									<input type="email" name="email" class="form-control" placeholder="Your Email...">
+									<input type="email" id="contact_email" class="form-control" placeholder="Your Email...">
 								</div>
 								<div class="input-field">
-									<input type="text" name="subject" class="form-control" placeholder="Subject...">
+									<input type="text" id="contact_subject" class="form-control" placeholder="Subject...">
 								</div>
 								<div class="input-field">
-									<textarea name="message" class="form-control" placeholder="Messages..."></textarea>
+									<textarea id="contact_message" class="form-control" placeholder="Messages..."></textarea>
 								</div>
 						       	<button type="submit" id="submit" class="btn btn-blue btn-effect">Send</button>
 							</form>
@@ -500,38 +433,29 @@
 							<p>Select your bus</p>
 
 						</div>
-						<form action="#"  class="subscribe-form wow animated fadeInUp">
-							<div class="input-field">
-								<input type="text" id="bus_name" class="subscribe form-control" placeholder="Enter Your bus name...">
+					<form action="#"  class="subscribe-form wow animated fadeInUp"></form>
+						<div class="input-field">
+								<input list="bus_list" id="bus_name" class="subscribe form-control" placeholder="Enter Your bus name...">
 
 								<datalist id="bus_list">
 									<option value="Kapotakkho">
-									<option value="Meghna">
-									<option value="Shurma">
-									<option value="Padma">
-									<option value="Jamuna">
-									</datalist>
-								<button id="submit_busname" class="submit-icon" >
-									<i class="fa fa-paper-plane fa-lg"></i>
-								</button>
-
+										<option value="Meghna">
+										<option value="Jamuna">
+										<option value="Shurma">
+										<option value="Padma">
+								</datalist>
+								
+								
 							</div>
+							
 						</form>
-						<div class="wow animated fadeInDown">
-							<p id="bus_name_view"></p>
-
-						</div>
+						
 
 
-
-						<div class="footer-social">
-							<ul>
-								<li class="wow animated zoomIn"><a href="#"><i class="fa fa-thumbs-up fa-3x"></i></a></li>
-								<li class="wow animated zoomIn" data-wow-delay="0.3s"><a href="#"><i class="fa fa-twitter fa-3x"></i></a></li>
-								<li class="wow animated zoomIn" data-wow-delay="0.6s"><a href="#"><i class="fa fa-skype fa-3x"></i></a></li>
-								<li class="wow animated zoomIn" data-wow-delay="0.9s"><a href="#"><i class="fa fa-dribbble fa-3x"></i></a></li>
-								<li class="wow animated zoomIn" data-wow-delay="1.2s"><a href="#"><i class="fa fa-youtube fa-3x"></i></a></li>
-							</ul>
+						<div>
+							<button id="submit_busname" style="color: black;" >
+								Submit
+							</button>
 						</div>
 
 						<p>Copyright &copy;  Developed By Students of Ahsanullah University of Science & Technology </p>
@@ -571,7 +495,7 @@
            
             <script type="module" src="/static/model/loginStateChecker.js"></script>
             <script type="module" src="/static/model/home.js"></script>
-            <script type="module" src="/static/model/fire_model.js"></script>
+            
 
 	</body>
 
@@ -580,28 +504,22 @@
 
 
 
-		function SetSession(bus_name,bus_value)
-		{
-
-
-		}
+		
 		 document.getElementById("submit_busname").onclick = function() {
-			console.log("HI ,people ");
-
+			
+			console.log("HI people");
 			var bus = document.getElementById('bus_name');
+			// Store
+			localStorage.setItem("BUS_NAME", bus.value);
 
-			SetSession("bus_name",bus);
+			console.log(localStorage.getItem("BUS_NAME"));
 
-			console.log(bus.value);
+			window.location.replace("mapbox");
+
 		};
 
 
-		function fetchSession()
-		{
-      document.getElementById('bus_name_view').innerHTML=bus_name.value;
-			console.log("bus name is:  "+bus_name.value);
-		}
-		fetchSession();
+		
 
 	</script>
 </html>

@@ -11,11 +11,11 @@ window.checkState=function(page)
       console.log("USER LOGGED IN");
       if(page==1)
       {
-            readUserName(user.uid,1);
+            setUserDetails(user.uid,1);
       }
       else
        {
-          readUserData(user.uid,2);
+            readUserData(user.uid,2);
       }
     } else
     {
