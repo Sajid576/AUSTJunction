@@ -23,7 +23,13 @@
       function sendCode()
       {
         var phoneNumber = document.getElementById("phoneNumber").value;
+
+        phoneNumber="+88"+phoneNumber;
         console.log(phoneNumber);
+        if(_phone.value.length!=11)
+        {
+            alert("Mobile No. must be 11 digit !!");
+        }
         if ( _name.value == "" || _email.value == "" || _phone.value == "")
         {
             alert("Please fill out details!");
@@ -59,14 +65,22 @@
           .confirm(code)
           .then(function(result) {
             var user = result.user;
+                //store in firebase
                  storeUserData(_email.value,_name.value,_phone.value,user.uid);
-                 //_usernameinhome.innerHTML="Hi";
+                // Store locally
+                  localStorage.setItem("email", _email.value);
+                  localStorage.setItem("userName", _name.value);
+                  localStorage.setItem("phone", _phone.value);
+                  localStorage.setItem("uid", user.uid);
+                  
+                  //clear the textfield
                  _name.value="";
                  _email.value="";
                  _phone.value="";
                  document.getElementById("code").value="";
 
-                 //window.location.replace("./index.html");
+
+                
 
 
           })
@@ -86,11 +100,10 @@
            email:email,
        }, {merge: true})
        .then(()=>{
-                console.log('Data has been saved successfully !')})
-
-
-            //window.location.pathname = '/index'
-            //window.location.replace("index.html");
+                //console.log('Data has been saved successfully !');
+                 window.location.replace("./"),alert("You are logged in");
+              })
+                
        .catch(error => {
             console.error(error)
         });

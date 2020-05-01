@@ -24,8 +24,10 @@
         <section class="signup">
         <div class="container">
         <div class="signup-content">
+        
         <form id="signup-form" class="signup-form">
-        <h2 class="form-title" style="margin-top:10px;">Create account</h2>
+        <h2 class="form-title" style="margin-top:10px;">Create Account</h2>
+        
         <!-- username text field -->
         <div class="form-group d-flex justify-content-center">
           <input type="text" class="form-input" name="name" id="name" placeholder="Your Username"/>
@@ -37,7 +39,12 @@
         </div>
         <!-- phone number text field -->
         <div class="form-group d-flex justify-content-center">
-              <input type="tel" class="form-input" name="phoneNumber" id="phoneNumber" placeholder="Your Phone no(Please start with country code)" />
+            <div>
+                <label style="background-color: aliceblue; color:#000000;font-weight:bold;font-size: 20px;" contenteditable="false">+88</label>
+            </div> 
+            
+            <input type="tel" class="form-input" name="phoneNumber" id="phoneNumber" placeholder="Your Mobile No." />
+    
         </div>
 
         <!--Send Code button-->
@@ -57,11 +64,7 @@
             <button id="submit_data"class="form-submit">Submit</button>
         </div>
 
-      <!--  <form method="post" action="/index" id="submit_data">
-        <div class="d-flex justify-content-center">
-            <button class="form-submit">Submit </button>
-        </div>
-        </form> -->
+     
 
 
         </form>
@@ -86,7 +89,7 @@
 
       <script type="module" src="/static/model/FirebaseConnection.js"></script>
       <script type="module" src="/static/model/authentication.js"></script>
-      <script type="module" src="/static/model/fire_model.js"></script>
+      
 
       <script>
       
