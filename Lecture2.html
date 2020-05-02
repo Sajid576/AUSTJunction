@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Lecture Page</title>
+    <!-- Fontawesome Icon font -->
+        <link rel="stylesheet" href="/static/css/font-awesome.min.css">
+		<!-- bootstrap.min -->
+        <link rel="stylesheet" href="/static/css/jquery.fancybox.css">
+		<!-- bootstrap.min -->
+        <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+		<!-- bootstrap.min -->
+        <link rel="stylesheet" href="/static/css/owl.carousel.css">
+		<!-- bootstrap.min -->
+        <link rel="stylesheet" href="/static/css/slit-slider.css">
+		<!-- bootstrap.min -->
+        <link rel="stylesheet" href="/static/css/animate.css">
+		<!-- Main Stylesheet -->
+        <link rel="stylesheet" href="/static/css/main.css">
+
+		<!-- Modernizer Script for old Browsers -->
+        <script src="/static/js/modernizr-2.6.2.min.js"></script>
+
+    <!-- Main css -->
+     <link rel="stylesheet" href="/static/Lecture/css/style2.css">
+</head>
+<style>
+</style>
+<!--<body style="background-image: url(/static/img/signup-bg.jpg);"> -->
+<body>
+     <div id="mainDiv" class="Main-Div">
+        <div class="transparent-layer">
+        </div>
+      </div>
+<!--frontend js file connections-->
+    <script src="/static/Profile/vendor/jquery/jquery.min.js"></script>
+    <script src="/static/Profile/js/main.js"></script>
+
+
+<!--backend js file connections-->
+    <script src="https://www.gstatic.com/firebasejs/6.3.3/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.3.3/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.3.3/firebase-firestore.js"></script>
+
+    <script type="module" src="/static/model/FirebaseConnection.js"></script>
+    <script type="module" src="/static/model/profile.js"></script>
+    <script type="module" src="/static/model/loginStateChecker.js"></script>
+    <script type="module" src="/static/model/showinprofile.js"></script>
+    <script type="module" src="/static/model/fire_model.js"></script>
+    <script>
+    var inputs = '';
+    for (var i = 1; i <= 4; i++)
+    {
+     inputs += '<div class="element"><a href="https://drive.google.com/open?id=1yIpOlw07hlzoPsIV1WmSKCl-WqmhIZJu">https://drive.google.com/open?id=1yIpOlw07hlzoPsIV1WmSKCl-WqmhIZJu</a></div>';
+    }
+    var div = document.createElement('div');
+    div.innerHTML = inputs;
+    var Division = document.querySelector('#mainDiv');
+    Division.parentNode.insertBefore(div, Division);
+  </script>
+</body>
+</html>
