@@ -7,6 +7,7 @@
     "collections": "^5.1.9",
     "express": "^4.17.1",
     "firebase": "^7.10.0",
+    "mapbox-geocoding": "^0.1.5",
     "nodemailer": "^6.4.6",
     "package.json": "^2.0.1",
     "uniq": "^1.0.1"
