@@ -22,6 +22,8 @@ var busName;
                    latitude=bus_data['coordinate'].latitude.toFixed(3);
                    longitude=bus_data['coordinate'].longitude.toFixed(3);
 
+
+
                    map.flyTo({
                     center: [
                     longitude,
@@ -33,11 +35,14 @@ var busName;
                 if(marker1==null)
                 {
                     markerList.push(busName);
+                    
+                    //custom marker
+                    var el = document.createElement('div');
+                     el.className = 'marker';
+
                      // create the popup
                      var popup = new mapboxgl.Popup({ offset: 25 }).setText(busName );
-                     marker1 = new mapboxgl.Marker({
-                         draggable: false
-                         })
+                     marker1 = new mapboxgl.Marker(el)
                          .setLngLat([longitude, latitude])
                          .setPopup(popup) // sets a popup on this marker
                          .addTo(map);
@@ -47,11 +52,13 @@ var busName;
                 else if(marker2==null)
                 {
                     markerList.push(busName);
+
+                    //custom marker
+                    var el = document.createElement('div');
+                    el.className = 'marker';
                      // create the popup
                      var popup = new mapboxgl.Popup({ offset: 25 }).setText(busName );
-                     marker2 = new mapboxgl.Marker({
-                         draggable: false
-                         })
+                     marker2 = new mapboxgl.Marker(el)
                          .setLngLat([longitude, latitude])
                          .setPopup(popup) // sets a popup on this marker
                          .addTo(map);
@@ -62,11 +69,13 @@ var busName;
                 {
                     marker1.remove();
 
+
+                     //custom marker
+                     var el = document.createElement('div');
+                     el.className = 'marker';
                      // create the popup
                     var popup = new mapboxgl.Popup({ offset: 25 }).setText(busName );
-                    marker1 = new mapboxgl.Marker({
-                        draggable: false
-                        })
+                    marker1 = new mapboxgl.Marker(el)
                         .setLngLat([longitude, latitude])
                         .setPopup(popup) // sets a popup on this marker
                         .addTo(map);
@@ -74,12 +83,15 @@ var busName;
                 if(marker2!=null && markerList[1]==busName)
                 {
                     marker2.remove();
+
+
+                     //custom marker
+                     var el = document.createElement('div');
+                     el.className = 'marker';
                     // create the popup
                     var popup = new mapboxgl.Popup({ offset: 25 }).setText(busName );
 
-                    marker2 = new mapboxgl.Marker({
-                        draggable: false
-                        })
+                    marker2 = new mapboxgl.Marker(el)
                         .setLngLat([longitude, latitude])
                         .setPopup(popup) // sets a popup on this marker
                         .addTo(map);
@@ -102,6 +114,8 @@ var busName;
     var lat=position.coords.latitude.toFixed(4);
     var lon=position.coords.longitude.toFixed(4);
     console.log(lat,",",lon);
+
+    printAddress(lat,lon);
     if(userMarker!=null)
     {
         userMarker.remove();
@@ -134,6 +148,7 @@ var busName;
           window.alert("Your browser dont support tracking device location");
     }
 }
+
 
 console.log(localStorage.getItem("BUS_NAME"));
 listenForYourBusLocationChanges(localStorage.getItem("BUS_NAME")+"-1");
