@@ -1,7 +1,7 @@
 {
   "name": "package.json",
   "version": "1.0.0",
-  "description": "",
+  "description": "node server ",
   "main": "server.js",
   "dependencies": {
     "collections": "^5.1.9",
@@ -11,6 +11,10 @@
     "nodemailer": "^6.4.6",
     "package.json": "^2.0.1",
     "uniq": "^1.0.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
   },
   "devDependencies": {},
   "scripts": {
