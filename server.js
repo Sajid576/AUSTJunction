@@ -18,6 +18,12 @@ app.get('/Profile', function(req, res) {
 app.get('/mapbox', function(req, res) {
   res.sendFile(path.join(__dirname, '/mapbox.html'));
 });
+app.get('/Lecture1', function(req, res) {
+  res.sendFile(path.join(__dirname, '/Lecture1.html'));
+});
+app.get('/Lecture2', function(req, res) {
+  res.sendFile(path.join(__dirname, '/Lecture2.html'));
+});
 
 
 
