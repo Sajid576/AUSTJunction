@@ -25,6 +25,7 @@ app.get('/Lecture2', function(req, res) {
   res.sendFile(path.join(__dirname, '/Lecture2.html'));
 });
 
+var PORT=3000 || process.env.PORT;
 
 
-app.listen(3000);
+app.listen(PORT);
