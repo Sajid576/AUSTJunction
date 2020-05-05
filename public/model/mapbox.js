@@ -115,7 +115,7 @@ var busName;
     var lon=position.coords.longitude.toFixed(4);
     console.log(lat,",",lon);
 
-    printAddress(lat,lon);
+   
     if(userMarker!=null)
     {
         userMarker.remove();
