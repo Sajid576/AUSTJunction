@@ -1,10 +1,10 @@
 const express = require('express');
 const path = require('path');
-var http = require('http');
+
 
 const app = express();
 
-var httpServer = http.createServer(app);
+
 
 app.use('/static', express.static('public'))
 
@@ -28,7 +28,7 @@ app.get('/Lecture2', function(req, res) {
   res.sendFile(path.join(__dirname, '/Lecture2.html'));
 });
 
-var PORT=5000 || process.env.PORT;
+var PORT= process.env.PORT || 5000;
 
 
-httpServer.listen(PORT);
+app.listen(PORT);
