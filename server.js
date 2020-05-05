@@ -1,9 +1,11 @@
 const express = require('express');
 const path = require('path');
+var http = require('http');
 
 const app = express();
 
-app.create
+var httpServer = http.createServer(app);
+
 app.use('/static', express.static('public'))
 
 app.get('/', function(req, res) {
@@ -26,7 +28,7 @@ app.get('/Lecture2', function(req, res) {
   res.sendFile(path.join(__dirname, '/Lecture2.html'));
 });
 
-var PORT=3000 || process.env.PORT;
+var PORT=5000 || process.env.PORT;
 
 
-app.listen(PORT);
+httpServer.listen(PORT);
