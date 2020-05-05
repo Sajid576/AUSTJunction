@@ -26,7 +26,7 @@ window.initMap=function()
 
 initMap();
 
-getPosition();
+
 
 
 
