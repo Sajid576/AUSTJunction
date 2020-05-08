@@ -51,25 +51,25 @@
                   </div>
                   <br>
                   <br>
-                  <div class="form-group">
-                     <label style="color:#37f0f0;font-weight:bold;font-size:20px;">Please select your semester</label>
-                      <form>
-                        <select id="userselectsem" class="classic" style="background-color:#00BFFF;font-weight:bold;">
-                         <option value="11" style="background-color:#00BFFF;font-weight:bold;">1.1</option>
-                         <option value="12" style="background-color:#00BFFF;font-weight:bold;">1.2</option>
-                         <option value="21" style="background-color:#00BFFF;font-weight:bold;">2.1</option>
-                         <option value="22" style="background-color:#00BFFF;font-weight:bold;">2.2</option>
-                         <option value="31" style="background-color:#00BFFF;font-weight:bold;">3.1</option>
-                         <option value="32" style="background-color:#00BFFF;font-weight:bold;">3.2</option>
-                         <option value="41" style="background-color:#00BFFF;font-weight:bold;">4.1</option>
-                         <option value="41" style="background-color:#00BFFF;font-weight:bold;">4.2</option>
-                         <option value="fiveone" style="background-color:#00BFFF;font-weight:bold;"disabled>5.1</option>
-                         <option value="fivetwo" style="background-color:#00BFFF;font-weight:bold;"disabled>5.2</option>
-                        </select>
-                    </form>
-                </div>
-                <br>
-                <br>
+                    <div class="form-group">
+                       <label style="color:#37f0f0;font-weight:bold;font-size:20px;">Please select your semester</label>
+                        <form>
+                          <select id="userselectsem" class="classic" style="background-color:#00BFFF;font-weight:bold;">
+                           <option value="11" style="background-color:#00BFFF;font-weight:bold;">1.1</option>
+                           <option value="12" style="background-color:#00BFFF;font-weight:bold;">1.2</option>
+                           <option value="21" style="background-color:#00BFFF;font-weight:bold;">2.1</option>
+                           <option value="22" style="background-color:#00BFFF;font-weight:bold;">2.2</option>
+                           <option value="31" style="background-color:#00BFFF;font-weight:bold;">3.1</option>
+                           <option value="32" style="background-color:#00BFFF;font-weight:bold;">3.2</option>
+                           <option value="41" style="background-color:#00BFFF;font-weight:bold;">4.1</option>
+                           <option value="41" style="background-color:#00BFFF;font-weight:bold;">4.2</option>
+                           <option value="fiveone" style="background-color:#00BFFF;font-weight:bold;"disabled>5.1</option>
+                           <option value="fivetwo" style="background-color:#00BFFF;font-weight:bold;"disabled>5.2</option>
+                          </select>
+                      </form>
+                  </div>
+                  <br>
+                  <br>
                    <div class="d-flex justify-content-center">
                     <button id="submit_data"class="form-submit">
                        <a href="Lecture2">Next</a>
@@ -89,13 +89,34 @@
       {
         document.getElementById("userselectsem").options[8].disabled=false;
         document.getElementById("userselectsem").options[9].disabled=false;
+      }
+      else
+      {
+      document.getElementById("userselectsem").options[8].disabled=true;
+      document.getElementById("userselectsem").options[9].disabled=true;
+      }
+      if(document.getElementById('userselectsem').value=='fiveone' || document.getElementById('userselectsem').value=='fivetwo')
+      {
+        console.log("5.1/5.2 pressed");
+        document.getElementById("userselectdept").options[0].disabled=true;
+        document.getElementById("userselectdept").options[1].disabled=true;
+        document.getElementById("userselectdept").options[2].disabled=true;
+        document.getElementById("userselectdept").options[3].disabled=true;
+        document.getElementById("userselectdept").options[4].disabled=true;
+        document.getElementById("userselectdept").options[5].disabled=true;
+        document.getElementById("userselectdept").options[7].disabled=true;
       }else
       {
-        document.getElementById("userselectsem").options[8].disabled=true;
-        document.getElementById("userselectsem").options[9].disabled=true;
+        console.log("Except 5.1/5.2");
+        document.getElementById("userselectdept").options[0].disabled=false;
+        document.getElementById("userselectdept").options[1].disabled=false;
+        document.getElementById("userselectdept").options[2].disabled=false;
+        document.getElementById("userselectdept").options[3].disabled=false;
+        document.getElementById("userselectdept").options[4].disabled=false;
+        document.getElementById("userselectdept").options[5].disabled=false;
+        document.getElementById("userselectdept").options[7].disabled=false;
       }
     }
-
     </script>
 </body>
 </html>
