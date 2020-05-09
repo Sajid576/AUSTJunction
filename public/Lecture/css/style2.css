@@ -142,26 +142,34 @@ h4 {
 .clear {
   clear: both; }
 
-body {
-  font-size: 14px;
-  line-height: 1.8;
-  color: #222;
-  font-weight: 400;
-  font-family: 'Montserrat';
-  background-repeat: no-repeat;
-  background-size: cover;
-  -moz-background-size: cover;
-  -webkit-background-size: cover;
-  -o-background-size: cover;
-  -ms-background-size: cover;
-  background-position: center center;
-  padding: 115px 0; }
+  body {
+    font-family: "Open Sans", sans-serif;
+    color: #fff;
+    position: relative;
+    background: transparent;
+  }
 
-.container {
-  width: 660px;
+  body::before {
+    content: "";
+    position: fixed;
+    background: #040404 url("/static/img/signup-bg.jpg") top right no-repeat;
+    background-size: cover;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 100vh;
+  }
+
+  @media (min-width: 1024px) {
+    body::before {
+      background-attachment: fixed;
+    }
+  }
+.container
+ {
+  width: 100%;
   position: relative;
-  margin: 0 auto; }
-
+ }
 .display-flex {
   justify-content: space-between;
   -moz-justify-content: space-between;
@@ -198,6 +206,8 @@ body {
 
 .profile-content {
   background: rgba(0,0,0,0.4);
+  height: 100vh;
+  overflow: auto;
   border-radius: 10px;
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
