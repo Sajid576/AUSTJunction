@@ -142,25 +142,34 @@ h4 {
 .clear {
   clear: both; }
 
-body {
-  font-size: 14px;
-  line-height: 1.8;
-  color: #222;
-  font-weight: 400;
-  font-family: 'Montserrat';
-  background-repeat: no-repeat;
-  background-size: cover;
-  -moz-background-size: cover;
-  -webkit-background-size: cover;
-  -o-background-size: cover;
-  -ms-background-size: cover;
-  background-position: center center;
-  padding: 115px 0; }
+  body {
+    font-family: "Open Sans", sans-serif;
+    color: #fff;
+    position: relative;
+    background: transparent;
+  }
 
+  body::before {
+    content: "";
+    position: fixed;
+    background: #040404 url("/static/img/signup-bg.jpg") top right no-repeat;
+    background-size: cover;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 100vh;
+  }
+
+  @media (min-width: 1024px) {
+    body::before {
+      background-attachment: fixed;
+    }
+  }
 .container {
   width: 660px;
   position: relative;
-  margin: 0 auto; }
+/*margin: 0 auto;*/
+margin-top: 5%;}
 
 .display-flex {
   justify-content: space-between;
