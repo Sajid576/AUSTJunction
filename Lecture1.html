@@ -85,6 +85,7 @@
     <script>
     function checkArch()
     {
+      document.getElementById("userselectsem").selectedIndex = "0";
       if(document.getElementById('userselectdept').value=='Arch')
       {
         document.getElementById("userselectsem").options[8].disabled=false;
@@ -94,28 +95,7 @@
       {
       document.getElementById("userselectsem").options[8].disabled=true;
       document.getElementById("userselectsem").options[9].disabled=true;
-      }
-      if(document.getElementById('userselectsem').value=='fiveone' || document.getElementById('userselectsem').value=='fivetwo')
-      {
-        console.log("5.1/5.2 pressed");
-        document.getElementById("userselectdept").options[0].disabled=true;
-        document.getElementById("userselectdept").options[1].disabled=true;
-        document.getElementById("userselectdept").options[2].disabled=true;
-        document.getElementById("userselectdept").options[3].disabled=true;
-        document.getElementById("userselectdept").options[4].disabled=true;
-        document.getElementById("userselectdept").options[5].disabled=true;
-        document.getElementById("userselectdept").options[7].disabled=true;
-      }else
-      {
-        console.log("Except 5.1/5.2");
-        document.getElementById("userselectdept").options[0].disabled=false;
-        document.getElementById("userselectdept").options[1].disabled=false;
-        document.getElementById("userselectdept").options[2].disabled=false;
-        document.getElementById("userselectdept").options[3].disabled=false;
-        document.getElementById("userselectdept").options[4].disabled=false;
-        document.getElementById("userselectdept").options[5].disabled=false;
-        document.getElementById("userselectdept").options[7].disabled=false;
-      }
+     }
     }
     </script>
 </body>
