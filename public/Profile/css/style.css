@@ -169,7 +169,8 @@ h4 {
 .container {
   width: 660px;
   position: relative;
-  margin: 0 auto; }
+/*margin: 0 auto;*/
+margin-top: 14%;}
 
 .display-flex {
   justify-content: space-between;
