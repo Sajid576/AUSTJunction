@@ -158,7 +158,8 @@ h2 {
 .container {
   width: 660px;
   position: relative;
-  margin: 0 auto; }
+/*margin: 0 auto;*/
+margin-top: 5%;}
 
 .display-flex {
   justify-content: space-between;
