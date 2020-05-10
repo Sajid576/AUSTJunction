@@ -165,6 +165,13 @@ h4 {
       background-attachment: fixed;
     }
   }
+.transparent-overlay
+{
+  background: rgba(0,0,0,0.4);
+  height: 100vh;
+  overflow: auto;
+  z-index: -1;
+}
 .container
  {
   width: 100%;
@@ -360,17 +367,6 @@ input[type=checkbox]:not(old):checked + label > span:before {
 @media screen and (max-width: 480px) {
   .signup-content {
     padding: 50px 25px; } }
-.propic {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  display: flex;
-  margin-left: auto;
-  margin-right: auto;
-  align-items: center;
-  justify-content: center;
-  padding: 10px 15px;
-}
 select {
 
   /* styling */
@@ -392,8 +388,6 @@ select {
   -webkit-appearance: none;
   -moz-appearance: none;
 }
-
-
 /* arrows */
 
 select.classic {
@@ -428,4 +422,82 @@ select.classic:focus {
   background-repeat: no-repeat;
   border-color: grey;
   outline: 0;
+}
+h1, h4 {
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.heading {
+  font-size: 20px;
+}
+.bold {
+  font-weight: bold;
+}
+
+.section-title strong {
+	color: #00C6D7;
+  	font-size: 56px;
+}
+
+.section-title h1 {
+	font-size: 24px;
+}
+
+.section-title {
+  padding-bottom: 32px;
+}
+
+.medium-icon {
+  font-size: 32px !important;
+}
+#work {
+    text-align: center;
+	padding:10px 0px;
+}
+#work .col-md-4{
+	margin-top:20px;
+}
+#work .fa{
+	font-size:40px;
+}
+#work .inner_box {
+  width: 100%;
+  border-radius: 10px;
+  padding:30px 10px;
+  position: relative;
+  transition: all 0.4s ease-in-out;
+  background:#CCCCCC;
+}
+#work .inner_box:hover {
+  background-color: #ffffff;
+  box-shadow: 0px 2px 8px 0px rgba(50, 50, 50, 0.20);
+}
+#work h3 {
+  font-size: 18px;
+}
+
+.readmore{
+	padding: 10px 35px;
+	border:3px solid #999999;
+	background-color: #D4D4D4;
+	border-radius:25px;
+	font-size:18px;
+	text-transform:uppercase;
+	color:#000000;
+}
+.readmore:hover{
+	text-decoration:none;
+}
+
+.download-div{text-align:center; margin-top:40px; padding:40px 0px; clear:both;}
+.download{
+	padding:10px 30px;
+	background-color:#006699;
+	color:#000000;
+	font-size:24px;
+	text-transform:uppercase;
+	text-decoration:none;
+	margin-top:2px;
+	border-radius:10px;
 }
