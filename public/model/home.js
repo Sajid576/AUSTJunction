@@ -2,6 +2,9 @@
 //navbar userName Holder id
 var _usernameinhome=document.getElementById("usernameinhome");
 
+//navbar sign up/log out button id
+var signUp_logout=document.getElementById("login_logout");
+
 //Contact form id's
 const _sendBtn = document.getElementById("submit");
 const _name = document.getElementById("contact_name");
@@ -13,10 +16,21 @@ const _message = document.getElementById("contact_message");
 checkState(1);
 
 
+function signoutChecker()
+{
+   if(signUp_logout.value=="Log Out")
+   {
+      firebase.auth().signOut();
+      console.log("User logged out");
+   }
+    
+}
 window.setUserDetails = function(uid)
 {
   //console.log("username:  "+localStorage.getItem("userName"));
   
+  signUp_logout.innerHTML="Log Out";
+
    //this code set user name on nav bar
   _usernameinhome.innerHTML="Hi, "+localStorage.getItem("userName");
   
