@@ -49,7 +49,7 @@
            }
        }
 
-    //var code = document.getElementById("code").value;
+    
     _submitBtn.addEventListener('click', e =>
     {
       var code = document.getElementById("code").value;
@@ -67,7 +67,7 @@
             var user = result.user;
                 //store in firebase
                  storeUserData(_email.value,_name.value,_phone.value,user.uid);
-                // Store locally
+                // Store in local storage api
                   localStorage.setItem("email", _email.value);
                   localStorage.setItem("userName", _name.value);
                   localStorage.setItem("phone", _phone.value);

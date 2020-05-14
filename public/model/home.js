@@ -17,7 +17,10 @@ window.setUserDetails = function(uid)
 {
   //console.log("username:  "+localStorage.getItem("userName"));
   
+   //this code set user name on nav bar
   _usernameinhome.innerHTML="Hi, "+localStorage.getItem("userName");
+  
+  //this code set user name and email on contact details
   _name.value=localStorage.getItem("userName");
   _email.value=localStorage.getItem("email");
 

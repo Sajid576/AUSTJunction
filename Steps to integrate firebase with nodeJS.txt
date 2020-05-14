@@ -6,4 +6,8 @@ npm install --save firebase	(install firebase dependencies)
 
 firebase init 
 
-firebase serve    
+firebase serve
+
+*******
+To bring back the node modules
+>> npm i    
