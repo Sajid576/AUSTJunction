@@ -3,6 +3,8 @@ const path = require('path');
 const app = express();
 app.use('/static', express.static('public'))
 
+require('./public/model/fire_model');
+
 app.get('/', function(req, res) {
   res.sendFile(path.join(__dirname, '/index.html'));
 });
