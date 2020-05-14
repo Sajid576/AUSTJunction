@@ -16,6 +16,15 @@ const _message = document.getElementById("contact_message");
 checkState(1);
 
 
+function signoutChecker()
+{
+   if(signUp_logout.value=="Log Out")
+   {
+      firebase.auth().signOut();
+      console.log("User logged out");
+   }
+    
+}
 window.setUserDetails = function(uid)
 {
   //console.log("username:  "+localStorage.getItem("userName"));
