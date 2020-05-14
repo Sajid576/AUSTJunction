@@ -28,54 +28,51 @@
     <link rel="stylesheet" href="/static/Lecture/css/style2.css">
 </head>
 <body>
+
+  <!--Navigation bar starts -->
+  <header id="navigation" class="navbar-inverse navbar-fixed-top animated-header">
+
+    <div class="navbar-header">
+    <!-- responsive nav button -->
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <!-- /responsive nav button -->
+
+    <!-- logo -->
+    <h1 id="dept_header" style="color: bisque; text-align: center;" >.</h1>
+    <h3 id="semester_header" style="color: bisque;  text-align: center;">.</h3>
+    <!-- /logo -->
+    </div>
+
+  <!-- main nav -->
+    <nav class="navbar-collapse navbar-right">
+
+    <ul  class="nav navbar-nav">
+       <li>
+          <a style="padding: 1em 6em;" href="./">Home</a>
+       </li>
+    </ul>
+          </nav>
+  <!-- /main nav -->
+
+    <!--Navigation bar ends -->
+  </header>
+
+
 <div class="main">
   <div class="Transparent-layout">
     <section id="work">
    	    <div class="container">
-   		     <div class="row">
+   		     <div class="row" id="boxCollection">
+                
                 <!--This div has to be generated iteratively-->
-                <div class="col-lg-4 col-md-4 col-sm-4">
-   				          <div class="inner_box">
-   					           <i class="fa fa-laptop" aria-hidden="true"></i>
-   					           <h3>Click the following button for download</h3>
-                        <hr>
-                        <label style="color:#000000;"><u>Contributor:</u> </label>
-                       <br>
-                        <!--Fetch value-->
-                        <label id="contributor-name" for="Name"style="color:#000000;font-weight:bold;">Afsana Afrin</label>
-   					           <br>
-                        <!--Fetch value-->
-                        <label style="color:#000000;"><u>Session:</u> </label>
-                       <br>
-                        <label id="session" for="Session"style="color:#000000;font-weight:bold;">spring_18</label>
-    					         <br>
-                       <br>
-                        <a href="#" class="readmore">Download</a>
-                     </div>
-   			        </div>
-
-                <div class="col-lg-4 col-md-4 col-sm-4">
-   				          <div class="inner_box">
-   					           <i class="fa fa-laptop" aria-hidden="true"></i>
-   					           <h3>Click the following button for download</h3>
-                        <hr>
-                        <label style="color:#000000;"><u>Contributor:</u> </label>
-                       <br>
-                        <!--Fetch value-->
-                        <label id="contributor-name" for="Name"style="color:#000000;font-weight:bold;">Afsana Afrin</label>
-   					           <br>
-                        <!--Fetch value-->
-                        <label style="color:#000000;"><u>Session:</u> </label>
-                       <br>
-                        <label id="session" for="Session"style="color:#000000;font-weight:bold;">spring_18</label>
-    					         <br>
-                       <br>
-                        <a href="#" class="readmore">Download</a>
-                     </div>
-   			        </div>
-
-
-
+                
+                             
+                
              </div>
           </div>
       </section>
@@ -93,14 +90,15 @@
     <script src="https://www.gstatic.com/firebasejs/6.3.3/firebase-firestore.js"></script>
 
     <script type="module" src="/static/model/FirebaseConnection.js"></script>
-    <script type="module" src="/static/model/profile.js"></script>
-    <script type="module" src="/static/model/loginStateChecker.js"></script>
-    <script type="module" src="/static/model/showinprofile.js"></script>
-    <script type="module" src="/static/model/fire_model.js"></script>
+    <script type="module" src="/static/model/Lecture2.js"></script>
+   
 
 
     <script>
-
+        for(var i=1;i<=10;i++)
+        {
+            
+        }
     </script>
 </body>
 </html>

@@ -54,17 +54,17 @@
                     <div class="form-group">
                        <label style="color:#37f0f0;font-weight:bold;font-size:20px;">Please select your semester</label>
                         <form>
-                          <select id="userselectsem" class="classic" style="background-color:#00BFFF;font-weight:bold;">
-                           <option value="11" style="background-color:#00BFFF;font-weight:bold;">1.1</option>
-                           <option value="12" style="background-color:#00BFFF;font-weight:bold;">1.2</option>
-                           <option value="21" style="background-color:#00BFFF;font-weight:bold;">2.1</option>
-                           <option value="22" style="background-color:#00BFFF;font-weight:bold;">2.2</option>
-                           <option value="31" style="background-color:#00BFFF;font-weight:bold;">3.1</option>
-                           <option value="32" style="background-color:#00BFFF;font-weight:bold;">3.2</option>
-                           <option value="41" style="background-color:#00BFFF;font-weight:bold;">4.1</option>
-                           <option value="41" style="background-color:#00BFFF;font-weight:bold;">4.2</option>
-                           <option value="fiveone" style="background-color:#00BFFF;font-weight:bold;"disabled>5.1</option>
-                           <option value="fivetwo" style="background-color:#00BFFF;font-weight:bold;"disabled>5.2</option>
+                          <select id="userselectsem" class="classic" onchange="storeSemester()" style="background-color:#00BFFF;font-weight:bold;">
+                           <option value="1.1" style="background-color:#00BFFF;font-weight:bold;">1.1</option>
+                           <option value="1.2" style="background-color:#00BFFF;font-weight:bold;">1.2</option>
+                           <option value="2.1" style="background-color:#00BFFF;font-weight:bold;">2.1</option>
+                           <option value="2.2" style="background-color:#00BFFF;font-weight:bold;">2.2</option>
+                           <option value="3.1" style="background-color:#00BFFF;font-weight:bold;">3.1</option>
+                           <option value="3.2" style="background-color:#00BFFF;font-weight:bold;">3.2</option>
+                           <option value="4.1" style="background-color:#00BFFF;font-weight:bold;">4.1</option>
+                           <option value="4.2" style="background-color:#00BFFF;font-weight:bold;">4.2</option>
+                           <option value="5.1" style="background-color:#00BFFF;font-weight:bold;"disabled>5.1</option>
+                           <option value="5.2" style="background-color:#00BFFF;font-weight:bold;"disabled>5.2</option>
                           </select>
                       </form>
                   </div>
@@ -85,11 +85,25 @@
           </div>
       </section>
   </div>
-    <script type="module" src="/static/model/Lecture1.js"></script>
+    
     <script src="/static/Lecture1/js/main.js"></script>
     <script>
+
+
+    function storeSemester()
+    {
+       //storing the selected semester in the local storage api
+       localStorage.setItem("selected_semester", document.getElementById('userselectsem').value);
+
+
+    }
     function checkArch()
     {
+
+       //storing the selected department in the local storage api
+       localStorage.setItem("selected_dept", document.getElementById('userselectdept').value);
+
+      //whenever a value is selected in department dropdown index is set to 1st index
       document.getElementById("userselectsem").selectedIndex = "0";
       if(document.getElementById('userselectdept').value=='Arch')
       {
