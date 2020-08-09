@@ -85,17 +85,17 @@
           </div>
       </section>
   </div>
-    
+
     <script src="/static/Lecture1/js/main.js"></script>
     <script>
+    localStorage.setItem("selected_semester",'1.1');
+    localStorage.setItem("selected_dept",'CSE');
 
 
     function storeSemester()
     {
        //storing the selected semester in the local storage api
        localStorage.setItem("selected_semester", document.getElementById('userselectsem').value);
-
-
     }
     function checkArch()
     {
