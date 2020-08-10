@@ -1,3 +1,10 @@
+
+var firebase = require("firebase/app");
+
+// Add the Firebase products that you want to use
+require("firebase/auth");
+require("firebase/firestore");
+require("firebase/analytics");
 // Your web app's Firebase configuration
 var firebaseConfig = {
     apiKey: "AIzaSyAdok8FrAVYo4kkepl3pXAOEUIVUsliYBk",
@@ -8,5 +15,7 @@ var firebaseConfig = {
     messagingSenderId: "548182931138",
     appId: "1:548182931138:web:0410f178b31092134c2d5b"
   };
-        // Initialize Firebase
-        firebase.initializeApp(firebaseConfig);
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+
+module.exports.firebase=firebase;
