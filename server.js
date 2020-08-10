@@ -3,7 +3,7 @@ const path = require('path');
 const app = express();
 app.use('/static', express.static('public'))
 
-require('./public/model/fire_model');
+const lectureModel=require('./api/model/LectureModel');
 
 app.get('/', function(req, res) {
   res.sendFile(path.join(__dirname, '/public/index.html'));
@@ -28,4 +28,8 @@ app.get('/Lecture2', function(req, res) {
 var PORT= process.env.PORT || 5000;
 
 
-app.listen(PORT);
+app.listen(PORT,()=>{
+      console.log("Server listening on PORT: "+PORT);
+      new lectureModel.LectureModel().fetchAllLecturesFromDb();
+      
+});

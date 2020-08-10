@@ -18,4 +18,4 @@ var firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
 
-module.exports.firebase=firebase;
+module.exports=firebase;

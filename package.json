@@ -9,6 +9,7 @@
     "firebase": "^7.10.0",
     "mapbox-geocoding": "^0.1.5",
     "nodemailer": "^6.4.6",
+    "nodemon": "^2.0.4",
     "package.json": "^2.0.1",
     "uniq": "^1.0.1"
   },

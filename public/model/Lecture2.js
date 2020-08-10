@@ -17,7 +17,7 @@ function fetchLectures()
 
     const usersCollection = firebase.firestore().collection('lecture_link');
 
-    const query = usersCollection.doc(String(selectedDepartment).trim());
+    const query = usersCollection.doc(String(selectedDepartment).trim();
 
     query.get()
     .then(lecture => {
