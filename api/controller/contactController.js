@@ -16,3 +16,4 @@ storeContactData=(req,res,next)=>{
     })
 
 }
+module.exports.storeContactData=storeContactData

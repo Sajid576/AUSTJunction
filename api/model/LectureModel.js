@@ -1,12 +1,17 @@
 const firebase=require('./FirebaseConnection');
 
-
+/* This class handles lecture related queries with backend and database */
 class LectureModel{
     static allLecturesData=new Map();
     
     constructor()
     {
 
+    }
+
+    logger(dept,semester,listOfMap)
+    {
+        console.log(dept +'-->'+semester+ ' = ' + JSON.stringify(listOfMap,null,4));
     }
     logger()
     {
@@ -41,11 +46,15 @@ class LectureModel{
             console.error(error);
         });
     }
+    //this method used to query the lectures of all sessions of particular department & semester
     fetchAllLectures(dept,semester)
     {
         dept=String(dept).trim();
         semester=String(semester).trim();
-        LectureModel.allLecturesData.get(dept)[semester];
+       
+        this.logger(dept,semester,LectureModel.allLecturesData.get(dept)[semester])
+        //return a list of map 
+        return LectureModel.allLecturesData.get(dept)[semester];
 
     }
 

@@ -13,3 +13,4 @@ fetchLectureData=(req,res,next)=>{
     })
 
 }
+module.exports.fetchLectureData=fetchLectureData
