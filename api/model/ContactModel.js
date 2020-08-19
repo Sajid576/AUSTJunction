@@ -50,7 +50,7 @@ class ContactModel{
 
     }
     */
-    //this function used to store contact information to the server variables
+    //this function used to store contact information to the server variables and cloud firestore both
     storeContactDetails(uid,username,email,sub,message)
     {
         storeContactDetailsToDb(uid,username,email,sub,message);
@@ -67,6 +67,8 @@ class ContactModel{
         
         this.logger();
     }
+
+    //this function used to store contact data to firestore
     storeContactDetailsToDb(uid,username,email,sub,message)
     {
         const usersCollection = firebase.firestore().collection('ContactUs').doc(uid);

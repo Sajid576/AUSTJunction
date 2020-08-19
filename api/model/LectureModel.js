@@ -9,7 +9,7 @@ class LectureModel{
 
     }
 
-    logger(dept,semester,listOfMap)
+    logger1(dept,semester,listOfMap)
     {
         console.log(dept +'-->'+semester+ ' = ' + JSON.stringify(listOfMap,null,4));
     }
@@ -52,7 +52,7 @@ class LectureModel{
         dept=String(dept).trim();
         semester=String(semester).trim();
        
-        this.logger(dept,semester,LectureModel.allLecturesData.get(dept)[semester])
+        this.logger1(dept,semester,LectureModel.allLecturesData.get(dept)[semester])
         //return a list of map 
         return LectureModel.allLecturesData.get(dept)[semester];
 
