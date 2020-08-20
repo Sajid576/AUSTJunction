@@ -50,11 +50,9 @@ class ContactModel{
 
     }
     */
-    //this function used to store contact information to the server variables and cloud firestore both
+    //this function used to store contact information to the server variables 
     storeContactDetails(uid,username,email,sub,message)
     {
-        storeContactDetailsToDb(uid,username,email,sub,message);
-
         const details={
             'username':username,
             'email':email,
@@ -62,30 +60,31 @@ class ContactModel{
             'message':message
         };
         var data=ContactModel.AllContactData.get(uid);
+        if(data==null)
+        {
+            data=[];
+        }
+    
         data.push(details);
         ContactModel.AllContactData.set(uid,data);
-        
         this.logger();
     }
 
     //this function used to store contact data to firestore
-    storeContactDetailsToDb(uid,username,email,sub,message)
+    async storeContactDetailsToDb(uid,username,email,sub,message)
     {
-        const usersCollection = firebase.firestore().collection('ContactUs').doc(uid);
-        usersCollection.set({
-            username: username,
+        var contactDataMap={
+            username:username,
             email:email,
             sub:sub,
             message:message
-        })
-        .then(()=>{
-            alert('Contact Data has been saved successfully !')})
-
-
-            
-        .catch(error => {
-                alert(error)
-        });
+        }
+        
+        const contactData = firebase.firestore().collection('ContactUs').doc(uid);
+        contactData.set({
+            UserContactData:firebase.firestore.FieldValue.arrayUnion(contactDataMap)
+        },{merge:true})
+        
    }
   
 

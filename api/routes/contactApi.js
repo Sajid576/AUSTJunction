@@ -3,6 +3,6 @@ const router  = express.Router();
 const contactController=require('../controller/contactController');
 
 //POST: request for storing contact data
-router.post('/users',contactController.storeContactData);
+router.post('/users/post',contactController.storeContactData);
 
 module.exports=router;
