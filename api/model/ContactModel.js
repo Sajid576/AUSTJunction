@@ -1,6 +1,6 @@
 const firebase=require('./FirebaseConnection');
 
-
+//this class used to handle the data that are coming from Contact section 
 class ContactModel{
     static AllContactData= new Map();
 
