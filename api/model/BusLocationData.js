@@ -1,6 +1,6 @@
 const firebase=require('./FirebaseConnection');
 
-//this variable holds the information of all the university bus
+//this json object variable holds the information of all the university bus
 var BusLocationData={};
 
 logger = () =>
