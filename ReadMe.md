@@ -4,11 +4,11 @@
 
 - SignUp Request (User data store request) : 
   authenticationApi/users  POST  
-  [Request body= username,email,phone ]
+  [Request body=uid, username,email,phone ]
 
 - EditUserData request:
   authenticationApi/users/edit  PUT  
-  [Request body= email,username,subscribedBus ]
+  [Request body=uid, email,username,subscribedBus ]
 
 - Particular User data fetch request:(From Home Page)
   authenticationApi/users/read/:uid  GET

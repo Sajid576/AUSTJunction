@@ -26,6 +26,7 @@ app.use('/locationTrackingApi',LocationTrackingApi);
 
 //project module imported for server startup
 const lectureModel=require('./api/model/LectureModel');
+const AuthModel=require('./api/model/AuthenticationModel');
 
 app.get('/', function(req, res) {
   res.sendFile(path.join(__dirname, '/public/index.html'));
@@ -53,5 +54,6 @@ const server = http.createServer(app);
 server.listen(PORT,()=>{
       console.log("Server listening on PORT: "+PORT);
       //new lectureModel.LectureModel().fetchAllLecturesFromDb();
+      //new AuthModel.AuthenticaltionModel().readUserDataFromDb();
       
 });

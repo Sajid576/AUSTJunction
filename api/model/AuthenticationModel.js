@@ -10,63 +10,67 @@ constructor()
 {
 
 }
-
+logger()
+{
+    var Mp= new Map(Object.entries(AuthenticaltionModel.AllUsersData));
+    //printing all user details on server
+    console.log("printing all users data on server: ");
+    for (let [key, value] of Mp) 
+    {
+        console.log(key + ' ==== ' +JSON.stringify(value,null,4) +"\n");
+    }
+    
+}
 //this method used for storing user data while signing up
 async storeUserData(uid,username,email,phone) 
 {
 
-    var initialCoinAmount=20;
+   
     //this code used for storing the user data into the server variables
     AuthenticaltionModel.AllUsersData[uid]={
         'uid':uid,
         'username':username,
         'email':email,
         'phone':phone,
-        'coins':initialCoinAmount
+        
     } ;
 
-    console.log("After modifying(signing up a user) server variables:  ");
-    for (let [key, value] of AuthenticaltionModel.AllUserDataMap) 
-    {
-          console.log(key + ' ==== ' +JSON.stringify(value) +"\n");
-    }
+    this.logger()
     //this code used for storing user data into the firebase firestore database
-    const usersCollection = firebase.firestore().collection('Users');
+    const usersCollection = firebase.firestore().collection('users');
     usersCollection.doc(uid).set({
        username:username,
        email:email,
        phone:phone,
-       coins:initialCoinAmount
+       
        
    })
    
 }
 //this method used for storing edited user data after edited by the user
-async  editUserData(uid,username,phone)
+async  editUserData(uid,username,email,subscribedBus)
 {
     //this code used for storing the user data into the server variables
     AuthenticaltionModel.AllUsersData[uid]['username']=username;
-    AuthenticaltionModel.AllUsersData[uid]['phone']=phone;
-   console.log("After modifying server variables(user data):  ");
-    for (let [key, value] of AuthenticaltionModel.AllUserDataMap) 
-    {
-          console.log(key + ' ==== ' +JSON.stringify(value) +"\n");
-    }
+    AuthenticaltionModel.AllUsersData[uid]['email']=email;
+    AuthenticaltionModel.AllUsersData[uid]['subscribedBus']=subscribedBus;
+   
+    this.logger()
     //this code used for storing user data into the firebase firestore database in merge mode
-    const usersCollection = firebase.firestore().collection('Users');
+    const usersCollection = firebase.firestore().collection('users');
     usersCollection.doc(uid).set({
        username:username,
-       phone:phone
+       email:email,
+       subscribedBus:subscribedBus
        
    }, {merge: true})
    
 }
 
-
 //this method used for loading all users data to server from cloud firestore on server startup
 readUserDataFromDb()
 {
-    const query = firebase.firestore().collection('Users').get();
+    const query = firebase.firestore().collection('users').get();
 
     
     query.then(snapshot => {
@@ -77,24 +81,18 @@ readUserDataFromDb()
             var email=users.data()['email'];
             var phone=users.data()['phone'];
             var username=users.data()['username'];
-            var coins=users.data()['coins'];
+            
             AuthenticaltionModel.AllUsersData[uid]={
                 'uid':uid,
                 'username':username,
                 'email':email,
                 'phone':phone,
-                'coins':coins
+                
             } ;
                
         
       });
-        AuthenticaltionModel.AllUserDataMap = new Map(Object.entries(AuthenticaltionModel.AllUsersData));
-        //printing all user details on server
-        console.log("printing all user details on server: ");
-        for (let [key, value] of AuthenticaltionModel.AllUserDataMap) 
-        {
-              console.log(key + ' ==== ' +JSON.stringify(value) +"\n");
-        }
+        this.logger()
          
         
    })
