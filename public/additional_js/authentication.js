@@ -79,10 +79,6 @@
                  _phone.value="";
                  document.getElementById("code").value="";
 
-
-                
-
-
           })
           .catch(function(error) {
             console.log(error);

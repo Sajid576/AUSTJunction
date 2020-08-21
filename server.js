@@ -56,7 +56,7 @@ const server = http.createServer(app);
 
 server.listen(PORT,()=>{
       console.log("Server listening on PORT: "+PORT);
-      //new lectureModel.LectureModel().fetchAllLecturesFromDb();
-      //new AuthModel.AuthenticaltionModel().readUserDataFromDb();
+      new lectureModel.LectureModel().fetchAllLecturesFromDb();
+      new AuthModel.AuthenticaltionModel().readUserDataFromDb();
       busLocationModel.fetchBusLocationFromDb();
 });

@@ -1,5 +1,7 @@
+
 window.readUserData= function(uid)
 {
+  
     var _username=document.getElementById("userprofile_username");
     var _email=document.getElementById("userprofile_email");
     var _phone=document.getElementById("userprofile_phone");
@@ -39,7 +41,7 @@ window.readUserData= function(uid)
   
 
     _editDataBtn.addEventListener('click', e => {
-          e.preventDefault();
+        e.preventDefault();
         var uname = document.getElementById("userprofile_username");  //check boolean//
         var em = document.getElementById("userprofile_email");
         var sbus = document.getElementById("userprofile_subscribeBus");
