@@ -13,7 +13,6 @@ window.readUserData= function(uid)
     var _editDataBtn = document.getElementById("edit_userData");
 
     const usersCollection = firebase.firestore().collection('users');
-
     const query = usersCollection.doc(uid.trim());
 
     query.get()
@@ -27,7 +26,7 @@ window.readUserData= function(uid)
               _username.innerHTML=User['username'];
               _email.innerHTML=User['email'];
               _phone.innerHTML=User['phone'];
-              console.log("HOGA: "+User['subscribed_bus']);
+              console.log(" "+User['subscribed_bus']);
               _subscribed_bus2.innerHTML=User['subscribed_bus'];
               
         }

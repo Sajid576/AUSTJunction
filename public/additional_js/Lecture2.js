@@ -1,6 +1,9 @@
 
 var selectedDepartment = localStorage.getItem("selected_dept");
 var selectedSemester = localStorage.getItem("selected_semester");
+
+console.log("department:  "+selectedDepartment)
+console.log("semester:  "+selectedSemester)
 //nav bar elements id
 var dept_header=document.getElementById("dept_header");
 var semester_header=document.getElementById("semester_header");
@@ -17,7 +20,7 @@ function fetchLectures()
 
     const usersCollection = firebase.firestore().collection('lecture_link');
 
-    const query = usersCollection.doc(String(selectedDepartment).trim();
+    const query = usersCollection.doc(String(selectedDepartment).trim())
 
     query.get()
     .then(lecture => {

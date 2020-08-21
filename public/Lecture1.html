@@ -37,7 +37,7 @@
                     <div class="form-group">
                        <label style="color:#37f0f0;font-weight:bold;font-size:20px;"> Please select your department  </label>
                         <form>
-                         <select id="userselectdept" class="classic" onchange="checkArch()"style="background-color:#00BFFF;font-weight:bold;">
+                         <select id="userselectdept" class="classic" onchange="storeDepartment()"style="background-color:#00BFFF;font-weight:bold;">
                             <option value="CSE" style="background-color:#00BFFF;font-weight:bold;">CSE</option>
                             <option value="EEE" style="background-color:#00BFFF;font-weight:bold;">EEE</option>
                             <option value="ME" style="background-color:#00BFFF;font-weight:bold;">ME</option>
@@ -91,38 +91,39 @@
     localStorage.setItem("selected_semester",'1.1');
     localStorage.setItem("selected_dept",'CSE');
 
+    //this function will be called after clicking submit button
+    document.getElementById("submit_data").onclick = function()
+       {
 
+            console.log("routing to Lecture-2 page");
+            window.location.replace("Lecture2");
+       };
+    //storing the selected semester in the local storage api
     function storeSemester()
     {
-       //storing the selected semester in the local storage api
        localStorage.setItem("selected_semester", document.getElementById('userselectsem').value);
     }
-    function checkArch()
+    //storing the selected department in the local storage api
+    function storeDepartment()
     {
 
-       //storing the selected department in the local storage api
-       localStorage.setItem("selected_dept", document.getElementById('userselectdept').value);
+        //storing the selected department in the local storage api
+        localStorage.setItem("selected_dept", document.getElementById('userselectdept').value);
 
-      //whenever a value is selected in department dropdown index is set to 1st index
-      document.getElementById("userselectsem").selectedIndex = "0";
-      if(document.getElementById('userselectdept').value=='Arch')
-      {
-        document.getElementById("userselectsem").options[8].disabled=false;
-        document.getElementById("userselectsem").options[9].disabled=false;
-      }
-      else
-      {
-      document.getElementById("userselectsem").options[8].disabled=true;
-      document.getElementById("userselectsem").options[9].disabled=true;
-     }
+        //whenever a value is selected in department dropdown index is set to 1st index
+        document.getElementById("userselectsem").selectedIndex = "0";
+        if(document.getElementById('userselectdept').value=='Arch')
+        {
+            document.getElementById("userselectsem").options[8].disabled=false;
+            document.getElementById("userselectsem").options[9].disabled=false;
+        }
+        else
+        {
+            document.getElementById("userselectsem").options[8].disabled=true;
+            document.getElementById("userselectsem").options[9].disabled=true;
+        }
     }
     </script>
-    <script type="text/javascript">
-       document.getElementById("submit_data").onclick = function()
-       {
-       console.log("HI people");
-       window.location.replace("Lecture2");
-       };
-    </script>
+    
 </body>
 </html>

@@ -65,7 +65,7 @@
           .confirm(code)
           .then(function(result) {
             var user = result.user;
-                //store in firebase
+                //send request to store data
                  storeUserData(_email.value,_name.value,_phone.value,user.uid);
                 // Store in local storage api
                   localStorage.setItem("email", _email.value);

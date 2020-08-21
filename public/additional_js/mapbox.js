@@ -7,7 +7,6 @@ var markerList=[];
 var busName;
 
 
-
  function listenForYourBusLocationChanges(bus_name)
  {
    const usersCollection = firebase.firestore().collection('bus_location');
