@@ -487,14 +487,8 @@
 										<option value="Shurma">
 										<option value="Padma">
 								</datalist>
-
-
 							</div>
-
 						</form>
-
-
-
 						<div>
 							<button id="submit_busname" style="color: black;" class="btn btn-blue btn-effect">
 								See Location
@@ -502,13 +496,16 @@
 						</div>
 					</section>
 
-
+						<br>
+						<br>
+						<br>
+						<br>
+						<br>
 						<p>Copyright &copy;  Developed By Students of Ahsanullah University of Science & Technology </p>
 					</div>
 				</div>
 			</div>
 		</footer>
-
 		<!-- Essential jQuery Plugins
 		================================================== -->
 		<!-- Main jQuery -->
@@ -531,40 +528,24 @@
         <script src="./static/js/wow.min.js"></script>
 		<!-- Custom Functions -->
         <script src="./static/js/main.js"></script>
-        <!--backend js file connections-->
-            <script src="https://www.gstatic.com/firebasejs/6.3.3/firebase-app.js"></script>
-            <script src="https://www.gstatic.com/firebasejs/6.3.3/firebase-auth.js"></script>
-            <script src="https://www.gstatic.com/firebasejs/6.3.3/firebase-firestore.js"></script>
-
-            <script type="module" src="/static/model/FirebaseConnection.js"></script>
-
-            <script type="module" src="/static/model/loginStateChecker.js"></script>
-            <script type="module" src="/static/model/home.js"></script>
+	   
+		<!-- additional js file connections-->
+            
 
 
 	</body>
-
-
 	<script type="text/javascript">
-
-
-
-
+		
+		 // onclick listener of 'submit' button 
 		 document.getElementById("submit_busname").onclick = function() {
 
 			console.log("HI people");
 			var bus = document.getElementById('bus_name');
-			// Store
+			//storing bus name to local cache
 			localStorage.setItem("BUS_NAME", bus.value);
-
-			console.log(localStorage.getItem("BUS_NAME"));
-
+			//console.log(localStorage.getItem("BUS_NAME"));
+			//routing to mapbox interface
 			window.location.replace("mapbox");
-
 		};
-
-
-
-
 	</script>
 </html>

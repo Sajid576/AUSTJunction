@@ -1,10 +1,4 @@
-window.latitude=0;
-window.longitude=0;
-var marker1=null;
-var marker2=null;
-var userMarker=null;
-var markerList=[];
-var busName;
+
 
 
  function listenForYourBusLocationChanges(bus_name)
@@ -105,52 +99,13 @@ var busName;
      });
  }
  
- function successCallback (position) 
- {
-    //window.alert(position.coords.latitude,",",position.coords.longitude); 
-    
-    
-    var lat=position.coords.latitude.toFixed(4);
-    var lon=position.coords.longitude.toFixed(4);
-    console.log(lat,",",lon);
-
-   
-    if(userMarker!=null)
-    {
-        userMarker.remove();
-    }
-    userMarker = new mapboxgl.Marker({
-        draggable: false
-        })
-        .setLngLat([lon, lat])
-        .addTo(map);
+ 
   
-    
-    }
-
-  window.getPosition=function() {
-            
-    if (navigator.geolocation) 
-    {
-            // supported
-            window.alert("Hello");
-           // navigator.geolocation.getCurrentPosition(successCallback);
-       
-            //listens for changing device location with movement
-            navigator.geolocation.watchPosition(successCallback);   
-            
-
-
-    }
-    else
-    {
-          window.alert("Your browser dont support tracking device location");
-    }
-}
+  
 
 
 console.log(localStorage.getItem("BUS_NAME"));
-getPosition();
+
 listenForYourBusLocationChanges(localStorage.getItem("BUS_NAME")+"-1");
 listenForYourBusLocationChanges(localStorage.getItem("BUS_NAME")+"-2");
 

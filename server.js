@@ -32,23 +32,29 @@ const busLocationModel=require('./api/model/BusLocationData');
 
 
 app.get('/', function(req, res) {
+  console.log("index.html page routing")
   res.sendFile(path.join(__dirname, '/public/index.html'));
 });
 
 app.get('/signuppage', function(req, res) {
-  res.sendFile(path.join(__dirname, '/public/signuppage.html'));
+  console.log("Signup.html page routing")
+  res.status(210).sendFile(path.join(__dirname, '/public/signuppage.html'));
 });
 app.get('/Profile', function(req, res) {
-  res.sendFile(path.join(__dirname, '/public/Profile.html'));
+  console.log("profile.html page routing")
+  res.status(210).sendFile(path.join(__dirname, '/public/Profile.html'));
 });
 app.get('/mapbox', function(req, res) {
-  res.sendFile(path.join(__dirname, '/public/mapbox.html'));
+  console.log("mapbox.html page routing")
+  res.status(210).sendFile(path.join(__dirname, '/public/mapbox.html'));
 });
 app.get('/Lecture1', function(req, res) {
-  res.sendFile(path.join(__dirname, '/public/Lecture1.html'));
+  console.log("Lecture1.html page routing")
+  res.status(210).sendFile(path.join(__dirname, '/public/Lecture1.html'));
 });
 app.get('/Lecture2', function(req, res) {
-  res.sendFile(path.join(__dirname, '/public/Lecture2.html'));
+  console.log("Lecture2.html page routing")
+  res.status(210).sendFile(path.join(__dirname, '/public/Lecture2.html'));
 });
 
 var PORT= process.env.PORT || 5000;

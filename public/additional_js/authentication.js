@@ -11,9 +11,11 @@
         {
           size: "normal",
           callback: function(response) {
+            console.log("callback.......");
             submitUserData();
           }
         }
+      
       );
 
       _sendCodeBtn.addEventListener('click', e => {

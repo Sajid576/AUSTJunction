@@ -6,8 +6,6 @@
     <title>Aust Junction</title>
     <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
 
-   
-
       <!--Frontend required CSS files-->
        <!-- Fontawesome Icon font -->
        <link rel="stylesheet" href="/static/css/font-awesome.min.css">
@@ -33,25 +31,10 @@
       <link href='https://api.mapbox.com/mapbox-gl-js/v1.8.0/mapbox-gl.css' rel='stylesheet' />
       <link href='./static/css/googleMap.css' rel='stylesheet' />
 
-      <!--backend js files -->
-      <script src="https://www.gstatic.com/firebasejs/6.3.3/firebase-app.js"></script>
-      <script src="https://www.gstatic.com/firebasejs/6.3.3/firebase-auth.js"></script>
-      <script src="https://www.gstatic.com/firebasejs/6.3.3/firebase-firestore.js"></script>
-
-      <script type="module" src="/static/model/FirebaseConnection.js"></script>
-      <script type="module" src="/static/model/mapbox.js"></script>
-
-
-
-     
-
-
+      
 
   </head>
-  
-  
   <body>
-   
     <!--Navigation bar starts -->
   <header id="navigation" class="navbar-inverse navbar-fixed-top animated-header">
 
@@ -87,7 +70,8 @@
   </header>
     <!--The div element for the map -->
     <div id='map'>
-      <script type="module" src="/static/model/loadMap.js"></script>
+      <!-- Mapbox interface js files -->
+      <script type="module" src="/static/additional_js/Mapbox/MapController.js"></script>
         
 
      
@@ -96,3 +80,6 @@
   </body>
   
 </html>
+
+
+

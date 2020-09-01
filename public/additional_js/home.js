@@ -61,11 +61,7 @@ function submitContactUs()
   {
         storeContactData(_name.value,_email.value,_sub.value,_message.value);
   }
-    
-
-
 }
-
  //this function will be used to store user data into firebase
  function storeContactData(user_name,email,sub,message)
  {
