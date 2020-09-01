@@ -437,38 +437,6 @@ h1.navbar-brand {
     height: 100%;
 }
 
-/* Default styles for background colors
-
-.btn-effect:after {
-    width: 0%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    background: #fff;
-    content: "";
-    position: absolute;
-    z-index: -1;
-
-    -webkit-transition: all 0.3s ease-out 0s;
-       -moz-transition: all 0.3s ease-out 0s;
-        -ms-transition: all 0.3s ease-out 0s;
-         -o-transition: all 0.3s ease-out 0s;
-            transition: all 0.3s ease-out 0s;
-}
-
-.btn-effect:hover,
-.btn-effect:active {
-    color: #0e83cd;
-}
-
-.btn-effect:hover:after,
-.btn-effect:active:after {
-    width: 100%;
-} */
-
-
-/* Project laughtbox setup */
-
 .fancybox-item.fancybox-close {
     background: url("../img/icons/close.png") no-repeat scroll 0 0 transparent;
     height: 50px;
@@ -595,7 +563,7 @@ h1.navbar-brand {
 }
 
 /*=================================================================
-	Portfolio
+	Bus Details
 ==================================================================*/
 
 .project-wrapper {
@@ -609,7 +577,7 @@ h1.navbar-brand {
     display: inline-block;
 }
 
-.portfolio-item {
+.bus_details-item {
     cursor: pointer;
     margin: 0 1% 1% 0;
     overflow: hidden;
@@ -633,7 +601,7 @@ figcaption.mask {
             transition: all 0.4s ease 0s;
 }
 
-.portfolio-item:hover figcaption.mask {
+.bus_details-item:hover figcaption.mask {
     bottom: 0;
 }
 
@@ -679,7 +647,7 @@ ul.external li a:hover {
     color: #fff;
 }
 
-.portfolio-item:hover ul.external {
+.bus_details:hover ul.external {
     top: 0;
 }
 
