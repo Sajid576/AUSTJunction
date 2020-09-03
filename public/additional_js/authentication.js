@@ -3,8 +3,15 @@
     const _phone = document.getElementById("phoneNumber");
     const _sendCodeBtn = document.getElementById("send-code");
     const _submitBtn = document.getElementById("submit_data");
+    //requestStoreUserData("sajju@gmail.com","sajid ahmed","42424","e2ee233dd33")
+    //requestEditUserData("sajju@gmail.com","sajid ahmed","e2ee233dd33","Meghna")
+    //requestFetchUserData("e2ee233dd33")
+    //requestFetchLectures("CSE","3.1");
+    //requestStoreContactData("e2ee233dd33","sajid ahmed","sajju@gmail.com","contribution","LEEL")
+    requestFetchLocationData("Meghna-1")
 
   //  const _usernameinhome=document.getElementById("usernameinhome");
+   
 
     window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier(
         "recaptcha-container",
@@ -12,7 +19,7 @@
           size: "normal",
           callback: function(response) {
             console.log("callback.......");
-            submitUserData();
+            
           }
         }
       
@@ -68,7 +75,7 @@
           .then(function(result) {
             var user = result.user;
                 //send request to store data
-                 storeUserData(_email.value,_name.value,_phone.value,user.uid);
+                 requestStoreUserData(_email.value,_name.value,_phone.value,user.uid);
                 // Store in local storage api
                   localStorage.setItem("email", _email.value);
                   localStorage.setItem("userName", _name.value);
@@ -88,21 +95,6 @@
       }
       });
 
-    //this function will be used to store user data into firebase
-    function storeUserData(email,user_name,phone,uid)
-    {
-        const usersCollection = firebase.firestore().collection('users');
-        usersCollection.doc(uid).set({
-           username: user_name,
-           phone: phone,
-           email:email,
-       }, {merge: true})
-       .then(()=>{
-                //console.log('Data has been saved successfully !');
-                 window.location.replace("./"),alert("You are logged in");
-              })
-                
-       .catch(error => {
-            console.error(error)
-        });
-   }
+
+
+

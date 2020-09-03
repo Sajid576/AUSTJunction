@@ -42,7 +42,7 @@ async storeUserData(uid,username,email,phone)
        username:username,
        email:email,
        phone:phone,
-       
+       subscribedBus:'null'
        
    })
    

@@ -33,7 +33,7 @@ const busLocationModel=require('./api/model/BusLocationData');
 
 app.get('/', function(req, res) {
   console.log("index.html page routing")
-  res.sendFile(path.join(__dirname, '/public/index.html'));
+  res.status(210).sendFile(path.join(__dirname, '/public/index.html'));
 });
 
 app.get('/signuppage', function(req, res) {

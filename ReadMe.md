@@ -1,5 +1,10 @@
+## Documentation for sending http request to server
+- https://javascript.info/xmlhttprequest
+
+
 # Aust Junction Api
-			
+
+		
 ## Authentication API :
 
 - SignUp Request (User data store request) : 
@@ -24,8 +29,8 @@
 
 ## Lecture API:  
 -	Lecture Fetch Request(the lectures will be fetched from server):
-	lectureApi/lectures   GET
-	[Request body= department,semester & Response body= contributors,session,driveLink]
+	lectureApi/lectures/:department/:semester   GET
+	[  Response body= contributors,session,driveLink]
 
 
 ## LocationTracking API:

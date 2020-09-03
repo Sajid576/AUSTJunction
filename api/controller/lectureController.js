@@ -1,9 +1,10 @@
 lectureData=require('../model/LectureModel');
 
 fetchLectureData=(req,res,next)=>{
-    const dept=req.body.department;
-    const semester=req.body.semester;
+    const dept=req.params.department;
+    const semester=req.params.semester;
     
+    console.log(dept+"--"+semester);
     lecObj=new lectureData.LectureModel();
     var lecturesInfo= lecObj.fetchAllLectures(dept,semester);
 
