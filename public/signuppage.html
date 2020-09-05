@@ -33,11 +33,13 @@
                          <input type="email" class="form-input" name="email" id="email" placeholder="Your Email"/>
                        </div>
                        <!-- phone number text field -->
-                       <div class="form-group d-flex justify-content-center">
-                         <div>
-                           <label class="form-input" style="background-color: aliceblue; color:#000000;font-weight:bold;font-size: 20px;" contenteditable="false">+88</label>
-                         </div>
-                           <input type="tel" class="form-input" name="phoneNumber" id="phoneNumber" placeholder="Your Mobile No." />
+                       <div class="form-group-phone d-flex justify-content-center">
+                        <!-- <div> -->
+                        <!--   <label class="form-input" style="background-color: aliceblue; color:#000000;font-weight:bold;font-size: 20px;" contenteditable="false">+88</label>  -->
+                        <!--  <label class="form-input" style="background-color: aliceblue; color:#000000;font-weight:bold;width: 50%;" contenteditable="false">+88</label>  -->
+                      <!--  </div>  -->
+                           <label class="form-input-phone-label" style="background-color: aliceblue; color:#000000;" contenteditable="false">+88</label>
+                           <input type="tel" class="form-input-phone" name="phoneNumber" id="phoneNumber" placeholder="Your Mobile No." />
                        </div>
                        <!--Send Code button-->
                        <div class="d-flex justify-content-center">
@@ -62,7 +64,7 @@
       <script src="/static/SignUp/vendor/jquery/jquery.min.js"></script>
       <script src="/static/SignUp/js/main.js"></script>
 
-      
+
       <!--test-->
       <script type="module" src="/static/additional_js/locationFetch/locationThread.js"></script>
 
@@ -73,7 +75,7 @@
 
       <script type="module" src="/static/additional_js/FirebaseConnection.js"></script>
       <script type="module" src="/static/additional_js/authentication.js"></script>
-     
-     
+
+
 </body>
 </html>
