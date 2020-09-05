@@ -8,7 +8,8 @@
     //requestFetchUserData("e2ee233dd33")
     //requestFetchLectures("CSE","3.1");
     //requestStoreContactData("e2ee233dd33","sajid ahmed","sajju@gmail.com","contribution","LEEL")
-    requestFetchLocationData("Meghna-1")
+    initLocationFetchThread("Meghna-1");
+    
 
   //  const _usernameinhome=document.getElementById("usernameinhome");
    

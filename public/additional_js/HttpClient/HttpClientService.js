@@ -196,7 +196,7 @@ window.requestFetchLectures=(department,semester)=>
 // this method used to send request to fetch real-time location of the selected university bus.
 // this method will be called from a event emitter that will be triggered after entering into the 
 // Mapbox interface.
-window.requestFetchLocationData=(busName)=>
+export default function requestFetchLocationData(busName,postMessage)
 {
     
     const url=serverUrl+'locationTrackingApi/fetch/'+busName;
@@ -212,14 +212,17 @@ window.requestFetchLocationData=(busName)=>
     xmlhttp.onload = function() 
     {
         if (xmlhttp.status >= 200 || xmlhttp.status<=210) { 
-          console.log(xmlhttp.response)
+          //console.log(xmlhttp.response)
+          postMessage(xmlhttp.response);
         } else { 
-          console.log(xmlhttp.response)
+            postMessage(xmlhttp.response);
+          //console.log(xmlhttp.response)
         }
       };
 
     xmlhttp.onerror = function() { // only triggers if the request couldn't be made at all
             console.log('Network Error');
+            postMessage(xmlhttp.response);
         };
     
 }

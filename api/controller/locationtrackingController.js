@@ -9,7 +9,7 @@ fetchBusLocationData=(req,res,next)=>{
 
     res.status(200).json({
         message:'Location data fetched successfully',
-        active: busData['active'],
+        active: String(busData['active']),
         busName:busName,
         coordinate: busData['coordinate'],
         velocity: busData['velocity'],
