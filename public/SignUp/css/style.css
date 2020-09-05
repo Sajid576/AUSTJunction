@@ -207,6 +207,10 @@ margin-top: 5%;}
 .form-group {
   overflow: hidden;
   margin-bottom: 20px; }
+.form-group-phone{
+  overflow: hidden;
+  margin-bottom: 20px;
+}
 
 .form-input {
   width: 85%;
@@ -247,6 +251,42 @@ margin-top: 5%;}
       color: #222; }
     .form-input:focus:-moz-placeholder {
       color: #222; }
+.form-input-phone-label{
+  width: 30%;
+  text-align: center;
+  display: inline-block;
+  border: 1px solid #ebebeb;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -o-border-radius: 5px;
+  -ms-border-radius: 5px;
+  padding: 17px 20px;
+  box-sizing: border-box;
+  font-size: 14px;
+  font-weight: 500;
+  color: #222;
+  font-weight: bold;
+
+}
+.form-input-phone{
+  width: 53%;
+  margin-left:2%;
+  text-align: center;
+  display: inline-block;
+  border: 1px solid #ebebeb;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -o-border-radius: 5px;
+  -ms-border-radius: 5px;
+  padding: 17px 20px;
+  box-sizing: border-box;
+  font-size: 14px;
+  font-weight: 500;
+  color: #222;
+
+}
 
 .form-submit {
   width: 30%;
