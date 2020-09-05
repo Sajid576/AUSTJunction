@@ -192,58 +192,68 @@ window.requestFetchLectures=(department,semester)=>
         //after receiving the response from server
         xmlhttp.onload = function() 
         {
-            if (xmlhttp.status >= 200 || xmlhttp.status<=210) { 
+            if (xmlhttp.status >= 200 || xmlhttp.status<=210)
+            { 
               console.log(xmlhttp.response)
 
               var lectureRef=xmlhttp.response;
-
-               var semesterRef=lectureRef[String(selectedSemester).trim()];
+              if(Object.keys(lectureRef).length!=0)
+              {
+                var semesterRef=lectureRef[String(selectedSemester).trim()];
               
-               if(semesterRef!=null)
-               {
-                    var output='';
-                    for (var i=0;i<semesterRef.length;i++)
-                    {
-                        var detailMap=semesterRef[i];
-                        var contributor=detailMap['contributor'];
-                        var driveLink=detailMap['drive_link'];
-                        var session=detailMap['session'];
-
-                        output+='<div  class="col-lg-4 col-md-4 col-sm-4 ">';
-                        output+= '  <div class="inner_box">';
-                        output+= '     <i class="fa fa-laptop" aria-hidden="true"></i>';
-                        output+='           <h3>Click the following button for download</h3><hr> ';
-                      
-                        output+='           <label style="color:#000000;"><u>Contributor:</u> </label><br>';       
-                        output+='           <label id="contributor-name" for="Name"style="color:#000000;font-weight:bold;">'+contributor+'</label><br>';
-                              
-                          
-                        output+='           <label style="color:#000000;"><u>Session:</u> </label> <br>';
-                         
-                        output+='           <label id="session" for="Session"style="color:#000000;font-weight:bold;">'+session+'</label><br><br>';
-                         
-                         
-                        output+='           <a href="'+driveLink+'" class="readmore">Download</a>';
-                        output+='    </div>';
-                        output+='</div>';
+                if(semesterRef!=null)
+                {
+                      var output='';
+                      for (var i=0;i<semesterRef.length;i++)
+                      {
+                          var detailMap=semesterRef[i];
+                          var contributor=detailMap['contributor'];
+                          var driveLink=detailMap['drive_link'];
+                          var session=detailMap['session'];
+  
+                          output+='<div  class="col-lg-4 col-md-4 col-sm-4 ">';
+                          output+= '  <div class="inner_box">';
+                          output+= '     <i class="fa fa-laptop" aria-hidden="true"></i>';
+                          output+='           <h3>Click the following button for download</h3><hr> ';
                         
-                        console.log("contributor:  "+contributor+",driveLink: "+driveLink+",Session: "+session);
-                        boxCollection.innerHTML=output;
-
-                    }
-
-               }
+                          output+='           <label style="color:#000000;"><u>Contributor:</u> </label><br>';       
+                          output+='           <label id="contributor-name" for="Name"style="color:#000000;font-weight:bold;">'+contributor+'</label><br>';
+                                
+                            
+                          output+='           <label style="color:#000000;"><u>Session:</u> </label> <br>';
+                           
+                          output+='           <label id="session" for="Session"style="color:#000000;font-weight:bold;">'+session+'</label><br><br>';
+                           
+                           
+                          output+='           <a href="'+driveLink+'" class="readmore">Download</a>';
+                          output+='    </div>';
+                          output+='</div>';
+                          
+                          console.log("contributor:  "+contributor+",driveLink: "+driveLink+",Session: "+session);
+                          boxCollection.innerHTML=output;
+  
+                      }
+  
+                 }
+              }
+              else
+              {
+                alert('No lecture available right now.Try again later');
+              }
+             
 
 
 
 
             } else { 
               console.log(xmlhttp.response)
+              alert(xmlhttp.response);
             }
           };
     
         xmlhttp.onerror = function() { // only triggers if the request couldn't be made at all
                 console.log('Network Error');
+                alert('Network Error');
             };
 
 
@@ -269,10 +279,12 @@ export default function requestFetchLocationData(busName,postMessage)
     //after receiving the response from server
     xmlhttp.onload = function() 
     {
-        if (xmlhttp.status >= 200 || xmlhttp.status<=210) { 
+        if (xmlhttp.status >= 200 || xmlhttp.status<=210) {
+          //post message from worker thread to main thread 
           //console.log(xmlhttp.response)
           postMessage(xmlhttp.response);
         } else { 
+          //post message from worker thread to main thread 
             postMessage(xmlhttp.response);
           //console.log(xmlhttp.response)
         }
