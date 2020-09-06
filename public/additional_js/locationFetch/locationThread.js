@@ -1,3 +1,4 @@
+
 var worker = new Worker('static/additional_js/locationFetch/web-work.js');
  window.initLocationFetchThread=(busName)=>{
     //post message from main thread to worker thread

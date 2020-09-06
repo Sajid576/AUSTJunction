@@ -3,13 +3,11 @@
 
 class MapController{
     static map;
-
+    static userMarker=null;
     latitude=0;
     longitude=0;
-    static marker1=null;
-    static marker2=null;
-    static userMarker=null;
-    static markerList=[];
+    busMarker;
+    
     constructor()
     {
         mapboxgl.accessToken = 'pk.eyJ1Ijoic2FqaWQ1NzYiLCJhIjoiY2s5aXU4NXpiMGFqMTNnbWd3eG0zcW05diJ9.A8zwgXej-dY9mH3WOQxFMA';
@@ -32,79 +30,31 @@ class MapController{
 
     listenForBusLocationChanges=(bus_data)=>
     {
-                var busName=bus_data['bus_name'];
+        var busName=bus_data['bus_name'];
                 
-                var lat=Number(bus_data['coordinate']['_lat']);
-                var lon=Number(bus_data['coordinate']['_long']);
+        var lat=Number(bus_data['coordinate']['_lat']);
+        var lon=Number(bus_data['coordinate']['_long']);
                 
-                MapController.map.flyTo({center: [lon,lat],essential: true });
-                
-                
-                if(MapController.marker1==null)
-                {
-                    MapController.markerList.push(busName);
-                    
-                    //custom marker
-                    var el = document.createElement('div');
-                     el.className = 'marker';
+        MapController.map.flyTo({center: [lon,lat],essential: true });
+                       
+        if(this.busMarker!=null)
+        {
+            this.busMarker.remove();
+        }
+        //custom marker
+        var el = document.createElement('div');
+        el.className = 'marker';
 
-                     // create the popup
-                     var popup = new mapboxgl.Popup({ offset: 25 }).setText(busName );
-                     MapController.marker1 = new mapboxgl.Marker(el)
-                         .setLngLat([lon, lat])
-                         .setPopup(popup) // sets a popup on this marker
-                         .addTo(MapController.map);
+        // create the popup
+        var popup = new mapboxgl.Popup({ offset: 25 }).setText(busName );
+        this.busMarker = new mapboxgl.Marker(el).setLngLat([lon, lat])
+                     .setPopup(popup) // sets a popup on this marker
+                     .addTo(MapController.map);
+        
 
-
-                }
-                else if(MapController.marker2==null)
-                {
-                    MapController.markerList.push(busName);
-
-                    //custom marker
-                    var el = document.createElement('div');
-                    el.className = 'marker';
-                     // create the popup
-                     var popup = new mapboxgl.Popup({ offset: 25 }).setText(busName );
-                     MapController.marker2 = new mapboxgl.Marker(el)
-                         .setLngLat([lon, lat])
-                         .setPopup(popup) // sets a popup on this marker
-                         .addTo(MapController.map);
-                }
-
-
-                if(MapController.marker1!=null && MapController.markerList[0]==busName)
-                {
-                    MapController.marker1.remove();
-
-
-                     //custom marker
-                     var el = document.createElement('div');
-                     el.className = 'marker';
-                     // create the popup
-                    var popup = new mapboxgl.Popup({ offset: 25 }).setText(busName );
-                    MapController.marker1 = new mapboxgl.Marker(el)
-                        .setLngLat([lon, lat])
-                        .setPopup(popup) // sets a popup on this marker
-                        .addTo(MapController.map);
-                }
-                if(MapController.marker2!=null && MapController.markerList[1]==busName)
-                {
-                    MapController.marker2.remove();
-                     //custom marker
-                     var el = document.createElement('div');
-                     el.className = 'marker';
-                    // create the popup
-                    var popup = new mapboxgl.Popup({ offset: 25 }).setText(busName );
-
-                    MapController.marker2 = new mapboxgl.Marker(el)
-                        .setLngLat([lon, lat])
-                        .setPopup(popup) // sets a popup on this marker
-                        .addTo(MapController.map);
-                }
-                   console.log(bus_data['coordinate']['_lat']+","+
-                   bus_data['coordinate']['_long']+"-->"+bus_data['velocity']+
-                   "--->"+bus_data['active']);
+           
+        console.log(busName+"----->"+bus_data['coordinate']['_lat']+","+bus_data['coordinate']['_long']
+                    +"-->"+bus_data['velocity']+"--->"+bus_data['active']);
             
     }
     //this method used to track user location
@@ -141,7 +91,7 @@ class MapController{
 
 }
 var mapController= new MapController();
-
+var mapController1= new MapController();
 mapController.getUserPosition();
 //initLocationFetchThread("Meghna-1");
 
@@ -175,4 +125,4 @@ var obj1={
     "velocity": "3"
 };
 mapController.listenForBusLocationChanges(obj);
-mapController.listenForBusLocationChanges(obj1);
+mapController1.listenForBusLocationChanges(obj1);
