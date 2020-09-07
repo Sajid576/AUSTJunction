@@ -93,7 +93,7 @@ class MapController{
 var mapController= new MapController();
 var mapController1= new MapController();
 mapController.getUserPosition();
-//initLocationFetchThread("Meghna-1");
+
 
 
 

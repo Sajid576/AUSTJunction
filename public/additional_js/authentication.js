@@ -66,9 +66,9 @@
       if(code =="")
       {
         alert("Please fill out verification code!");
-        console.log("code de!!");
+        
       }else{
-        console.log("Lagbe na!!");
+        
         e.preventDefault();
       //  var code = document.getElementById("code").value;
         confirmationResult

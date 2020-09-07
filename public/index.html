@@ -3,6 +3,23 @@
 
  <html lang="en" class="no-js">
     <head>
+		<!--   Firebase libraries   -->
+		<script src="https://www.gstatic.com/firebasejs/6.3.3/firebase-app.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/6.3.3/firebase-auth.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/6.3.3/firebase-firestore.js"></script>
+		<!-- Firebase connection file -->
+		<script type="module" src="/static/additional_js/FirebaseConnection.js"></script>
+		<script type="module">
+			localStorage.setItem("page","home" );
+		</script>
+		<!--Http Client module-->
+		<script type="module" src="/static/additional_js/HttpClient/HttpClientService.js"></script>
+  
+		<!-- additional js file connections-->
+		<script type="module" src="/static/additional_js/index.js"></script>
+		<script type="module" src="/static/additional_js/loginStateChecker.js">
+
+		</script>
 		<script data-ad-client="ca-pub-2805830340862839" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     	<!-- meta character set -->
         <meta charset="utf-8">
@@ -529,24 +546,6 @@
         <script src="./static/js/wow.min.js"></script>
 		<!-- Custom Functions -->
         <script src="./static/js/main.js"></script>
-	   
-		<!-- additional js file connections-->
-            
-
-
 	</body>
-	<script type="text/javascript">
-		
-		 // onclick listener of 'submit' button 
-		 document.getElementById("submit_busname").onclick = function() {
-
-			console.log("HI people");
-			var bus = document.getElementById('bus_name');
-			//storing bus name to local cache
-			localStorage.setItem("BUS_NAME", bus.value);
-			//console.log(localStorage.getItem("BUS_NAME"));
-			//routing to mapbox interface
-			window.location.replace("mapbox");
-		};
-	</script>
+	
 </html>

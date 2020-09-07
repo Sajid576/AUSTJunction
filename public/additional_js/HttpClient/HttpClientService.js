@@ -4,7 +4,6 @@ const serverUrl="http://localhost:5000/";
 // ********** Authentication Api Requests ***************
 
 
-
 //this function used to send request to store user data while signing up
 window.requestStoreUserData=(email,name,phone,uid)=>
 {
@@ -49,7 +48,7 @@ window.requestStoreUserData=(email,name,phone,uid)=>
 }
 
 // this function used to send request to edit the existing user data from Profile page
-window.requestEditUserData=(email,name,uid,subscribedBus)=>
+window.requestEditUserData=(name,email,subscribedBus,uid)=>
 {
     var obj={
         'email':email,
@@ -148,7 +147,7 @@ window.requestStoreContactData=(uid,username,email,subject,message)=>
             }
           };
     
-          xmlhttp.onerror = function() { // only triggers if the request couldn't be made at all
+        xmlhttp.onerror = function() { // only triggers if the request couldn't be made at all
                 alert('Network Error');
             };
     
@@ -161,7 +160,7 @@ window.requestStoreContactData=(uid,username,email,subject,message)=>
 // ***** Lecture Api Requests *****
 
 //this method used to send request to fetch all the lectures according to the selected department & semester
-window.requestFetchLectures=(department,semester)=>
+window.requestFetchLectures=()=>
 {
         var selectedDepartment = localStorage.getItem("selected_dept");
         var selectedSemester = localStorage.getItem("selected_semester");
@@ -180,7 +179,7 @@ window.requestFetchLectures=(department,semester)=>
        
         
         
-        const url=serverUrl+'lectureApi/lectures/'+department+"/"+semester;
+        const url=serverUrl+'lectureApi/lectures/'+selectedDepartment+"/"+selectedSemester;
     
         var xmlhttp = new XMLHttpRequest();   // new HttpRequest instance 
         
@@ -194,19 +193,18 @@ window.requestFetchLectures=(department,semester)=>
         {
             if (xmlhttp.status >= 200 || xmlhttp.status<=210)
             { 
-              console.log(xmlhttp.response)
+              //console.log(xmlhttp.response)
 
-              var lectureRef=xmlhttp.response;
+              var lectureRef=xmlhttp.response['lecturesData'];
+              console.log(xmlhttp.response['lecturesData'])
               if(Object.keys(lectureRef).length!=0)
               {
-                var semesterRef=lectureRef[String(selectedSemester).trim()];
+                //var semesterRef=lectureRef[String(selectedSemester).trim()];
               
-                if(semesterRef!=null)
-                {
                       var output='';
-                      for (var i=0;i<semesterRef.length;i++)
+                      for (var i=0;i<lectureRef.length;i++)
                       {
-                          var detailMap=semesterRef[i];
+                          var detailMap=lectureRef[i];
                           var contributor=detailMap['contributor'];
                           var driveLink=detailMap['drive_link'];
                           var session=detailMap['session'];
@@ -234,7 +232,7 @@ window.requestFetchLectures=(department,semester)=>
   
                       }
   
-                 }
+                 
               }
               else
               {
@@ -259,42 +257,7 @@ window.requestFetchLectures=(department,semester)=>
 
 }
 
-// ****Location Tracking Api Requests *****
 
-// this method used to send request to fetch real-time location of the selected university bus.
-// this method will be called from a event emitter that will be triggered after entering into the 
-// Mapbox interface.
-export default function requestFetchLocationData(busName,postMessage)
-{
-    
-    const url=serverUrl+'locationTrackingApi/fetch/'+busName;
-    
-    var xmlhttp = new XMLHttpRequest();   // new HttpRequest instance 
-    
-    xmlhttp.open("GET", url,true);
-    xmlhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
-    xmlhttp.send();
-    
-    xmlhttp.responseType='json';
-    //after receiving the response from server
-    xmlhttp.onload = function() 
-    {
-        if (xmlhttp.status >= 200 || xmlhttp.status<=210) {
-          //post message from worker thread to main thread 
-          //console.log(xmlhttp.response)
-          postMessage(xmlhttp.response);
-        } else { 
-          //post message from worker thread to main thread 
-            postMessage(xmlhttp.response);
-          //console.log(xmlhttp.response)
-        }
-      };
 
-    xmlhttp.onerror = function() { // only triggers if the request couldn't be made at all
-            console.log('Network Error');
-            postMessage(xmlhttp.response);
-        };
-    
-}
 
 

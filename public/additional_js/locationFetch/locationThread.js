@@ -1,4 +1,3 @@
-
 var worker = new Worker('static/additional_js/locationFetch/web-work.js');
  window.initLocationFetchThread=(busName)=>{
     //post message from main thread to worker thread
@@ -9,5 +8,6 @@ var worker = new Worker('static/additional_js/locationFetch/web-work.js');
 worker.onmessage = (event)=>
 {
     console.log("onmessage:  "+JSON.stringify(event.data))
-    new MapController().listenForBusLocationChanges(event.data);
+    //new MapController().listenForBusLocationChanges(event.data);
 };
+initLocationFetchThread("Meghna-1");

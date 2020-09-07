@@ -1,26 +1,42 @@
- //This function runs everytime the auth state changes. Use to verify if the user is logged in
-     //*** this function will be called from everywhere except Sign Up Page
-window.checkState=function(page)
-{
-  console.log("Page er value"+page);
-
-  firebase.auth().onAuthStateChanged(function(user)
+ 
+ //this function used to check if the user logged in or not
+  window.checkLogin=()=>
   {
-    if (user)
-    {
-      console.log("USER LOGGED IN");
-      if(page==1)
+
+      var page=localStorage.getItem("page");
+      console.log("Page:  "+page);
+      firebase.auth().onAuthStateChanged(function(user)
       {
-            setUserDetails(user.uid,1);
-      }
-      else
-       {
-            readUserData(user.uid,2);
-      }
-    } else
-    {
-      // No user is signed in.
-      console.log("USER NOT LOGGED IN");
-    }
-  });
+        if (user)
+        {
+          console.log("USER LOGGED IN");
+          //if this script is called from home page then 
+          //this 'setUserDetailsOnHome' method will be used to set user details on home page
+          if(page=='home')
+          {     
+              setUserDetailsOnHome();
+          }
+          //if this script is called from Profile page then 
+          //this 'setUserDetailsOnProfile' method will be used to set user details on profile page
+          else if(page=='profile')
+          {
+                setUserDetailsOnProfile();
+          }
+        } else
+        {
+          // No user is signed in.
+          if(confirm('YOU ARE NOT LOGGED IN.Do you want to login?'))
+          {
+              window.location.replace("./signuppage");
+          }
+          else
+          {
+              console.log("User not logged in");
+          }
+          
+        }
+      });
 }
+checkLogin();
+
+

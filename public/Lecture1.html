@@ -78,8 +78,16 @@
           </div>
       </section>
   </div>
+    <!--   Firebase libraries   -->
+    <script src="https://www.gstatic.com/firebasejs/6.3.3/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.3.3/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.3.3/firebase-firestore.js"></script>
+    <!-- Firebase connection file -->
+    <script type="module" src="/static/additional_js/FirebaseConnection.js"></script>
 
     <script src="/static/Lecture1/js/main.js"></script>
+    
+   
     <script>
     localStorage.setItem("selected_semester",'1.1');
     localStorage.setItem("selected_dept",'CSE');
@@ -87,9 +95,28 @@
     //this function will be called after clicking submit button
     document.getElementById("submit_data").onclick = function()
        {
-
-            console.log("routing to Lecture-2 page");
-            window.location.replace("Lecture2");
+        firebase.auth().onAuthStateChanged(function(user)
+        {
+                if (user)
+                {
+                    console.log("User logged in");
+                    console.log("routing to Lecture-2 page");
+                    window.location.replace("Lecture2");
+                }
+                else
+                {
+                    // No user is signed in.
+                    if(confirm('YOU ARE NOT LOGGED IN.Do you want to login?'))
+                    {
+                            window.location.replace("./signuppage");
+                    }
+                    else
+                    {
+                            console.log("User not logged in");
+                    }
+                }
+        });
+            
        };
     //storing the selected semester in the local storage api
     function storeSemester()

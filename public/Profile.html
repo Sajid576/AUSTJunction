@@ -1,10 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!--additional js file connections-->
+    <script src="https://www.gstatic.com/firebasejs/6.3.3/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.3.3/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.3.3/firebase-firestore.js"></script>
+
+    <script type="module">
+        localStorage.setItem("page","profile" );
+    </script>
+    <script type="module" src="/static/additional_js/HttpClient/HttpClientService.js"></script>
+    <script type="module" src="/static/additional_js/FirebaseConnection.js"></script>
+    <script type="module" src="/static/additional_js/profile.js"></script>
+    <script type="module" src="/static/additional_js/loginStateChecker.js"></script>
+   
+
+
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Profile Page</title>
+    <title>Profile</title>
 
     <!-- Fontawesome Icon font -->
         <link rel="stylesheet" href="/static/css/font-awesome.min.css">
@@ -113,21 +129,5 @@
     <script src="/static/Profile/vendor/jquery/jquery.min.js"></script>
     <script src="/static/Profile/js/main.js"></script>
 
-
-<!--backend js file connections-->
-    <script src="https://www.gstatic.com/firebasejs/6.3.3/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/6.3.3/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/6.3.3/firebase-firestore.js"></script>
-
-    <script type="module" src="/static/model/FirebaseConnection.js"></script>
-    <script type="module" src="/static/model/profile.js"></script>
-    <script type="module" src="/static/model/loginStateChecker.js"></script>
-    <script type="module" src="/static/model/showinprofile.js"></script>
-    <script type="module" src="/static/model/fire_model.js"></script>
-
-
-    <script>
-
-    </script>
 </body>
 </html>

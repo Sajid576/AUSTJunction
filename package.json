@@ -1,5 +1,6 @@
 {
   "name": "package.json",
+  "type":"module",
   "version": "1.0.0",
   "description": "node server ",
   "main": "server.js",
