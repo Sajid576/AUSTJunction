@@ -22,7 +22,8 @@
           {
                 setUserDetailsOnProfile();
           }
-        } else
+        }
+         else
         {
           // No user is signed in.
           if(confirm('YOU ARE NOT LOGGED IN.Do you want to login?'))

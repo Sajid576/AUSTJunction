@@ -38,7 +38,8 @@ window.setUserDetailsOnProfile= function()
         uname.contentEditable=false;
         em.contentEditable=false;
         sbus.contentEditable=false;
-        requestEditUserData(uname.value,em.value,sbus.value,user.uid);
+        var uid= localStorage.getItem("uid");
+        requestEditUserData(uname.value,em.value,sbus.value,uid);
 
     }     
     if(document.getElementById("edit_userData").innerHTML="Submit")
