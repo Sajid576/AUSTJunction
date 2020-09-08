@@ -13,7 +13,8 @@ self.locationReader=()=>{
     //console.log("lel:  "+postMessage())
     requestFetchLocationData(busName);
     
-    setTimeout("locationReader()",2000);
+    //this method will be called in interval of 10 seconds
+    setTimeout("locationReader()",10000);
 }
 
 // ****Location Tracking Api Requests *****

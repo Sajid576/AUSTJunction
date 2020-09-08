@@ -4,10 +4,12 @@
 class MapController{
     static map;
     static userMarker=null;
+    
     latitude=0;
     longitude=0;
     busMarker;
-    
+    popup;
+
     constructor()
     {
         mapboxgl.accessToken = 'pk.eyJ1Ijoic2FqaWQ1NzYiLCJhIjoiY2s5aXU4NXpiMGFqMTNnbWd3eG0zcW05diJ9.A8zwgXej-dY9mH3WOQxFMA';
@@ -16,7 +18,7 @@ class MapController{
              container: 'map',
              style: 'mapbox://styles/mapbox/light-v10',
              center: [0,0], // initial map center in [lon, lat]
-             zoom: 12
+             zoom: 15
        });
 
        // Add geolocate control to the map.
@@ -34,36 +36,50 @@ class MapController{
                 
         var lat=Number(bus_data['coordinate']['_lat']);
         var lon=Number(bus_data['coordinate']['_long']);
-                
-        MapController.map.flyTo({center: [lon,lat],essential: true });
+        
+        
+        //map will focus on the bus location only once 
+        if(this.busMarker==null)
+        {
+            MapController.map.flyTo({
+                center: [lon,lat],
+                zoom: 15,
+                bearing: 0, 
+                essential: true });
+            //custom marker
+            var el = document.createElement('div');
+            el.className = 'marker';
+            this.popup = new mapboxgl.Popup({ offset: 25 });
+            this.busMarker = new mapboxgl.Marker(el);
+        }
+        
                        
         if(this.busMarker!=null)
         {
             this.busMarker.remove();
         }
-        //custom marker
-        var el = document.createElement('div');
-        el.className = 'marker';
-
+        
+        var updatetime=new Date(bus_data['last_update_time']['seconds'] * 1000).toUTCString().match(/(\d\d:\d\d:\d\d)/)[0];
         // create the popup
-        var popup = new mapboxgl.Popup({ offset: 25 }).setText(busName );
-        this.busMarker = new mapboxgl.Marker(el).setLngLat([lon, lat])
-                     .setPopup(popup) // sets a popup on this marker
+        this.popup.setText(busName+'\n'+bus_data['velocity']+'\n'+ String(updatetime) );
+        
+        this.busMarker.setLngLat([lon, lat])
+                     .setPopup(this.popup) // sets a popup on this marker
                      .addTo(MapController.map);
         
 
            
         console.log(busName+"----->"+bus_data['coordinate']['_lat']+","+bus_data['coordinate']['_long']
-                    +"-->"+bus_data['velocity']+"--->"+bus_data['active']);
+        +"-->"+bus_data['velocity']+"--->"+bus_data['active']+"--->"+String(updatetime) );
             
     }
     //this method used to track user location
-    getUserPosition=()=> {
+    static getUserPosition=()=> {
             
         if (navigator.geolocation) 
         {
                 // supported
-                window.alert("Hello");
+               
                // navigator.geolocation.getCurrentPosition(successCallback);
            
                 //listens for changing device location with movement
@@ -90,39 +106,14 @@ class MapController{
     }
 
 }
-var mapController= new MapController();
-var mapController1= new MapController();
-mapController.getUserPosition();
+
+export{
+    MapController
+}
 
 
 
 
-//testing with dummy
-var obj={
-    "active": 1,
-    "bus_name": "Meghna-1",
-    "coordinate": {
-        "_lat": 23.782808,
-        "_long": 90.398546
-    },
-    "last_update_time": {
-        "seconds": 1589416020,
-        "nanoseconds": 0
-    },
-    "velocity": "3"
-};
-var obj1={
-    "active": 1,
-    "bus_name": "Meghna-2",
-    "coordinate": {
-        "_lat": 23.782856,
-        "_long": 90.398567
-    },
-    "last_update_time": {
-        "seconds": 1589416020,
-        "nanoseconds": 0
-    },
-    "velocity": "3"
-};
-mapController.listenForBusLocationChanges(obj);
-mapController1.listenForBusLocationChanges(obj1);
+
+
+
