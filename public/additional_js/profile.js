@@ -1,6 +1,6 @@
-//edit button id
-var _editDataBtn = document.getElementById("edit_userData");
 
+
+//this function used to set user details on profile page 
 window.setUserDetailsOnProfile= function()
 {
 
@@ -16,38 +16,41 @@ window.setUserDetailsOnProfile= function()
     _email.innerHTML= localStorage.getItem("email");
     _phone.innerHTML=localStorage.getItem("phone");
     _subscribed_bus2.innerHTML=localStorage.getItem("subscribed_bus");
-
-
   }
 
-  _editDataBtn.addEventListener('click', e => {
+   //edit button onclick listener
+   document.getElementById("edit_userData").addEventListener('click', e => {
     e.preventDefault();
+    
     var uname = document.getElementById("userprofile_username");
     var em = document.getElementById("userprofile_email");
     var sbus = document.getElementById("userprofile_subscribeBus");
-    if(uname.isContentEditable==false && em.isContentEditable==false && sbus.isContentEditable==false)
+    if(document.getElementById("edit_userData").innerHTML=="Edit")
     {
+              console.log(uname.innerHTML+","+em.innerHTML+","+sbus.value);
               uname.contentEditable=true;
               em.contentEditable=true;
               sbus.contentEditable=true;
               document.getElementById("edit_userData").innerHTML="Submit";
               document.getElementById("userprofile_subscribeBus").disabled=false;
    }
-   else if(uname.isContentEditable==true && em.isContentEditable==true && sbus.isContentEditable==true)
+   else if(document.getElementById("edit_userData").innerHTML=="Submit")
    {
+        console.log(uname.innerHTML+","+em.innerHTML+","+sbus.value);
+        document.getElementById("edit_userData").innerHTML="Edit";
+        document.getElementById("userprofile_subscribeBus").disabled=true;
         uname.contentEditable=false;
         em.contentEditable=false;
         sbus.contentEditable=false;
+
+        localStorage.setItem("userName",String(uname.innerHTML))
+        localStorage.setItem("email",String(em.innerHTML))
+        localStorage.setItem("subscribed_bus",sbus.value)
         var uid = localStorage.getItem("uid");
-        requestEditUserData(uname.value,em.value,sbus.value,uid);
+        requestEditUserData(String(uname.innerHTML),String(em.innerHTML),sbus.value,uid);
 
     }
-    if(document.getElementById("edit_userData").innerHTML="Submit")
-    {
-        document.getElementById("edit_userData").innerHTML="Edit";
-        if(document.getElementById("userprofile_subscribeBus").disabled==false)
-        {
-            document.getElementById("userprofile_subscribeBus").disabled=true;
-        }
-   }
+    
   });
+
+  

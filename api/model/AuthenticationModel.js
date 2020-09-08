@@ -2,7 +2,6 @@ var firebase = require('./FirebaseConnection');
 
 class AuthenticaltionModel
 {
-
 //this variable used to hold the information of all the users including coin
 static AllUsersData={};
 
@@ -50,6 +49,7 @@ async storeUserData(uid,username,email,phone)
 //this method used for storing edited user data after edited by the user
 async  editUserData(uid,username,email,subscribedBus)
 {
+    
     //this code used for storing the user data into the server variables
     AuthenticaltionModel.AllUsersData[uid]['username']=username;
     AuthenticaltionModel.AllUsersData[uid]['email']=email;

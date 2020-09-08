@@ -33,7 +33,7 @@ editUserDataController =(req,res,next)=>{
     const username=req.body.username
     const email=req.body.email
     const subscribedBus=req.body.subscribedBus
-   
+    
     new AuthModel.AuthenticaltionModel().editUserData(uid,username,email,subscribedBus).then(()=>{
         res.status(200).json({
             message:'User data successfully edited',
