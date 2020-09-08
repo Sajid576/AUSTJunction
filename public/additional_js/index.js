@@ -18,18 +18,18 @@ function signoutChecker()
       firebase.auth().signOut();
       console.log("User logged out");
    }
-    
+
 }
 //this method used to set user details on home page if user is logged in
 window.setUserDetailsOnHome = function()
 {
   //console.log("username:  "+localStorage.getItem("userName"));
-  
+
   signUp_logout.innerHTML="Log Out";
 
    //this code set user name on nav bar
   _usernameinhome.innerHTML="Hi, "+localStorage.getItem("userName");
-  
+
   //this code set user name and email on contact details
   _name.value=localStorage.getItem("userName");
   _email.value=localStorage.getItem("email");
@@ -67,7 +67,7 @@ _sendBtn.addEventListener('click', e => {
                   }
             }
       });
-     
+
 });
 
  // onclick listener of 'submit' button for seeing the realtime bus location
@@ -79,5 +79,3 @@ _sendBtn.addEventListener('click', e => {
   //routing to mapbox interface
   window.location.replace("mapbox");
 };
- 
-
