@@ -1,5 +1,3 @@
-
-
 //this function used to set user details on profile page 
 window.setUserDetailsOnProfile= function()
 {
