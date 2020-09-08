@@ -13,10 +13,10 @@
     <script type="module" src="/static/additional_js/FirebaseConnection.js"></script>
     <script type="module" src="/static/additional_js/profile.js"></script>
     <script type="module" src="/static/additional_js/loginStateChecker.js"></script>
-   
 
 
-    
+
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -45,40 +45,42 @@
 <body>
 
 
-<!--Navigation bar starts -->
-  <header id="navigation" class="navbar-inverse navbar-fixed-top animated-header">
+  <!--Navigation bar starts -->
+      <header id="navigation" class="navbar-inverse navbar-fixed-top animated-header">
 
-    <div class="navbar-header">
-    <!-- responsive nav button -->
-    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-      <span class="sr-only">Toggle navigation</span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-      <span class="icon-bar"></span>
-    </button>
-    <!-- /responsive nav button -->
+        <div class="navbar-header">
+        <!-- responsive nav button -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <!-- /responsive nav button -->
+        <label class="navbar-brand form-control-lg" style="color:#29C1B3;font-weight:bold;">AUST Junction</label>
+        <!-- logo -->
+      <!--  <h1 class="navbar-brand">
+          <a  href="#body">AUST Junction</a>
+        </h1> -->
+        <!-- /logo -->
+       </div>
 
-    <!-- logo -->
-    <h1 class="navbar-brand">
-      <a style="padding: 1em 5em;" href="#body">AUST Junction</a>
-    </h1>
-    <!-- /logo -->
-   </div>
+      <!-- main nav -->
+              <nav class="navbar-collapse navbar-right">
 
-  <!-- main nav -->
-          <nav class="navbar-collapse navbar-right">
+        <ul  class="nav navbar-nav">
+           <li>
+              <a style="padding: 1em 6em;" href="./">Home</a>
+           </li>
+           <!--<li>
+             <a href="./">Home</a>
+          </li>-->
+        </ul>
+              </nav>
+      <!-- /main nav -->
 
-    <ul  class="nav navbar-nav">
-       <li>
-          <a style="padding: 1em 6em;" href="./">Home</a>
-       </li>
-    </ul>
-          </nav>
-  <!-- /main nav -->
-
-    <!--Navigation bar ends -->
-  </header>
-
+        <!--Navigation bar ends -->
+      </header>
 
   <div class="main">
 
@@ -92,7 +94,7 @@
                       <img src="/static/img/propic.jpg" alt="picture" class="propic">
                     </div>
                     <!--User name-->
-                    <h4 id="userprofile_username"contenteditable="false">User Name</h4>
+                    <h4 id="userprofile_username" contenteditable="false">User Name</h4>
 
                     <div class="form-group">
                         <label style="color:#37f0f0;font-weight:bold;font-size: 20px;"> Email:  </label>
