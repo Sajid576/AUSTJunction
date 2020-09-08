@@ -14,7 +14,6 @@ class MapController{
     {
         mapboxgl.accessToken = 'pk.eyJ1Ijoic2FqaWQ1NzYiLCJhIjoiY2s5aXU4NXpiMGFqMTNnbWd3eG0zcW05diJ9.A8zwgXej-dY9mH3WOQxFMA';
         MapController.map = new mapboxgl.Map({
-             
              container: 'map',
              style: 'mapbox://styles/mapbox/light-v10',
              center: [0,0], // initial map center in [lon, lat]
@@ -34,8 +33,8 @@ class MapController{
     {
         var busName=bus_data['bus_name'];
                 
-        var lat=Number(bus_data['coordinate']['_lat']);
-        var lon=Number(bus_data['coordinate']['_long']);
+        var lat=Number(bus_data['coordinate']['latitude']);
+        var lon=Number(bus_data['coordinate']['longitude']);
         
         
         //map will focus on the bus location only once 
@@ -69,7 +68,7 @@ class MapController{
         
 
            
-        console.log(busName+"----->"+bus_data['coordinate']['_lat']+","+bus_data['coordinate']['_long']
+        console.log(busName+"----->"+bus_data['coordinate']['latitude']+","+bus_data['coordinate']['longitude']
         +"-->"+bus_data['velocity']+"--->"+bus_data['active']+"--->"+String(updatetime) );
             
     }

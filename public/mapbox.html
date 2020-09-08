@@ -60,7 +60,7 @@
 
     <ul  class="nav navbar-nav">
        <li>
-          <a style="padding: 1em 6em;" onclick="terminateThread()" href="./">Home</a>
+          <a style="padding: 1em 6em;" href="./">Home</a>
        </li>
     </ul>
           </nav>
@@ -80,13 +80,7 @@
      <script type="module" src="/static/additional_js/locationFetch/locationThread.js"></script>
     
   </body>
-  <script type="module">
-          terminateThread=()=>
-          {
-                console.log('thread terminated');
-                worker.terminate();  
-          }
-  </script>
+  
   
   
 </html>

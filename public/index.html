@@ -10,6 +10,12 @@
 		<!-- Firebase connection file -->
 		<script type="module" src="/static/additional_js/FirebaseConnection.js"></script>
 		<script type="module">
+			if(worker!=null)
+			{
+				console.log('thread terminated');
+            	worker.terminate();
+			}
+			
 			localStorage.setItem("page","home" );
 		</script>
 		<!--Http Client module-->

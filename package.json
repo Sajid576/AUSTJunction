@@ -6,7 +6,7 @@
   "dependencies": {
     "collections": "^5.1.9",
     "express": "^4.17.1",
-    "firebase": "^7.10.0",
+    "firebase": "^7.19.1",
     "http": "0.0.1-security",
     "mapbox-geocoding": "^0.1.5",
     "morgan": "^1.10.0",
