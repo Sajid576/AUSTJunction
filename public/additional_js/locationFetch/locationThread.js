@@ -3,6 +3,7 @@ import * as mapbox from '../Mapbox/MapController.js'
 var busName=localStorage.getItem("busName");
 console.log(busName);
 mapbox.MapController.getUserPosition();
+//2 mapCOntroller instance are created for 2 buses
 var mapController= new mapbox.MapController();
 var mapController1= new mapbox.MapController();
 

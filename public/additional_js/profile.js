@@ -34,18 +34,18 @@ window.setUserDetailsOnProfile= function()
    }
    else if(document.getElementById("edit_userData").innerHTML=="Submit")
    {
-        console.log(uname.innerHTML+","+em.innerHTML+","+sbus.value);
-        document.getElementById("edit_userData").innerHTML="Edit";
-        document.getElementById("userprofile_subscribeBus").disabled=true;
-        uname.contentEditable=false;
-        em.contentEditable=false;
-        sbus.contentEditable=false;
+            console.log(uname.innerHTML+","+em.innerHTML+","+sbus.value);
+            document.getElementById("edit_userData").innerHTML="Edit";
+            document.getElementById("userprofile_subscribeBus").disabled=true;
+            uname.contentEditable=false;
+            em.contentEditable=false;
+            sbus.contentEditable=false;
 
-        localStorage.setItem("userName",String(uname.innerHTML))
-        localStorage.setItem("email",String(em.innerHTML))
-        localStorage.setItem("subscribed_bus",sbus.value)
-        var uid = localStorage.getItem("uid");
-        requestEditUserData(String(uname.innerHTML),String(em.innerHTML),sbus.value,uid);
+            localStorage.setItem("userName",String(uname.innerHTML))
+            localStorage.setItem("email",String(em.innerHTML))
+            localStorage.setItem("subscribed_bus",sbus.value)
+            var uid = localStorage.getItem("uid");
+            requestEditUserData(String(uname.innerHTML),String(em.innerHTML),sbus.value,uid);
 
     }
     

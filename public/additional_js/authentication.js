@@ -18,10 +18,12 @@
         "recaptcha-container",
         {
           size: "normal",
+          //function object
           callback: function(response) {
             console.log("callback.......");
             
           }
+
         }
       
       );
@@ -30,6 +32,8 @@
         e.preventDefault();
         sendCode();
       });
+
+
       function sendCode()
       {
         var phoneNumber = document.getElementById("phoneNumber").value;
@@ -43,7 +47,8 @@
         if ( _name.value == "" || _email.value == "" || _phone.value == "")
         {
             alert("Please fill out details!");
-        }else
+        }
+        else
         {
            var appVerifier = window.recaptchaVerifier;
            firebase
@@ -54,7 +59,7 @@
                window.confirmationResult=confirmationResult;
              })
              .catch(function(error) {
-               console.log(error);
+               alert(error);
              });
            }
        }
@@ -87,7 +92,8 @@
 
           })
           .catch(function(error) {
-            console.log(error);
+               alert(error);
+               
           });
       }
       });
