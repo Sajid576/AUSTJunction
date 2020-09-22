@@ -26,7 +26,11 @@ window.requestStoreUserData=(email,name,phone,uid)=>
     //after receiving the response from server
     xmlhttp.onload = function() {
         if (xmlhttp.status >= 200 || xmlhttp.status<=210) { 
-           
+           // Store in local storage api
+           localStorage.setItem("email", email);
+           localStorage.setItem("userName", name);
+           localStorage.setItem("phone", phone);
+           localStorage.setItem("uid", uid);
            window.location.replace("./"),alert("You are logged in");
         } else { 
           alert(xmlhttp.response)
@@ -41,9 +45,6 @@ window.requestStoreUserData=(email,name,phone,uid)=>
             
             alert("data is being sent to server");
           };
-
-
-
 
 }
 

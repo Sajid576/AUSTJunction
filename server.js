@@ -12,6 +12,8 @@ app.use(morgan('dev'))
 //this is used for parsing the body data from request
 app.use(express.json());
 
+
+
 //routes file imported for sending the client request 
 const AuthenticationApi=require('./api/routes/authenticationApi');
 app.use('/authenticationApi',AuthenticationApi);
@@ -28,7 +30,7 @@ app.use('/locationTrackingApi',LocationTrackingApi);
 const lectureModel=require('./api/model/LectureModel');
 const AuthModel=require('./api/model/AuthenticationModel');
 const busLocationModel=require('./api/model/BusLocationData');
-
+//const emailNotifier=require('./api/model/EmailNotfier');
 
 
 app.get('/', function(req, res) {
@@ -65,4 +67,6 @@ server.listen(PORT,()=>{
       new lectureModel.LectureModel().fetchAllLecturesFromDb();
       new AuthModel.AuthenticaltionModel().readUserDataFromDb();
       busLocationModel.fetchBusLocationFromDb();
+
+
 });

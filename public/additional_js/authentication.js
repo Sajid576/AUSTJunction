@@ -77,11 +77,7 @@
             var user = result.user;
                 //send request to store data
                  requestStoreUserData(_email.value,_name.value,_phone.value,user.uid);
-                // Store in local storage api
-                  localStorage.setItem("email", _email.value);
-                  localStorage.setItem("userName", _name.value);
-                  localStorage.setItem("phone", _phone.value);
-                  localStorage.setItem("uid", user.uid);
+                
                   
                   //clear the textfield
                  _name.value="";

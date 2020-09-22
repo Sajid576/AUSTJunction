@@ -10,13 +10,14 @@
 		<!-- Firebase connection file -->
 		<script type="module" src="/static/additional_js/FirebaseConnection.js"></script>
 		<script type="module">
+			
+			
+			localStorage.setItem("page","home" );
 			if(worker!=null)
 			{
 				console.log('thread terminated');
             	worker.terminate();
 			}
-			
-			localStorage.setItem("page","home" );
 		</script>
 		<!--Http Client module-->
 		<script type="module" src="/static/additional_js/HttpClient/HttpClientService.js"></script>

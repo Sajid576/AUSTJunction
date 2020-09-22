@@ -108,7 +108,11 @@ readUserData(uid)
     var userInfo=AuthenticaltionModel.AllUsersData[uid];
     return userInfo;
 }
-
+//used to fetch all user data
+readAllUserData()
+{
+    return AllUsersData;
+}
 
 
 }

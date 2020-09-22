@@ -47,6 +47,11 @@ function storeBusLocationToDb()
      }
 
 }
+
+function fetchAllBusLocationInfo()
+{
+    return BusLocationData;
+}
 // this function used to fetch the location,velocity and other information of a particular bus from 
 // 'BusLocationData' variable in server
 function fetchBusLoctionInfo(BusName)
@@ -65,7 +70,7 @@ function storeBusLocationData(BusName,BusData)
 
 
 module.exports={
-  
+    fetchAllBusLocationInfo,
     storeBusLocationData,
     fetchBusLoctionInfo,
     storeBusLocationToDb,
