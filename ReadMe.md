@@ -101,15 +101,15 @@
   
   *Request JSON object:*
 
-    - uid(string): A unique user id.
-    - username(string):A name choosen by the user.
-    - email(string): User email.
-    - subject(string): subject of the  email.
-    - message(string): message provided by the user.
+	    - uid(string): A unique user id.
+	    - username(string):A name choosen by the user.
+	    - email(string): User email.
+	    - subject(string): subject of the  email.
+	    - message(string): message provided by the user.
   
   *Response JSON object:*
 
-    - message(string): successful
+	    - message(string): successful
 
 
 
@@ -123,6 +123,7 @@
 > GET lectureApi/lectures/(string:department)/(string:semester)
 
 	*Response JSON object:*
+		
 		contributors(string): Those who will provide lectures(admin/students)
 		session(string):  The session of university (spring-19/fall-19) 
 		driveLink(string): the google drive link of lecture the admin is about to upload.
@@ -135,6 +136,7 @@
 >   GET	locationTrackingApi/fetch/(string:busName)
 	
 	*Response JSON object:*
+	
 		active(number): It will show whether bus location contribution is on/off.[0=off,1=on]
 		busName(string): User want to query this bus's location information.
 		coordinate(GeoData): location coordinate of the bus.
@@ -148,11 +150,12 @@
 >  POST	 locationTrackingApi/contribute    
 	
 	*Request JSON object:*
-	active(number): It will show whether bus location contribution is on/off.[0=off,1=on]
-		busName(string): User want to query this bus's location information.
-		coordinate(GeoData): location coordinate of the bus.
-		velocity(string): velocity of the bus.
-		lastUpdateTime(Timestamp/string): the last location update time of the bus.
+	
+		active(number): It will show whether bus location contribution is on/off.[0=off,1=on]
+			busName(string): User want to query this bus's location information.
+			coordinate(GeoData): location coordinate of the bus.
+			velocity(string): velocity of the bus.
+			lastUpdateTime(Timestamp/string): the last location update time of the bus.
 
 
 
