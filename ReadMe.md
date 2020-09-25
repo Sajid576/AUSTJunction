@@ -99,7 +99,7 @@
 
 > POST  contactApi/users/post  
   
-  * Request JSON object: *
+  *Request JSON object:*
 
     - uid(string): A unique user id.
     - username(string):A name choosen by the user.
