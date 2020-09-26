@@ -30,7 +30,7 @@ app.use('/locationTrackingApi',LocationTrackingApi);
 const lectureModel=require('./api/model/LectureModel');
 const AuthModel=require('./api/model/AuthenticationModel');
 const busLocationModel=require('./api/model/BusLocationData');
-//const emailNotifier=require('./api/model/EmailNotfier');
+const emailNotifier=require('./api/model/EmailNotfier');
 
 
 app.get('/', function(req, res) {
@@ -64,9 +64,9 @@ const server = http.createServer(app);
 
 server.listen(PORT,()=>{
       console.log("Server listening on PORT: "+PORT);
-      new lectureModel.LectureModel().fetchAllLecturesFromDb();
-      new AuthModel.AuthenticaltionModel().readUserDataFromDb();
-      busLocationModel.fetchBusLocationFromDb();
+      //new lectureModel.LectureModel().fetchAllLecturesFromDb();
+      //new AuthModel.AuthenticaltionModel().readUserDataFromDb();
+      //busLocationModel.fetchBusLocationFromDb();
 
 
 });

@@ -1,6 +1,8 @@
 var nodemailer = require('nodemailer');
 var busLocationData=require('./BusLocationData');
-var autModel=require('./AuthenticationModel')
+var autModel=require('./AuthenticationModel');
+var web_scrapper=require('./NoticeBoardListener');
+
 var EventEmitter = require('events')
 var ee = new EventEmitter()
 
@@ -9,24 +11,30 @@ var allUserData;
 
 
 ee.on('message', function (text) {
-  console.log(text)
-  allUserData = new autModel.AuthenticaltionModel().readAllUserData();
-  monitorBus();
+  
+  var userData = new autModel.AuthenticaltionModel().readAllUserData();
+  if(userData!=null)
+  {
+    console.log("LOL")
+    allUserData=userData;
+  }
+  //monitorBus();
+  web_scrapper.listenNoticeUpdate();
 
 })
 
 //1 min interval
 setInterval(()=>{
      ee.emit('message', 'hello world')
-},60000);
+},10000);
 
 
 
 var transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-      user: '',
-      pass: ''
+      user: 'austjunction8286@gmail.com',
+      pass: 'wewillrock'
     }
   });
 
@@ -74,13 +82,13 @@ function deg2rad(deg) {
             text=busName+' is going outside the university';
         }
        var mailOptions = {
-         from: 'sajidahmed696@gmail.com',
+         from: 'austjunction8286@gmail.com',
          to: to,
          subject: 'Bus Koi',
          text: text
        };
        
-       print(mailOptions)
+       console.log(mailOptions)
        transporter.sendMail(mailOptions, function(error, info){
          if (error) {
            console.log(error);
@@ -90,9 +98,6 @@ function deg2rad(deg) {
        });
  }
  
-
-
-
 monitorBus=()=>
 {
     var allBusData =  busLocationData.fetchAllBusLocationInfo();
@@ -101,16 +106,18 @@ monitorBus=()=>
    
     for (let [busName, busData] of Mp) 
     {
-        console.log(busName + ' ==== ' +JSON.stringify(busData,null,4) +"\n");
+        //console.log(busName + ' ==== ' +JSON.stringify(busData,null,4) +"\n");
         
-            
+        //console.log(busData['coordinate'].latitude+','+busData['coordinate'].longitude);
         //if bus is in the area
         if(checkUniversityRadius(busData['coordinate'].latitude,busData['coordinate'].longitude) )
         {
-            for(user in allUserData)
+            //console.log(JSON.stringify(allUserData,null,4))
+            for(var user in allUserData)
             {
-                 
-                if( busName.includes(user['subscribedBus']))
+                //console.log(user)
+              //console.log('busName: '+busName+', subscribed bus:  '+user['subscribedBus']);
+                if( busName.includes(allUserData[user]['subscribedBus']))
                 {
                     sendEmailNotification(user['email'],1,busName);
                 }

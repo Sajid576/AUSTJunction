@@ -81,13 +81,13 @@ readUserDataFromDb()
             var email=users.data()['email'];
             var phone=users.data()['phone'];
             var username=users.data()['username'];
-            
+            var subscribedBus=users.data()['subscribedBus'];
             AuthenticaltionModel.AllUsersData[uid]={
                 'uid':uid,
                 'username':username,
                 'email':email,
                 'phone':phone,
-                
+                'subscribedBus':subscribedBus
             } ;
                
         
@@ -111,7 +111,8 @@ readUserData(uid)
 //used to fetch all user data
 readAllUserData()
 {
-    return AllUsersData;
+
+    return AuthenticaltionModel.AllUsersData;
 }
 
 

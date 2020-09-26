@@ -1,6 +1,9 @@
 ## Documentation for sending http request to server
 - https://javascript.info/xmlhttprequest
 
+##Doc for Web Scrapping with javascript
+- https://blog.miguelgrinberg.com/post/easy-web-scraping-with-nodejs
+
 
 # Aust Junction Api
 
