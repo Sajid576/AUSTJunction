@@ -1,4 +1,3 @@
-
 # Project Architecture:
 Aust Junction is composed of a backend that is responsible for storing AUST bus locations,
 previous year study materials , sending notification about bus and new notice on aust.edu website.
@@ -23,6 +22,12 @@ et.
 7. Email notification of bus locations after a particular time.
 8. Email notification of  new notice on official website of AUST
  
+
+## Future works:
+
+1) Showing route,required distance and estimated time from user and varsity bus.
+2) integration of books sharing system.Students can share/sell their books to the juniors.
+
 
 ## How to Install Node.js and NPM on Windows
 
@@ -68,7 +73,7 @@ et.
 > `   npm start   `
 
 
-##Doc for Web Scrapping with javascript
+## Documentation for Web Scrapping with javascript
 - https://blog.miguelgrinberg.com/post/easy-web-scraping-with-nodejs
 
 ## Documentation for sending http request to server
