@@ -1,11 +1,30 @@
-##Doc for Web Scrapping with javascript
-- https://blog.miguelgrinberg.com/post/easy-web-scraping-with-nodejs
 
-## Documentation for sending http request to server
-- https://javascript.info/xmlhttprequest
+# Project Architecture:
+Aust Junction is composed of a backend that is responsible for storing AUST bus locations,
+previous year study materials , sending notification about bus and new notice on aust.edu website.
+,and a frontend that allows the user to query their bus locations,query their desired study materials
+et.
 
+## Technology Stack:
+	
+- Client side language & framework - HTML,CSS,Bootstrap,Javascript
+- Server side application language & framework - Javascript & Nodejs
+- Database for the server - Firebase cloud firestore
+- Hosting for the server  -  Heroku
 
-# How to Install Node.js and NPM on Windows
+## Core Feature:
+
+1. User authentication through mobile number.
+2. User Profile
+3. Bus schedule and routes
+4. Real-time locations of all of the Bus of AUST.
+5. Easy query of previous semester lectures and questions of all departments of AUST.
+6. Request section for location contribution or lecture contribution.                     
+7. Email notification of bus locations after a particular time.
+8. Email notification of  new notice on official website of AUST
+ 
+
+## How to Install Node.js and NPM on Windows
 
 ## Step 1: Download Node.js Installer
   In a web browser, navigate to https://nodejs.org/en/download/. 
@@ -13,7 +32,7 @@
   At the time this article was written, version 10.16.0-x64 was the latest version. 
   The Node.js installer includes the NPM package manager.
 
-## Step 2: Install Node.js and NPM from Browser
+## Step 2: Installation
 
 - Once the installer finishes downloading, launch it. Open the downloads link in your browser and click the file. Or, browse to the location where you have saved the file and double-click it to launch.
 
@@ -34,22 +53,26 @@
   
 - Open a command prompt (or PowerShell), and enter the following:
 
->>  `node –v`
+>  `node –v`
   
 -  The system should display the Node.js version installed on your system. You can do the same for NPM:
 
->>  `npm –v`
+>  `npm –v`
 
 - To install all necessary packages that are used in this project, run the following command:
 
->> `  npm install  `
+> `  npm install  `
 
 - To start the local server ,run the following command:
 
->> `   npm start   `
+> `   npm start   `
 
 
->>>>>>> b0652d982bc21147474a3f6944b8dd657fc7f53a
+##Doc for Web Scrapping with javascript
+- https://blog.miguelgrinberg.com/post/easy-web-scraping-with-nodejs
+
+## Documentation for sending http request to server
+- https://javascript.info/xmlhttprequest
 
 
 # Aust Junction Api

@@ -47,7 +47,7 @@ function storeBusLocationToDb()
      }
 
 }
-
+//used to fetch all bus location information from server
 function fetchAllBusLocationInfo()
 {
     return BusLocationData;

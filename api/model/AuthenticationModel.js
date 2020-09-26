@@ -1,5 +1,7 @@
 var firebase = require('./FirebaseConnection');
 
+//This class used to store user data to server,fetch user data from the server and 
+//handle coin transactions with server and database
 class AuthenticaltionModel
 {
 //this variable used to hold the information of all the users including coin

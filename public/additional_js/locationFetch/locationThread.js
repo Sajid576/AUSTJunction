@@ -8,7 +8,12 @@ var mapController= new mapbox.MapController();
 var mapController1= new mapbox.MapController();
 
 window.worker = new Worker('static/additional_js/locationFetch/web-work.js');
- window.initLocationFetchThread=(busName)=>{
+
+/**
+ * used to start a background thread that will fetch bus location from server
+ * 
+ */
+window.initLocationFetchThread=(busName)=>{
     //post message from main thread to worker thread
     worker.postMessage(busName);
 

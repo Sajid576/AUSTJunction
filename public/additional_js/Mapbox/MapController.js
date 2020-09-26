@@ -28,7 +28,7 @@ class MapController{
          })
        );
     }
-
+    //used to set and update the bus marker position on the mapbox layout
     listenForBusLocationChanges=(bus_data)=>
     {
         var busName=bus_data['bus_name'];
