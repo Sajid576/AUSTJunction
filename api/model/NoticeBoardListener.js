@@ -13,7 +13,7 @@ var numberOfNewNotification;
 
 
 listenNoticeUpdate=()=>
- {
+{
     
     
     request('http://aust.edu/news_events.htm', function (error, response, body) {

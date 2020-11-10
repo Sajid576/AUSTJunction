@@ -30,7 +30,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "start": "nodemon server.js"
+    "start": "node server.js"
   },
   "author": "",
   "license": "ISC"
