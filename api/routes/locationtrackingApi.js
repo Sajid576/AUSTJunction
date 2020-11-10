@@ -1,6 +1,6 @@
 const express = require('express');
 const router  = express.Router();
-const locationTrackingController=require('../controller/locationTrackingController');
+const locationTrackingController=require('../controller/locationtrackingController');
 
 //POST: request for storing data from tracking app
 router.post('/newLocationData',locationTrackingController.storeNewLocationData)
