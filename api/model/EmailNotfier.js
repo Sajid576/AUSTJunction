@@ -1,7 +1,7 @@
 var nodemailer = require('nodemailer');
 var busLocationData=require('./BusLocationData');
 var autModel=require('./AuthenticationModel');
-var web_scrapper=require('./NoticeBoardListener');
+var web_scrapper=require('./ScrapModel');
 
 var EventEmitter = require('events')
 var ee = new EventEmitter()
@@ -32,14 +32,14 @@ class EmailNotifier
             ee.on('message', function (text) {
   
   
-              if(EmailNotifier.allUserData==null)
-              {
-                  EmailNotifier.allUserData = new autModel.AuthenticaltionModel().readAllUserData();
-                  console.log("User data fetched");
-                 
-              }
-              //EmailNotifier.monitorBus();
-              web_scrapper.listenNoticeUpdate();
+                  if(EmailNotifier.allUserData==null)
+                  {
+                      EmailNotifier.allUserData = new autModel.AuthenticaltionModel().readAllUserData();
+                      console.log("User data fetched");
+                    
+                  }
+                  //EmailNotifier.monitorBus();
+                  web_scrapper.listenNoticeUpdate();
             
             })
             if(EmailNotifier.emitted==false)

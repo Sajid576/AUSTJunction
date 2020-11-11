@@ -93,6 +93,7 @@
           })
           .catch(function(error) {
                alert(error);
+               console.log(error.message);
                
           });
       }
