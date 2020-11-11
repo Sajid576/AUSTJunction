@@ -22,6 +22,9 @@ class EmailNotifier
 
 
                   EmailNotifier. transporter = nodemailer.createTransport({
+                    host: 'smtp.gmail.com',
+                    port: 465,
+                    secure: true,
                     service: 'gmail',
                     auth: {
                       user: 'austjunction8286@gmail.com',
