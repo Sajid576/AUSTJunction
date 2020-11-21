@@ -1,5 +1,5 @@
-//const serverUrl="https://austjunction.herokuapp.com/"
-const serverUrl="http://localhost:5000/";
+const serverUrl="https://austjunction.herokuapp.com/"
+//const serverUrl="http://localhost:5000/";
 
 // ********** Authentication Api Requests ***************
 

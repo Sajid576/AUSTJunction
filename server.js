@@ -67,6 +67,6 @@ server.listen(PORT,()=>{
       new lectureModel.LectureModel().fetchAllLecturesFromDb();
       new AuthModel.AuthenticaltionModel().readUserDataFromDb();
       busLocationModel.fetchBusLocationFromDb();
-      //new emailNotifier.EmailNotifier();
+      new emailNotifier.EmailNotifier();
 
 });
