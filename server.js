@@ -14,7 +14,7 @@ app.use(express.json());
 
 
 
-//routes file imported for sending the client request 
+//routes file imported for sending the client request
 const AuthenticationApi=require('./api/routes/authenticationApi');
 app.use('/authenticationApi',AuthenticationApi);
 const ContactApi=require('./api/routes/contactApi');
@@ -67,6 +67,6 @@ server.listen(PORT,()=>{
       new lectureModel.LectureModel().fetchAllLecturesFromDb();
       new AuthModel.AuthenticaltionModel().readUserDataFromDb();
       busLocationModel.fetchBusLocationFromDb();
-      new emailNotifier.EmailNotifier();
+      //new emailNotifier.EmailNotifier();
 
 });

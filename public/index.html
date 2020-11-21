@@ -10,15 +10,27 @@
 		<!-- Firebase connection file -->
 		<script type="module" src="/static/additional_js/FirebaseConnection.js"></script>
 		<script type="module">
-			
-			
+
+
 			localStorage.setItem("page","home" );
 			if(worker!=null)
 			{
 				console.log('thread terminated');
             	worker.terminate();
 			}
-		</script>
+
+      $(document).ready(function()
+      {
+	      $('#myCarousel').carousel({
+	      interval: 10000
+	    })
+
+      $('#myCarousel').on('slid.bs.carousel', function() {
+    	//alert("slid");
+	    });
+      });
+
+</script>
 		<!--Http Client module-->
 		<script type="module" src="/static/additional_js/HttpClient/HttpClientService.js"></script>
 
@@ -36,6 +48,9 @@
 
 		<!-- Mobile Specific Meta -->
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
 		<!-- CSS
 		================================================== -->
@@ -57,7 +72,20 @@
 		<!-- Main Stylesheet -->
         <link rel="stylesheet" href="/static/css/main.css">
 
-		<!-- Modernizer Script for old Browsers -->
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files
+  <link href="static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="static/vendor/icofont/icofont.min.css" rel="stylesheet">
+  <link href="static/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="static/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="static/vendor/owl.carousel/assets/owl.carousel.min.css" rel="stylesheet">
+  <link href="static/vendor/venobox/venobox.css" rel="stylesheet">
+  <link href="static/vendor/aos/aos.css" rel="stylesheet"> -->
+
+
+	<!-- Modernizer Script for old Browsers -->
         <script src="/static/js/modernizr-2.6.2.min.js"></script>
 
     </head>
@@ -418,7 +446,7 @@
       <br>
       <br>
      <!-- How to contribute section -->
-			<section id="Contribute" >
+			<section id="Contribute">
 				<div class="container">
 					<div class="row">
 
@@ -441,10 +469,262 @@
 			</section>
 			<!-- end How to contribute section -->
 
+<!-- Contributor section -->
+<section id="team" class="team section-bg" >
+   <div class="container" data-aos="fade-up">
+           <div class="section-title">
+               <h2>Contributors</h2>
+           </div>
+<div id="myCarousel" class="carousel slide"data-ride="carousel">
+<div class="carousel-inner">
+    <div class="item active">
+        <div class="row">
+          <div class="col-sm-3">
+            <div class="member" data-aos="zoom-in" data-aos-delay="100">
+              <img src="/static/img/Contributors/Sajid.jpg" class="img-responsive" alt="">
+              <div class="member-info">
+                <div class="member-info-content">
+                  <h4>Sajid Ahmed</h4>
+                  <span>Admin and Contributor, Department of CSE</span>
+                </div>
+                <div class="social">
+                  <a href=""><i class="fa fa-twitter fa-3x"></i></a>
+                  <a href=""><i class="fa fa-facebook fa-3x"></i></a>
+                  <a href=""><i class="fa fa-instagram fa-3x"></i></a>
+                  <a href=""><i class="fa fa-linkedin fa-3x"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        <div class="col-sm-3">
+            <div class="member" data-aos="zoom-in" data-aos-delay="200">
+              <img src="/static/img/Contributors/Rain.jpg" class="img-responsive" alt="">
+              <div class="member-info">
+                <div class="member-info-content">
+                  <h4>Afsana Brishty</h4>
+                  <span>Admin and Contributor, Department of CSE</span>
+                </div>
+                <div class="social">
+                  <a href=""><i class="fa fa-twitter fa-3x"></i></a>
+                  <a href=""><i class="fa fa-facebook fa-3x"></i></a>
+                  <a href=""><i class="fa fa-instagram fa-3x"></i></a>
+                  <a href=""><i class="fa fa-linkedin fa-3x"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="member" data-aos="zoom-in" data-aos-delay="300">
+              <img src="/static/img/Contributors/JobaerKhan.jpg" class="img-responsive" alt="">
+              <div class="member-info">
+                <div class="member-info-content">
+                  <h4>Jobaer Khan</h4>
+                  <span>Contributor, Department of EEE</span>
+                </div>
+                <div class="social">
+                  <a href=""><i class="fa fa-twitter fa-3x"></i></a>
+                  <a href=""><i class="fa fa-facebook fa-3x"></i></a>
+                  <a href=""><i class="fa fa-instagram fa-3x"></i></a>
+                  <a href=""><i class="fa fa-linkedin fa-3x"></i></a>
+                </div>
+              </div>
+            </div>
+        </div>
+        <div class="col-sm-3">
+            <div class="member" data-aos="zoom-in" data-aos-delay="400">
+              <img src="/static/img/Contributors/Anika.jpg" class="img-responsive" alt="">
+              <div class="member-info">
+                <div class="member-info-content">
+                  <h4>Anika Aftab</h4>
+                  <span>Contributor, Department of CSE</span>
+                </div>
+                <div class="social">
+                  <a href=""><i class="fa fa-twitter fa-3x"></i></a>
+                  <a href=""><i class="fa fa-facebook fa-3x"></i></a>
+                  <a href=""><i class="fa fa-instagram fa-3x"></i></a>
+                  <a href=""><i class="fa fa-linkedin fa-3x"></i></a>
+                </div>
+              </div>
+             </div>
+          </div>
+        </div>
+      </div>
+
+    <div class="item">
+          <div class="row">
+            <div class="col-sm-3">
+              <div class="member" data-aos="zoom-in" data-aos-delay="100">
+                <img src="/static/img/Contributors/Jabed.jpg" class="img-responsive" alt="">
+                <div class="member-info">
+                  <div class="member-info-content">
+                    <h4>Jabed</h4>
+                    <span>Contributor, Department of CSE</span>
+                  </div>
+                  <div class="social">
+                    <a href=""><i class="fa fa-twitter fa-3x"></i></a>
+                    <a href=""><i class="fa fa-facebook fa-3x"></i></a>
+                    <a href=""><i class="fa fa-instagram fa-3x"></i></a>
+                    <a href=""><i class="fa fa-linkedin fa-3x"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <div class="col-sm-3">
+              <div class="member" data-aos="zoom-in" data-aos-delay="200">
+                <img src="/static/img/Contributors/Rain.jpg" class="img-responsive" alt="">
+                <div class="member-info">
+                  <div class="member-info-content">
+                    <h4>Afsana Brishty</h4>
+                    <span>Admin and Contributor, Department of CSE</span>
+                  </div>
+                  <div class="social">
+                    <a href=""><i class="fa fa-twitter fa-3x"></i></a>
+                    <a href=""><i class="fa fa-facebook fa-3x"></i></a>
+                    <a href=""><i class="fa fa-instagram fa-3x"></i></a>
+                    <a href=""><i class="fa fa-linkedin fa-3x"></i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-3">
+              <div class="member" data-aos="zoom-in" data-aos-delay="300">
+                <img src="/static/img/Contributors/JobaerKhan.jpg" class="img-responsive" alt="">
+                <div class="member-info">
+                  <div class="member-info-content">
+                    <h4>Jobaer Khan</h4>
+                    <span>Contributor, Department of EEE</span>
+                  </div>
+                  <div class="social">
+                    <a href=""><i class="fa fa-twitter fa-3x"></i></a>
+                    <a href=""><i class="fa fa-facebook fa-3x"></i></a>
+                    <a href=""><i class="fa fa-instagram fa-3x"></i></a>
+                    <a href=""><i class="fa fa-linkedin fa-3x"></i></a>
+                  </div>
+                </div>
+              </div>
+          </div>
+          <div class="col-sm-3">
+              <div class="member" data-aos="zoom-in" data-aos-delay="400">
+                <img src="/static/img/Contributors/Anika.jpg" class="img-responsive" alt="">
+                <div class="member-info">
+                  <div class="member-info-content">
+                    <h4>Anika Aftab</h4>
+                    <span>Contributor, Department of CSE</span>
+                  </div>
+                  <div class="social">
+                    <a href=""><i class="fa fa-twitter fa-3x"></i></a>
+                    <a href=""><i class="fa fa-facebook fa-3x"></i></a>
+                    <a href=""><i class="fa fa-instagram fa-3x"></i></a>
+                    <a href=""><i class="fa fa-linkedin fa-3x"></i></a>
+                  </div>
+                </div>
+               </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="item">
+            <div class="row">
+              <div class="col-sm-3">
+                <div class="member" data-aos="zoom-in" data-aos-delay="100">
+                  <img src="/static/img/Contributors/Sajid.jpg" class="img-responsive" alt="">
+                  <div class="member-info">
+                    <div class="member-info-content">
+                      <h4>Sajid Ahmed</h4>
+                      <span>Admin and Contributor, Department of CSE</span>
+                    </div>
+                    <div class="social">
+                      <a href=""><i class="fa fa-twitter fa-3x"></i></a>
+                      <a href=""><i class="fa fa-facebook fa-3x"></i></a>
+                      <a href=""><i class="fa fa-instagram fa-3x"></i></a>
+                      <a href=""><i class="fa fa-linkedin fa-3x"></i></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <div class="col-sm-3">
+                <div class="member" data-aos="zoom-in" data-aos-delay="200">
+                  <img src="/static/img/Contributors/Rain.jpg" class="img-responsive" alt="">
+                  <div class="member-info">
+                    <div class="member-info-content">
+                      <h4>Afsana Brishty</h4>
+                      <span>Admin and Contributor, Department of CSE</span>
+                    </div>
+                    <div class="social">
+                      <a href=""><i class="fa fa-twitter fa-3x"></i></a>
+                      <a href=""><i class="fa fa-facebook fa-3x"></i></a>
+                      <a href=""><i class="fa fa-instagram fa-3x"></i></a>
+                      <a href=""><i class="fa fa-linkedin fa-3x"></i></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-3">
+                <div class="member" data-aos="zoom-in" data-aos-delay="300">
+                  <img src="/static/img/Contributors/JobaerKhan.jpg" class="img-responsive" alt="">
+                  <div class="member-info">
+                    <div class="member-info-content">
+                      <h4>Jobaer Khan</h4>
+                      <span>Contributor, Department of EEE</span>
+                    </div>
+                    <div class="social">
+                      <a href=""><i class="fa fa-twitter fa-3x"></i></a>
+                      <a href=""><i class="fa fa-facebook fa-3x"></i></a>
+                      <a href=""><i class="fa fa-instagram fa-3x"></i></a>
+                      <a href=""><i class="fa fa-linkedin fa-3x"></i></a>
+                    </div>
+                  </div>
+                </div>
+            </div>
+            <div class="col-sm-3">
+                <div class="member" data-aos="zoom-in" data-aos-delay="400">
+                  <img src="/static/img/Contributors/Anika.jpg" class="img-responsive" alt="">
+                  <div class="member-info">
+                    <div class="member-info-content">
+                      <h4>Anika Aftab</h4>
+                      <span>Contributor, Department of CSE</span>
+                    </div>
+                    <div class="social">
+                      <a href=""><i class="fa fa-twitter fa-3x"></i></a>
+                      <a href=""><i class="fa fa-facebook fa-3x"></i></a>
+                      <a href=""><i class="fa fa-instagram fa-3x"></i></a>
+                      <a href=""><i class="fa fa-linkedin fa-3x"></i></a>
+                    </div>
+                  </div>
+                 </div>
+              </div>
+            </div>
+          </div>
+       </div>
+
+      <nav id="nav-arrows" class="nav-arrows hidden-xs hidden-sm visible-md visible-lg">
+            <a class="sl-prev left" href="#myCarousel" data-slide="prev">
+                <i class="fa fa-angle-left fa-3x"></i>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="sl-next right" href="#myCarousel" data-slide="next">
+                <i class="fa fa-angle-right fa-3x"></i>
+                <span class="sr-only">Next</span>
+            </a>
+        </nav>
+
+  <!-- Dot for small monitor Like mobile, tab -->
+  <nav id="nav-dots" class="nav-dots visible-xs visible-sm hidden-md hidden-lg">
+    <ol class="carousel-indicators">
+         <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+         <li data-target="#myCarousel" data-slide-to="1"></li>
+         <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
+ </nav>
+
+    </div>
+  </div>
+</section>
+
+<!-- end Contributor section -->
 
 
-
-			<!-- Contact section -->
+<!-- Contact section -->
 			<section id="contact" >
 				<div class="container">
 					<div class="row">
