@@ -32,36 +32,36 @@
               <div class="lecture_page1-content">
                   <form id="lecture_page1-form" class="lecture_page1-form">
                     <div class="form-group">
-                       <label style="color:#37f0f0;font-weight:bold;font-size:20px;"> Please select your department  </label>
+                       <label style="color:#FFFFFF;font-weight:bold;font-size:20px;"> Please select your department  </label>
                         <form>
-                         <select id="userselectdept" class="classic" onchange="storeDepartment()"style="background-color:#00BFFF;font-weight:bold;">
-                            <option value="CSE" style="background-color:#00BFFF;font-weight:bold;">CSE</option>
-                            <option value="EEE" style="background-color:#00BFFF;font-weight:bold;">EEE</option>
-                            <option value="ME" style="background-color:#00BFFF;font-weight:bold;">ME</option>
-                            <option value="IPE" style="background-color:#00BFFF;font-weight:bold;">IPE</option>
-                            <option value="Textile" style="background-color:#00BFFF;font-weight:bold;">TE</option>
-                            <option value="CE" style="background-color:#00BFFF;font-weight:bold;">CE</option>
-                            <option value="Arch" style="background-color:#00BFFF;font-weight:bold;">Arch</option>
-                            <option value="BBA" style="background-color:#00BFFF;font-weight:bold;">BBA</option>
+                         <select id="userselectdept" class="classic" onchange="storeDepartment()"style="background-color:#FFFFFF00;font-weight:bold;">
+                            <option value="CSE" style="background-color:#000000;font-weight:bold;">CSE</option>
+                            <option value="EEE" style="background-color:#000000;font-weight:bold;">EEE</option>
+                            <option value="ME" style="background-color:#000000;font-weight:bold;">ME</option>
+                            <option value="IPE" style="background-color:#000000;font-weight:bold;">IPE</option>
+                            <option value="Textile" style="background-color:#000000;font-weight:bold;">TE</option>
+                            <option value="CE" style="background-color:#000000;font-weight:bold;">CE</option>
+                            <option value="Arch" style="background-color:#000000;font-weight:bold;">Arch</option>
+                            <option value="BBA" style="background-color:#000000;font-weight:bold;">BBA</option>
                         </select>
                       </form>
                   </div>
                   <br>
                   <br>
                     <div class="form-group">
-                       <label style="color:#37f0f0;font-weight:bold;font-size:20px;">Please select your semester</label>
+                       <label style="color:#FFFFFF;font-weight:bold;font-size:20px;">Please select your semester</label>
                         <form>
-                          <select id="userselectsem" class="classic" onchange="storeSemester()" style="background-color:#00BFFF;font-weight:bold;">
-                           <option value="1.1" style="background-color:#00BFFF;font-weight:bold;">1.1</option>
-                           <option value="1.2" style="background-color:#00BFFF;font-weight:bold;">1.2</option>
-                           <option value="2.1" style="background-color:#00BFFF;font-weight:bold;">2.1</option>
-                           <option value="2.2" style="background-color:#00BFFF;font-weight:bold;">2.2</option>
-                           <option value="3.1" style="background-color:#00BFFF;font-weight:bold;">3.1</option>
-                           <option value="3.2" style="background-color:#00BFFF;font-weight:bold;">3.2</option>
-                           <option value="4.1" style="background-color:#00BFFF;font-weight:bold;">4.1</option>
-                           <option value="4.2" style="background-color:#00BFFF;font-weight:bold;">4.2</option>
-                           <option value="5.1" style="background-color:#00BFFF;font-weight:bold;"disabled>5.1</option>
-                           <option value="5.2" style="background-color:#00BFFF;font-weight:bold;"disabled>5.2</option>
+                          <select id="userselectsem" class="classic" onchange="storeSemester()" style="background-color:#FFFFFF00;font-weight:bold;">
+                           <option value="1.1" style="background-color:#000000;font-weight:bold;">1.1</option>
+                           <option value="1.2" style="background-color:#000000;font-weight:bold;">1.2</option>
+                           <option value="2.1" style="background-color:#000000;font-weight:bold;">2.1</option>
+                           <option value="2.2" style="background-color:#000000;font-weight:bold;">2.2</option>
+                           <option value="3.1" style="background-color:#000000;font-weight:bold;">3.1</option>
+                           <option value="3.2" style="background-color:#000000;font-weight:bold;">3.2</option>
+                           <option value="4.1" style="background-color:#000000;font-weight:bold;">4.1</option>
+                           <option value="4.2" style="background-color:#000000;font-weight:bold;">4.2</option>
+                           <option value="5.1" style="background-color:#000000;font-weight:bold;"disabled>5.1</option>
+                           <option value="5.2" style="background-color:#000000;font-weight:bold;"disabled>5.2</option>
                           </select>
                       </form>
                   </div>
@@ -69,7 +69,7 @@
                   <br>
 
                   <div class="d-flex justify-content-center">
-      							<button id="submit_data" style="color: black;" class="btn btn-blue btn-effect form-submit">
+      							<button id="submit_data" style="color: #3C4189;" class="btn btn-blue btn-effect form-submit">
       								Next
       							</button>
       						</div>
@@ -86,8 +86,8 @@
     <script type="module" src="/static/additional_js/FirebaseConnection.js"></script>
 
     <script src="/static/Lecture1/js/main.js"></script>
-    
-   
+
+
     <script>
     localStorage.setItem("selected_semester",'1.1');
     localStorage.setItem("selected_dept",'CSE');
@@ -116,7 +116,7 @@
                     }
                 }
         });
-            
+
        };
     //storing the selected semester in the local storage api
     function storeSemester()
